@@ -1,0 +1,71 @@
+# ╭─────────────────────────Commonly Used ImplementationGuide Properties───────────────────────────╮
+# │  The properties below are used to create the ImplementationGuide resource. The most commonly   │
+# │  used properties are included. For a list of all supported properties and their functions,     │
+# │  see: https://fshschool.org/docs/sushi/configuration/.                                         │
+# ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
+id: tw.gov.mohw.nhi.empd
+canonical: https://nhicore.nhi.gov.tw/empd
+name: EMPD
+title: 臺灣電子處方箋與調劑單張實作指引(TW EMPD IG)
+description: 臺灣電子處方箋與調劑單張實作指引
+status: active # draft | active | retired | unknown
+version: 0.2.0
+fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
+copyrightYear: 2025+
+releaseLabel: ci-build
+# license: CC0-1.0 # https://www.hl7.org/fhir/valueset-spdx-license.html
+# jurisdiction: urn:iso:std:iso:3166#TW "Taiwan, Province of China" # https://www.hl7.org/fhir/valueset-jurisdiction.html
+publisher:
+  name: NHI
+  url: https://www.nhi.gov.tw/en/mp-2.html
+  # email: test@example.org
+dependencies:
+  tw.gov.mohw.twcore: 1.0.0
+#menu:
+#  Home: index.html
+#  Artifacts: artifacts.html
+pages:
+ index.md:
+   title: "應用說明"
+ EPvsmodel.md:
+   title: "電子處方箋 視覺化邏輯模型"
+ DSvsmodel.md:
+   title: "調劑單張 視覺化邏輯模型"
+ capability.md:
+   title: "能力聲明"
+ Search.md:
+   title: "查詢參數與操作定義"
+ logicmodel.md:
+   title: "邏輯模型"
+ profiles.md:
+   title: "FHIR Profiles及Extensions"
+ Termino.md:
+   title: "專門術語"
+ EPexample.md:
+   title: "電子處方箋 範例檔"
+ DSexample.md:
+   title: "調劑單張 範例檔"
+ download.md:
+   title: "結構定義與範例檔下載"
+ Security.md:
+   title: "安全性"
+ IGresources.md:
+   title: "IGresources"
+
+parameters:
+  pin-canonicals: pin-multiples
+instanceOptions:
+  # When set to true, slices must be referred to by name and not only by a numeric index in order to be used
+  # in an Instance's assignment rule. All slices appear in the order in which they are specified in FSH rules.
+  # While SUSHI defaults to false for legacy reasons, manualSliceOrding is recommended for new projects.
+  manualSliceOrdering: true # true | false
+  # Determines for which types of Instances SUSHI will automatically set meta.profile
+  # if InstanceOf references a profile:
+  #
+  # setMetaProfile: always # always | never | inline-only | standalone-only
+  #
+  #
+  # Determines for which types of Instances SUSHI will automatically set id
+  # if InstanceOf references a profile:
+  #
+  # setId: always # always | standalone-only

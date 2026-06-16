@@ -1,0 +1,59 @@
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">應用說明</a></li>
+  <li><a href="toc.html">目錄</a></li>
+
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">視覺化邏輯模型<b class="caret">
+      </b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="EPvsmodel.html">電子處方箋 視覺化邏輯模型</a>
+      </li>
+      <li>
+        <a href="DSvsmodel.html">調劑單張 視覺化邏輯模型</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="artifacts.html" class="dropdown-toggle">規範文件<b class="caret">
+      </b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="capability.html">能力聲明</a>
+      </li>
+      <li>
+        <a href="Search.html">查詢參數與操作定義</a>
+      </li>
+      <li>
+        <a href="logicmodel.html">邏輯模型</a>
+      </li>
+      <li>
+        <a href="profiles.html">FHIR Profiles及Extensions</a>
+      </li>
+      <li>
+        <a href="Termino.html">專門術語</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">範例檔<b class="caret">
+      </b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="EPexample.html">電子處方箋 範例檔</a>
+      </li>
+      <li>
+        <a href="DSexample.html">調劑單張 範例檔</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="download.html">結構定義與範例檔下載</a>
+  </li>
+  <li>
+    <a href="Security.html">安全性</a>
+  </li>
+</ul>  

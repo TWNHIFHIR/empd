@@ -1,0 +1,12 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
+	<p>
+    EMPD IG歷史清單
+  </p>
+  <a name="0.1.0"> </a>
+	<p>
+		<b>2024-01-15 v0.1.0 - E IG</b> based on TW Core IG
+  </p>
+  <ul>
+    <li>Initial version</li>
+  </ul>
+</div>

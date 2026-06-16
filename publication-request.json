@@ -1,0 +1,17 @@
+{
+    "package-id": "tw.gov.mohw.nhi.empd",
+    "version": "0.2.0",
+    "path": "https://nhicore.nhi.gov.tw/empd/0.2.0",
+    "mode": "milestone",
+    "milestone" : true,
+    "status": "trial-use",
+    "sequence": "Releases",
+    "release-label": "ci-build",
+    "desc": "此IG定義了臺灣電子處方箋與調劑單張之相關Profiles。版本更新內容可參考應用說明或本版異動說明",
+    "descmd": "本版本主要修正與調整內容如下：\n\n1. 為確保實務上代碼使用之有效性，本版本 IG 繼承 TW Core 1.0.0 版本。\n2. 移除電子處方箋與調劑單張 Condition.code.coding slicing 之強制性要求。\n3. 將調劑單張 Bundle.entry（Media）調整為非必填 Resource。\n4. 針對電子處方箋與調劑單張之 MedicationRequest.note，移除自費註記要求，並將 note 調整為非必填欄位。\n5. 針對電子處方箋與調劑單張之 MedicationRequest 新增 constraints：當醫令代碼非特殊材料（code = 3）時，須包含 dosageInstruction 與 dispenseRequest。\n6. 於電子處方箋與調劑單張新增 Medication Profile，用以表示無健保代碼之藥品與特材；因流水號 4 碼由院所自訂，故代碼清單僅提供參考。\n7. 將電子處方箋就醫識別碼調整為必填。\n8. 將電子處方箋部分負擔代碼調整為非必填。\n9. 將電子處方箋醫事人員證書字號調整為非必填。\n10. 將電子處方箋醫令類別調整為必填。",
+    "first": false,
+    "title": "臺灣電子處方箋與調劑單張實作指引(TW EMPD IG)",
+    "ci-build": "https://nhicore.nhi.gov.tw/empd/build",
+    "category": "NHI",
+    "introduction": "臺灣電子處方箋與調劑單張實作指引(TW EMPD IG)定義適用於臺灣電子處方箋以及調劑單張之相關規範，包含Profiles、範例文件和語意術語等。"
+}
