@@ -4,7 +4,7 @@ ValueSet: DispenseTypeValueSet
 Id: DispenseType-vs
 Title: "醫令調劑方式值集"
 Description: "醫令調劑方式值集"
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^status = #active
 * ^experimental = false
 * ^date = "2022-01-28"

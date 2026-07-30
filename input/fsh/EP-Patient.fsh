@@ -6,7 +6,7 @@ Id: Patient-EMPD
 Title: "電子處方箋-病人基本資料"
 Description: """此Profiles繼承於臺灣核心-病人(TW Core Patient) ，並進一步用於描述電子處方箋之病人基本資料
 [[*FMM1*](http://build.fhir.org/versions.html#maturity)]"""
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^date = "2023-10-30"
 * extension[age] 1..
   * ^short = "年齡。[應填入就診年齡 Age]"
@@ -19,6 +19,7 @@ Description: """此Profiles繼承於臺灣核心-病人(TW Core Patient) ，並�
 
 Instance: pat-ep
 InstanceOf: PatientEMPD
+Title: "電子處方箋-病人基本資料"
 Description: "電子處方箋-病人基本資料範例"
 Usage: #example
 * identifier

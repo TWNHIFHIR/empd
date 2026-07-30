@@ -12,7 +12,7 @@ Description: """此Profile用於描述電子處方箋與調劑單張中之健保
 本Profile之Medication.code用於承載電子處方箋與調劑單張中之健保代碼。若品項具有正式健保代碼，應填入正式健保代碼；若為無健保代碼之藥品，應使用本IG定義之無健保代碼藥品暫編碼，其代碼格式為999999加流水號4碼，流水號由院所自訂；若為無健保代碼之特材，應使用本IG定義之無健保代碼特材暫編碼，其代碼格式為99999999加流水號4碼，流水號由院所自訂。
 
 本Profile中健保代碼之藥品與特材編碼僅提供參考。"""
-* ^version = "0.1.0"
+
 * ^status = #active
 * ^experimental = false
 * ^date = "2026-05-26"
@@ -57,19 +57,29 @@ Description: """此Profile用於描述電子處方箋與調劑單張中之健保
 
 Instance: MedicationSelfEMPD-non01
 InstanceOf: MedicationSelfEMPD
-Title: "無健保代碼之藥品範例"
+Title: "電子處方箋-無健保代碼之藥品"
 Description: "此範例表示電子處方箋與調劑單張中，無健保代碼之藥品暫編碼。"
 Usage: #example
+* meta.profile = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Medication-Self-EMPD"
 * code.coding[nonNHIMedication].system = $NonNHIMedication-cs
-* code.coding[nonNHIMedication].code = #9999990001
-* code.coding[nonNHIMedication].display = "普拿疼肌肉關節長效錠"
-* code.text = "普拿疼肌肉關節長效錠"
+* code.coding[nonNHIMedication].code = #9999990010
+* code.coding[nonNHIMedication].display = "洛沙坦鉀膜衣錠"
+* code.text = "Losartan potassium"
+* form = $v3-orderableDrugForm#TAB
+* form.text = "Tablet"
+* ingredient.itemCodeableConcept.coding = $snomed#108582002 "Losartan potassium (substance)"
+* ingredient.itemCodeableConcept.text = "洛沙坦鉀"
+* ingredient.strength.numerator.value = 50
+* ingredient.strength.numerator.unit = "mg"
+* ingredient.strength.denominator.value = 1
+* ingredient.strength.denominator.unit = "tablet"
 
 Instance: MedicationSelfEMPD-non02
 InstanceOf: MedicationSelfEMPD
-Title: "無健保代碼之特材範例"
+Title: "電子處方箋-特殊材料"
 Description: "此範例表示電子處方箋與調劑單張中，無健保代碼之特材暫編碼。"
 Usage: #example
+* meta.profile = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Medication-Self-EMPD"
 * code.coding[nonNHIMaterial].system = $NonNHIMaterial-cs
 * code.coding[nonNHIMaterial].code = #999999990001
 * code.coding[nonNHIMaterial].display = "準分子雷射冠狀動脈血管整型術導管"

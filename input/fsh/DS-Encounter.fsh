@@ -9,7 +9,7 @@ Parent: TWCoreEncounter
 Id: Encounter-DS
 Title: "調劑單張-門診基本資料"
 Description: "此Profile繼承於臺灣核心-就醫事件(TW Core Encounter) ，並用於描述調劑單張的門診基本資料[[*FMM1*](http://build.fhir.org/versions.html#maturity)]"
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^date = "2024-01-02"
 * identifier
   * ^short = "唯一值。[應填入原就醫識別碼/就醫識別碼/健保卡就醫序號]。非自費時，就醫識別碼為必填(MedicationRequest.category判別)"

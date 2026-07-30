@@ -4,7 +4,7 @@ ValueSet: PartCodeValueSet
 Id: PartCode-vs
 Title: "部分負擔代碼值集"
 Description: "部分負擔代碼值集"
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^status = #active
 * ^experimental = false
 * ^date = "2024-02-22"

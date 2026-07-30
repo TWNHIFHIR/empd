@@ -18,7 +18,7 @@ Parent: TWCoreComposition
 Id: Composition-DS
 Title: "調劑單張-Composition"
 Description: "用於表示調劑單張資料集之文檔"
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^date = "2024-01-02"
 * subject 1..
 * subject only Reference($Patient-DS)

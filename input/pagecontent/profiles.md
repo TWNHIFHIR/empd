@@ -42,13 +42,15 @@
 
 + Medication
 
-[電子處方箋-藥物處方內容(Medication)](StructureDefinition-Medication-EMPD.html)
+[電子處方箋-藥物處方內容(健保代碼)](StructureDefinition-Medication-EMPD.html)
 
-[電子處方箋-自費藥物(Medication)](StructureDefinition-Medication-Self-EMPD.html)
+[電子處方箋-自費藥物(無健保代碼及特材)](StructureDefinition-Medication-Self-EMPD.html)
 
 + MedicationRequest
 
-[電子處方箋-處方內容(MedicationRequest)](StructureDefinition-MedicationRequest-EMPD.html)
+[電子處方箋-處方內容(健保代碼)](StructureDefinition-MedicationRequest-EMPD.html)
+
+[電子處方箋-處方內容(無健保代碼及特材)](StructureDefinition-MedicationRequest-Self-EMPD.html)
 
 + Extension
 

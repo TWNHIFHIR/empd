@@ -16,7 +16,7 @@ Parent: TWCoreMedicationRequest
 Id: MedicationRequest-DS
 Title: "調劑單張-處方內容(MedicationRequest)"
 Description: "此Profile繼承於臺灣核心-藥品處方(TW Core MedicationRequest)，並用於描述調劑單張的處方內容[[*FMM1*](http://build.fhir.org/versions.html#maturity)]"
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^date = "2024-01-02"
 * extension MS
 * extension contains $Extension-TotalDuration named TotalMedicationDays 1..1
@@ -42,6 +42,9 @@ Description: "此Profile繼承於臺灣核心-藥品處方(TW Core MedicationReq
   * ^binding.description = "自費註記；應填入[SelfpayStatus](ValueSet-SelfpayStatus-vs.html)值集中適合的代碼。"
 * medication[x] only CodeableConcept-tw or Reference($Medication-DS)
 * medicationCodeableConcept MS
+* medicationCodeableConcept.coding contains
+    nhi-medication 0..1 MS 
+* medicationCodeableConcept.coding[nhi-medication] from https://nhicore.nhi.gov.tw/empd/ValueSet/NHIMedication-vs (required)
 * medicationReference MS
 * medicationReference only Reference($Medication-DS)
 * subject only Reference(Group or $Patient-DS)
@@ -53,8 +56,12 @@ Description: "此Profile繼承於臺灣核心-藥品處方(TW Core MedicationReq
 * note
   * ^short = "關於處方的資訊或其他相關備註說明。[應填入處方箋註銷註記/須被合併之處方箋註記]。至少需填入須被合併之處方箋註記"
   * ^definition = "關於處方的附加資訊，不能由其他屬性來傳達。\r\n[須被合併之處方箋註記]：合併請填是，預設值為「否」。說明：同時開立管制藥品及一般藥品時，須開立二張處方箋，並在這二張處方箋此欄位上註記「是」"
-* dosageInstruction.method MS
-  * ^short = "用藥的技術。[應填入用藥指示]"
+* dosageInstruction
+  * timing
+    * code from https://nhicore.nhi.gov.tw/empd/ValueSet/NHIMedicationFrequency-HL7-vs
+      * coding from https://nhicore.nhi.gov.tw/empd/ValueSet/NHIMedicationFrequency-HL7-vs (required)
+  * method MS
+    * ^short = "用藥的技術。[應填入用藥指示]"
 * dispenseRequest 1..
   * validityPeriod 1..
     * start 1.. MS

@@ -8,7 +8,7 @@ Title: "電子處方箋-體重"
 Description: """此Profiles繼承於臺灣核心-生命體徵(TW Core Observation Vital Signs) Profile，並進一步用於描述電子處方箋之病患體重
 若調劑藥物劑量須配合體重而有所調整，則必須使用此Profiles
 [[*FMM1*](http://build.fhir.org/versions.html#maturity)]"""
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^date = "2023-10-30"
 * code.coding
   * system = "http://loinc.org" (exactly)
@@ -29,6 +29,7 @@ Description: """此Profiles繼承於臺灣核心-生命體徵(TW Core Observatio
 
 Instance: obs-ep
 InstanceOf: ObservationEMPDBodyWeight
+Title: "電子處方箋-體重"
 Description: "電子處方箋-患者體重範例"
 Usage: #example
 * meta.profile = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Observation-EMPD-BodyWeight"

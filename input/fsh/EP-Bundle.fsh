@@ -7,15 +7,16 @@ Alias: $Encounter-EMPD = https://nhicore.nhi.gov.tw/empd/StructureDefinition/Enc
 Alias: $Observation-EMPD-BodyWeight = https://nhicore.nhi.gov.tw/empd/StructureDefinition/Observation-EMPD-BodyWeight
 Alias: $Condition-EMPD = https://nhicore.nhi.gov.tw/empd/StructureDefinition/Condition-EMPD
 Alias: $Medication-EMPD = https://nhicore.nhi.gov.tw/empd/StructureDefinition/Medication-EMPD
+Alias: $Medication-Self-EMPD = https://nhicore.nhi.gov.tw/empd/StructureDefinition/Medication-Self-EMPD
 Alias: $MedicationRequest-EMPD = https://nhicore.nhi.gov.tw/empd/StructureDefinition/MedicationRequest-EMPD
-Alias: $MedicationSelfEMPD = https://nhicore.nhi.gov.tw/empd/StructureDefinition/Medication-Self-EMPD
+Alias: $MedicationRequest-Self-EMPD = https://nhicore.nhi.gov.tw/empd/StructureDefinition/MedicationRequest-Self-EMPD
 
 Profile: BundleEMPD
 Parent: TWCoreBundle
 Id: Bundle-EMPD
 Title: "電子處方箋-Bundle"
 Description: "此Profiles用於打包電子處方箋所有相關資料，利用此Bundle時請使用document方式將資料進行打包，Bundle所包含之Resource應與Composition涵蓋數量保持一致，且所有的Resource必須符合電子處方箋各資料規範，其相關規範(Structure Definition)與範例(Example)可分別於Bundle內entry的url連結或是在Composition進行查閱。"
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^date = "2023-10-30"
 * type MS
 * entry MS
@@ -51,12 +52,13 @@ Description: "此Profiles用於打包電子處方箋所有相關資料，利用�
 * entry[Condition].resource 1.. MS
 * entry[Condition].resource only $Condition-EMPD
 * entry[Medication].resource 1.. MS
-* entry[Medication].resource only $Medication-EMPD or $MedicationSelfEMPD
+* entry[Medication].resource only $Medication-EMPD or $Medication-Self-EMPD
 * entry[MedicationRequest].resource 1.. MS
-* entry[MedicationRequest].resource only $MedicationRequest-EMPD
+* entry[MedicationRequest].resource only $MedicationRequest-EMPD or $MedicationRequest-Self-EMPD
 
-Instance: bun-ep
+Instance: bun-01-ep
 InstanceOf: BundleEMPD
+Title: "電子處方箋-健保用藥-Bundle"
 Description: "電子處方箋-Bundle範例"
 Usage: #example
 * meta.profile = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Bundle-EMPD"
@@ -66,35 +68,74 @@ Usage: #example
 * type = #document
 * timestamp = "2024-02-19T14:30:00+01:00"
 * entry[0]
-  * fullUrl = "https://nhicore.nhi.gov.tw/empd/Composition/com-ep"
-  * resource = com-ep
+  * fullUrl = "https://nhicore.nhi.gov.tw/empd/Composition/com-01-ep"
+  * resource = com-01-ep
 * entry[+]
   * fullUrl = "https://nhicore.nhi.gov.tw/empd/Patient/pat-ep"
   * resource = pat-ep
 * entry[+]
-  * fullUrl = "https://nhicore.nhi.gov.tw/empd/Organization/org-ep"
-  * resource = org-ep
+  * fullUrl = "https://nhicore.nhi.gov.tw/empd/Organization/org-01-ep"
+  * resource = org-01-ep
 * entry[+]
   * fullUrl = "https://nhicore.nhi.gov.tw/empd/Practitioner/pra-ep"
   * resource = pra-ep
 * entry[+]
-  * fullUrl = "https://nhicore.nhi.gov.tw/empd/Encounter/enc-ep"
-  * resource = enc-ep
+  * fullUrl = "https://nhicore.nhi.gov.tw/empd/Encounter/enc-01-ep"
+  * resource = enc-01-ep
 * entry[+]
   * fullUrl = "https://nhicore.nhi.gov.tw/empd/Observation/obs-ep"
   * resource = obs-ep
 * entry[+]
-  * fullUrl = "https://nhicore.nhi.gov.tw/empd/Condition/con-ep"
-  * resource = con-ep
+  * fullUrl = "https://nhicore.nhi.gov.tw/empd/Condition/con-01-ep"
+  * resource = con-01-ep
 * entry[+]
-  * fullUrl = "https://nhicore.nhi.gov.tw/empd/Coverage/cov-ep"
-  * resource = cov-ep
+  * fullUrl = "https://nhicore.nhi.gov.tw/empd/Coverage/cov-01-ep"
+  * resource = cov-01-ep
 * entry[+]
   * fullUrl = "https://nhicore.nhi.gov.tw/empd/Medication/med-01-ep"
   * resource = med-01-ep
 * entry[+]
-  * fullUrl = "https://nhicore.nhi.gov.tw/empd/Medication/MedicationSelfEMPD-non01"
-  * resource = MedicationSelfEMPD-non01
-* entry[+]
   * fullUrl = "https://nhicore.nhi.gov.tw/empd/MedicationRequest/med-req-01-ep"
   * resource = med-req-01-ep
+
+Instance: bun-02-ep
+InstanceOf: BundleEMPD
+Title: "電子處方箋-無健保代碼及特殊材料-Bundle"
+Description: "電子處方箋-Bundle範例"
+Usage: #example
+* meta.profile = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Bundle-EMPD"
+* identifier
+  * value = "bun-11"
+  * system = "http://www.moi.gov.tw/"
+* type = #document
+* timestamp = "2024-02-19T14:30:00+01:00"
+* entry[0]
+  * fullUrl = "https://nhicore.nhi.gov.tw/empd/Composition/com-02-ep"
+  * resource = com-02-ep
+* entry[+]
+  * fullUrl = "https://nhicore.nhi.gov.tw/empd/Patient/pat-ep"
+  * resource = pat-ep
+* entry[+]
+  * fullUrl = "https://nhicore.nhi.gov.tw/empd/Organization/org-01-ep"
+  * resource = org-01-ep
+* entry[+]
+  * fullUrl = "https://nhicore.nhi.gov.tw/empd/Practitioner/pra-ep"
+  * resource = pra-ep
+* entry[+]
+  * fullUrl = "https://nhicore.nhi.gov.tw/empd/Encounter/enc-01-ep"
+  * resource = enc-01-ep
+* entry[+]
+  * fullUrl = "https://nhicore.nhi.gov.tw/empd/Observation/obs-ep"
+  * resource = obs-ep
+* entry[+]
+  * fullUrl = "https://nhicore.nhi.gov.tw/empd/Condition/con-03-ep"
+  * resource = con-03-ep
+* entry[+]
+  * fullUrl = "https://nhicore.nhi.gov.tw/empd/Coverage/cov-02-ep"
+  * resource = cov-02-ep
+* entry[+]
+  * fullUrl = "https://nhicore.nhi.gov.tw/empd/Medication/MedicationSelfEMPD-non02"
+  * resource = MedicationSelfEMPD-non02
+* entry[+]
+  * fullUrl = "https://nhicore.nhi.gov.tw/empd/MedicationRequest/med-req-self-01-ep"
+  * resource = med-req-self-01-ep

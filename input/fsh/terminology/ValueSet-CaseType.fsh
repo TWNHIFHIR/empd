@@ -4,7 +4,7 @@ ValueSet: CaseTypeValueSet
 Id: CaseType-vs
 Title: "處方箋種類註記值集"
 Description: "處方箋種類註記值集"
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^status = #active
 * ^experimental = false
 * ^date = "2022-01-28"

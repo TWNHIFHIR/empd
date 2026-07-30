@@ -49,3 +49,4 @@ yarn.lock
 /output
 /temp
 /template
+_*

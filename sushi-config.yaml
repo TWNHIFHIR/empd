@@ -5,22 +5,29 @@
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 id: tw.gov.mohw.nhi.empd
 canonical: https://nhicore.nhi.gov.tw/empd
-name: TWEMPD
+name: EMPD
 title: 臺灣電子處方箋與調劑單張實作指引(TW EMPD IG)
-description: 臺灣電子處方箋與調劑單張實作指引(Taiwan Electronic Medication Prescription and Dispense Implementation Guide，TWEMPD IG)
+description: 臺灣電子處方箋與調劑單張實作指引
 status: active # draft | active | retired | unknown
-version: 0.2.0
+version: 0.2.1
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
 copyrightYear: 2025+
 releaseLabel: ci-build
 # license: CC0-1.0 # https://www.hl7.org/fhir/valueset-spdx-license.html
 # jurisdiction: urn:iso:std:iso:3166#TW "Taiwan, Province of China" # https://www.hl7.org/fhir/valueset-jurisdiction.html
 publisher:
-  name: 衛生福利部中央健康保險署
-  url: https://www.nhi.gov.tw/
+  name: NHI
+  url: https://www.nhi.gov.tw/en/mp-2.html
   # email: test@example.org
 dependencies:
-  tw.gov.mohw.twcore: 1.0.0
+    tw.gov.mohw.twcore: 
+      id: TWCore
+      uri: https://twcore.mohw.gov.tw/ig/twcore/ImplementationGuide/tw.gov.mohw.twcore
+      version: 0.3.2
+    tw.gov.mohw.nhi.pas:
+      id: NHIPAS
+      uri: https://nhicore.nhi.gov.tw/pas/ImplementationGuide/tw.gov.mohw.nhi.pas
+      version: 1.2.3
 #menu:
 #  Home: index.html
 #  Artifacts: artifacts.html

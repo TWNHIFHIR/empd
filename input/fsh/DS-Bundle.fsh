@@ -19,7 +19,7 @@ Parent: TWCoreBundle
 Id: Bundle-DS
 Title: "調劑單張-Bundle"
 Description: "Profiles用於打包調劑單張所有相關資料，利用此Bundle時請使用document方式將資料進行打包，Bundle所包含之Resource應與Composition涵蓋數量保持一致，且所有的Resource必須符合調劑單張各資料規範，其相關規範(Structure Definition)與範例(Example)可分別於Bundle內entry的url連結或是在Composition進行查閱。"
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^date = "2024-01-02"
 * type MS
 * entry MS

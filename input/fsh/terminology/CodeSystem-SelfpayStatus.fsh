@@ -2,7 +2,7 @@ CodeSystem: SelfpayStatusCodeSystem
 Id: SelfpayStatus-cs
 Title: "自費註記"
 Description: "用於表示自費或非自費註記"
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^status = #active
 * ^experimental = false
 * ^date = "2024-02-22"

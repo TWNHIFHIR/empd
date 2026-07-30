@@ -5,7 +5,7 @@ Parent: TWCorePractitioner
 Id: Practitioner-EMPD
 Title: "電子處方箋-醫事人員基本資料"
 Description: "此Profile繼承於臺灣核心-健康照護服務提供人員(TW Core Practitioner)，並用於紀錄電子處方箋的醫事人員基本資料  [[*FMM1*](http://build.fhir.org/versions.html#maturity)]"
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^date = "2023-10-30"
 * identifier.value ^short = "唯一值。[應填入管制藥品使用執照號碼]。開立第一級、第二級及第三級管制藥品專用處方箋，此欄位為必填。"
 * name ^short = "照護服務提供人員的姓名。[應填入醫師姓名 Physician Name]"
@@ -17,6 +17,7 @@ Description: "此Profile繼承於臺灣核心-健康照護服務提供人員(TW 
 
 Instance: pra-ep
 InstanceOf: PractitionerEMPD
+Title: "電子處方箋-醫事人員基本資料"
 Description: "電子處方箋-醫事人員基本資料範例"
 Usage: #example
 * meta.profile = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Practitioner-EMPD"

@@ -2,7 +2,7 @@ CodeSystem: NonNHIlMaterialCodeSystem
 Id: NonNHIMaterial-cs
 Title: "無健保代碼之特材"
 Description: "用於無健保代碼之特材，代碼格式為99999999加流水號4碼，流水號由院所自訂。僅提供參考"
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^status = #active
 * ^experimental = false
 * ^date = "2026-05-26"

@@ -9,7 +9,7 @@ Parent: TWCoreMedicationDispense
 Id: MedicationDispense-DS
 Title: "調劑單張-調劑內容(MedicationDispense)"
 Description: "此Profiles用於描述調劑單張的調劑內容。"
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^date = "2024-01-13"
 * identifier 1..
   * ^short = "External identifier.[應填入項次 Item/藥品批號]。至少需填入項次 Item"
