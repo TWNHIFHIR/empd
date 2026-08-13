@@ -2,7 +2,7 @@ CodeSystem: TypeOfPrescriptionCodeSystem
 Id: TypeOfPrescription-cs
 Title: "處方箋種類註記"
 Description: "用於處方箋種類註記"
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^status = #active
 * ^experimental = false
 * ^date = "2023-10-30"

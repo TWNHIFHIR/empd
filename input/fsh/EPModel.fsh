@@ -4,7 +4,7 @@ Id: ep-model
 Title: "電子處方箋-邏輯模型"
 Description: "用於描述電子處方箋邏輯模型"
 * ^url = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/ep-model"
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^date = "2024-04-20"
 * . ^short = "電子處方箋邏輯模型"
 * . ^definition = "用於描述電子處方箋邏輯模型"

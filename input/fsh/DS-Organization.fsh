@@ -6,7 +6,7 @@ Id: Organization-DS
 Title: "調劑單張-醫事機構基本資料"
 Description: """此Profiles繼承於臺灣核心-機構(TW Core Organization) ，並進一步用於描述調劑單張之醫事機構基本資料
 [[*FMM1*](http://build.fhir.org/versions.html#maturity)]"""
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^date = "2024-01-02"
 * identifier.value ^short = "唯一值。[應填入醫療機構代碼 Hospital ID/調劑機構代碼]"
 * name ^short = "機構的名稱。[應填入醫療機構名稱 Hospital Name/調劑機構名稱]"

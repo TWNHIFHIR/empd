@@ -7,7 +7,7 @@ Id: Medication-DS
 Title: "調劑單張-藥物處方內容(Medication)"
 Description: """此Profiles繼承於臺灣核心-藥品(TW Core Medication) ，並進一步用於描述調劑單張之藥物處方內容  
 [[*FMM1*](http://build.fhir.org/versions.html#maturity)]"""
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^date = "2024-01-02"
 * identifier MS
   * value MS
@@ -20,6 +20,9 @@ Description: """此Profiles繼承於臺灣核心-藥品(TW Core Medication) ，�
 * ingredient 1.. MS
   * strength 1.. MS
     * ^short = "所含成份的劑量。[應填入藥品單位含量]"
+* code.coding contains
+    nhi-medication 0..1 MS 
+* code.coding[nhi-medication] from https://nhicore.nhi.gov.tw/empd/ValueSet/NHIMedication-vs (required)
 
 Instance: med-01-ds
 InstanceOf: MedicationDS

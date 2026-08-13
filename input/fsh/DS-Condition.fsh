@@ -12,7 +12,7 @@ Title: "調劑單張-診斷"
 Description: """此Profiles繼承於臺灣核心-病情、問題或診斷(TW Core Condition) ，並進一步用於描述調劑單張之診斷
 [[*FMM1*](http://build.fhir.org/versions.html#maturity)]"""
 * ^url = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Condition-DS"
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^date = "2024-01-02"
 * code 1..1
   * ^short = "病情、問題或診斷的識別。[應填入國際疾病分類代碼ICD Code(International Classification of Diseases)]"

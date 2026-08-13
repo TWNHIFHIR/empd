@@ -1,15 +1,9 @@
 <div class="bg-warning" style="ol { counter-reset: item } li { display: block } li:before { content: counters（item, ">
 <ol>  
-	<li>確保實務上代碼使用的有效性，此版本IG繼承TW Core 1.0.0版本</li>
-  <li>移除電子處方箋與調劑單張Condition.code.coding Slicing的強制性</li>
-  <li>調劑單張Bundle.entry(Media)調整為非必填Resource</li>
-  <li>電子處方箋與調劑單張MedicationRequest.note移除自費註記，並將note調整為非必填欄位</li>
-  <li>電子處方箋與調劑單張MedicationRequest新增constraints:當醫令代碼非特殊材料(code=3)時，須包含dosageInstruction與dispenseRequest</li>
-  <li>電子處方箋與調劑單張新增Medication Profile無健保代碼之藥品與特材。由於流水號4碼由院所自訂，因此代碼僅提供參考</li>
-  <li>電子處方箋就醫識別碼調整為必填</li>
-  <li>電子處方箋部分負擔代碼調整為非必填</li>
-  <li>電子處方箋醫事人員證書字號調整為非必填</li>
-  <li>電子處方箋醫令類別調整為必填</li>
+	<li>確保實務上代碼使用的有效性，此版本IG繼承TW Core 0.3.2版本</li>
+  <li>新增<a href ="StructureDefinition-MedicationRequest-Self-EMPD.html">Profile: 電子處方箋-處方內容(無健保代碼及特材)-MedicationRequest-Self-EMPD</a></li>
+  <li>新增代碼<a href ="ValueSet-NHIMedication-vs.html">ValueSet:NHI-電子處方箋-用藥品項</a>，供Medication.code使用</li>
+  <li>新增代碼<a href ="ValueSet-NHIMedicationFrequency-HL7-vs.html">ValueSet:HL7 TimingAbbreviation + NHI-電子處方箋-藥品使用頻率值集</a>，供MedicationRequest.dosageInstruction.timing使用</li>
 </ol>
 請留意這些異動，以避免影響您的實作。
 </div>

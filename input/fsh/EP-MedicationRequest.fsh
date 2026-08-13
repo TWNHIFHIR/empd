@@ -13,7 +13,7 @@ Parent: TWCoreMedicationRequest
 Id: MedicationRequest-EMPD
 Title: "電子處方箋-處方內容(MedicationRequest)"
 Description: "此Profile繼承於臺灣核心-藥品處方(TW Core MedicationRequest)，並用於描述電子處方箋的處方內容[[*FMM1*](http://build.fhir.org/versions.html#maturity)]"
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^status = #active
 * ^date = "2023-10-30"
 * extension 0..1 MS
@@ -42,21 +42,26 @@ Description: "此Profile繼承於臺灣核心-藥品處方(TW Core MedicationReq
   * ^binding.description = "自費註記；應填入[SelfpayStatus](ValueSet-SelfpayStatus-vs.html)值集中適合的代碼。"
 * medication[x] only CodeableConcept-tw or Reference($Medication-EMPD)
 * medicationCodeableConcept MS
+* medicationCodeableConcept.coding contains
+    nhi-medication 0..1 MS 
+* medicationCodeableConcept.coding[nhi-medication] from https://nhicore.nhi.gov.tw/empd/ValueSet/NHIMedication-vs (required)
 * medicationReference MS
 * insurance 1.. MS
 * insurance only Reference(ClaimResponse or $Coverage-EMR)
 * note ^short = "關於處方的資訊或其他相關備註說明。[應填入處方箋註銷註記/須被合併之處方箋註記]。"
-* dosageInstruction
-  * timing 0..1
-    * repeat 0..1 MS
-      * frequency 0..1 MS
+* dosageInstruction 1..1
+  * timing 1..1
+    * repeat 1..1 MS
+      * frequency 1..1 MS
         * ^short = "此事件於每一期間的發生頻率。[應填入頻率 Frequency]"
-    * code ^short = "BID ｜ TID ｜ QID ｜ AM ｜ PM ｜ QD ｜ QOD ｜ + [應填入使用時間]"
-  * route 0..1
+    * code from https://nhicore.nhi.gov.tw/empd/ValueSet/NHIMedicationFrequency-HL7-vs
+      * ^short = "BID ｜ TID ｜ QID ｜ AM ｜ PM ｜ QD ｜ QOD ｜ + [應填入使用時間]"
+      * coding from https://nhicore.nhi.gov.tw/empd/ValueSet/NHIMedicationFrequency-HL7-vs (required)
+  * route 1..1
     * ^short = "藥品應如何進入體內。[應填入給藥途徑 Route of Administration]"
   * method MS
     * ^short = "用藥的技術。[應填入用藥指示]"
-  * doseAndRate 0.. MS
+  * doseAndRate 1.. MS
     * dose[x] MS
       * ^slicing.discriminator.type = #type
       * ^slicing.discriminator.path = "$this"
@@ -73,36 +78,37 @@ Description: "此Profile繼承於臺灣核心-藥品處方(TW Core MedicationReq
     * ^short = "處方可用以配藥的有效期限[應填入處方箋有效日期]"
   * numberOfRepeatsAllowed 1..1
     * ^short = "可重複領藥的次數。[應填入連續處方可調劑次數 Refill Times]"
-  * quantity 0..1 MS
+  * quantity 1..1 MS
     * value 1.. MS
       * ^short = "Numerical value (with implicit precision).[應填入給藥總量 Total Amount]"
     * unit 1.. MS
       * ^short = "Unit representation.[應填入給藥總量單位 Total Units]"
-  * expectedSupplyDuration 0..1
+  * expectedSupplyDuration 1..1
     * ^short = "每次配藥可持續的天數。[應填入給藥日數 Medication Days]"
 * substitution MS
   * ^short = "對替代藥品的任何限制。填寫說明：有特殊情況時才填寫。"
   * allowed[x] MS
   * reason MS
     * ^short = "為什麼要（不）進行替換。[應填入不得以其他廠牌藥品替代之理由]，有特殊情況時才填寫。"
-* obeys empd-ord-1
+/* obeys empd-ord-1
 
 Invariant: empd-ord-1
 Description: "當醫令類別不是特殊材料(code=3)時，應檢核劑量、劑量單位、頻率、使用時間、給藥途徑、給藥日數、給藥總量與給藥總日份。"
 Severity: #error
 Expression: "category.where(coding.system='https://nhicore.nhi.gov.tw/empd/CodeSystem/OrderType-cs' and coding.code='3').exists() or (dosageInstruction.exists() and dispenseRequest.quantity.value.exists() and dispenseRequest.quantity.unit.exists() and dispenseRequest.expectedSupplyDuration.exists())"
-
+*/
 
 Instance: med-req-01-ep
 InstanceOf: MedicationRequestEMPD
+Title: "電子處方箋-處方內容-健保代碼"
 Description: "電子處方箋-處方內容(MedicationRequest)範例"
 Usage: #example
 * meta.profile = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/MedicationRequest-EMPD"
 * identifier[0]
   * system = "http://www.moi.gov.tw/"
   * value = "Med000001"
-* identifier[+].value = "7"
-* insurance = Reference(cov-ep)
+* identifier[+].value = "1"
+* insurance = Reference(cov-01-ep)
 * status = #active
 * intent = #order
 * medicationReference = Reference(med-01-ep)
@@ -111,23 +117,23 @@ Usage: #example
 * category[orderType] = $OrderType-cs#1
 * category[selfpayStatus] = $SelfpayStatus-cs#01 "非自費"
 * dosageInstruction
-  * timing.repeat.frequency = 4
-  * route = $medication-path-tw#PO
+  * timing.repeat.frequency = 3
+  * route = $medication-path-tw#OD
   * doseAndRate.doseQuantity
     * value = 1
-    * unit = "顆"
+    * unit = "[drp]"
 * dispenseRequest
   * validityPeriod
-    * start = "2024-01-12T00:00:00+08:00"
-    * end = "2024-01-19T00:00:00+08:00"
+    * start = "2026-07-21T00:00:00+08:00"
+    * end = "2026-07-28T00:00:00+08:00"
   * numberOfRepeatsAllowed = 1
   * expectedSupplyDuration.value = 3
   * quantity
-    * value = 12
+    * value = 5
     * system = "http://unitsofmeasure.org"
-    * unit = "顆"
-* note[0].text = "A"
-* note[+].text = "否"
+    * unit = "mL"
+* note[0].text = "否,無須合併"
+* note[+].text = "N,不註銷"
 * extension
   * url = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Extension-TotalDuration"
   * valueQuantity
@@ -137,23 +143,5 @@ Usage: #example
   * allowedBoolean = true
   * reason.text = "不可替代時始需註明"
 
-Instance: med-req-02-ep
-InstanceOf: MedicationRequestEMPD
-Description: "電子處方箋-處方內容(MedicationRequest)特殊材料範例"
-Usage: #example
-* meta.profile = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/MedicationRequest-EMPD"
-* identifier[0]
-  * system = "http://www.moi.gov.tw/"
-  * value = "MedRQ02"
-* identifier[+].value = "9"
-* insurance = Reference(cov-ep)
-* status = #active
-* intent = #order
-* medicationReference = Reference(med-01-ep)
-* subject = Reference(pat-ep)
-* category[typesOfPrescription] = $TypeOfPrescription-cs#A
-* category[orderType] = $OrderType-cs#3
-* category[selfpayStatus] = $SelfpayStatus-cs#01 "非自費"
-* note[0].text = "A"
-* note[+].text = "特殊材料"
+
 

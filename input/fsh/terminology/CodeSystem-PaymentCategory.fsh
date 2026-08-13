@@ -2,7 +2,7 @@ CodeSystem: PaymentCategoryCodeSystem
 Id: PaymentCategory-cs
 Title: "給付類別"
 Description: "用於表示給付類別"
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^status = #active
 * ^experimental = false
 * ^date = "2024-02-22"

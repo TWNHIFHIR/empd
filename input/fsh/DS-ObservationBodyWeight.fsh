@@ -10,7 +10,7 @@ Title: "調劑單張-病患體重"
 Description: """此Profiles繼承於臺灣核心-生命體徵(TW Core Observation Vital Signs) Profile，並進一步用於描述調劑單張之病患體重。
 若調劑藥物劑量須配合體重而有所調整，此Profiles為必填。
 [[*FMM1*](http://build.fhir.org/versions.html#maturity)]"""
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^date = "2024-01-02"
 * code.coding
   * system = "http://loinc.org" (exactly)

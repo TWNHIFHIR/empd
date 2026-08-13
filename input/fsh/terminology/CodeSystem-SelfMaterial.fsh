@@ -1,8 +1,10 @@
 CodeSystem: NonNHIlMaterialCodeSystem
 Id: NonNHIMaterial-cs
 Title: "無健保代碼之特材"
-Description: "用於無健保代碼之特材，代碼格式為99999999加流水號4碼，流水號由院所自訂。僅提供參考"
-* ^version = "0.1.0"
+Description: """用於無健保代碼之特材。編碼規則共12碼：第1-2碼依現行特材代碼前2碼編碼原則、第3碼為半形Z、第4-9碼為許可證號（6碼，不足補0）、第10-12碼為流水號（自001起編）。僅提供參考。
+
+編碼範例：骨科類特材 FBZ012345001（第1項建議）、FBZ012345002（同一張許可證之第2項建議）。"""
+* ^version = "0.2.1"
 * ^status = #active
 * ^experimental = false
 * ^date = "2026-05-26"
@@ -12,13 +14,13 @@ Description: "用於無健保代碼之特材，代碼格式為99999999加流水�
 * ^copyright = "衛生福利部"
 * ^caseSensitive = true
 * ^content = #fragment
-* #999999990001 "準分子雷射冠狀動脈血管整型術導管" "SPECTRANETICS ELCA CATHETER"
-* #999999990002 "旋轉血管成型系統" "Boston Scientific Rotablator Rotational Angioplasty System"
-* #999999990003 "旋轉血管成型系統導引線" "Boston Scientific Rotablator Rotational Angioplasty System Guide Wire"
-* #999999990004 "冠狀動脈擴張導管" "OrbusNeich Scoreflex Coronary Dilatation Catheter"
-* #999999990005 "氣球擴張導管" "Acrostak GRIP PTCA Balloon Catheter"
-* #999999990006 "週邊血管網狀氣球導管" "Spectranetics AngioSculpt PTA Scoring Balloon Catheter"
-* #999999990007 "血管內固定錨系統" "Medtronic Aptus Heli-FX EndoAnchor System"
-* #999999990008 "冠狀動脈血管網狀氣球導管" "Spectranetics AngioSculpt PTCA Scoring Balloon Catheter"
-* #999999990009 "切割氣球導管" "Boston Scientific Wolverine Coronary Cutting Balloon"
-* #999999990010 "電極導管" "Japan Lifeline Ring Electrophysiology Catheter"
+* #FBZ012345001 "準分子雷射冠狀動脈血管整型術導管" "SPECTRANETICS ELCA CATHETER"
+* #FBZ012345002 "旋轉血管成型系統" "Boston Scientific Rotablator Rotational Angioplasty System"
+* #FBZ012345003 "旋轉血管成型系統導引線" "Boston Scientific Rotablator Rotational Angioplasty System Guide Wire"
+* #FBZ012345004 "冠狀動脈擴張導管" "OrbusNeich Scoreflex Coronary Dilatation Catheter"
+* #FBZ012345005 "氣球擴張導管" "Acrostak GRIP PTCA Balloon Catheter"
+* #FBZ012345006 "週邊血管網狀氣球導管" "Spectranetics AngioSculpt PTA Scoring Balloon Catheter"
+* #FBZ012345007 "血管內固定錨系統" "Medtronic Aptus Heli-FX EndoAnchor System"
+* #FBZ012345008 "冠狀動脈血管網狀氣球導管" "Spectranetics AngioSculpt PTCA Scoring Balloon Catheter"
+* #FBZ012345009 "切割氣球導管" "Boston Scientific Wolverine Coronary Cutting Balloon"
+* #FBZ012345010 "電極導管" "Japan Lifeline Ring Electrophysiology Catheter"

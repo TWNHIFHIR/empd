@@ -4,7 +4,7 @@ ValueSet: NonNHIMedicationValueSet
 Id: NonNHIMedication-vs
 Title: "自費藥物值集"
 Description: "自費藥物值集"
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^status = #active
 * ^experimental = false
 * ^date = "2026-03-10"

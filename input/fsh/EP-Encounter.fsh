@@ -10,7 +10,7 @@ Parent: TWCoreEncounter
 Id: Encounter-EMPD
 Title: "電子處方箋-門診基本資料"
 Description: "此Profile繼承於臺灣核心-就醫事件(TW Core Encounter) ，並用於描述電子處方箋的門診基本資料[[*FMM1*](http://build.fhir.org/versions.html#maturity)]"
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^date = "2023-10-30"
 * identifier 1..2
   * ^short = "此就醫事件的識別碼。[應填入就醫識別碼與健保卡就醫序號]。非自費時，就醫識別碼為必填(MedicationRequest.category判別)"
@@ -18,6 +18,7 @@ Description: "此Profile繼承於臺灣核心-就醫事件(TW Core Encounter) �
   * ^short = "病人就醫的分類。[應填入案件分類]。(如為自費案件請使用代碼\"00\")"
   * ^definition = "病人就醫分類的概念，例如：門診病人、住院病人、急診病人、居家照護或其他因地方不同而產生的概念。\r\n健保案件分類，如：01:西醫一般案件 02:西醫急診 03: 西醫門診手術 04:西醫慢性病 05:洗腎 06:結核病 08:慢性病連續處方調劑 09:西醫其他專案 11:牙醫一般案件 12:牙醫急診 13:牙醫門診手術等。"
   * ^binding.description = "案件分類；應填入[CaseType-vs](ValueSet-CaseType-vs.html)值集中適合的代碼，確定無適合的代碼才可以使用其他值集的代碼來表示。"
+//* serviceType from TWMedicalDepartmentSCT (preferred)
 * serviceType 1..
   * ^short = "服務的特定型別。[應填入科別 Department]"
 * subject 1..
@@ -37,4 +38,20 @@ Usage: #example
 * serviceType.text = "普通外科"
 * class = $CaseType-cs#01 "西醫一般案件"
 * period.start = "2023-02-23"
+* subject = Reference(Patient/pat-ep)
+
+Instance: enc-01-ep
+InstanceOf: EncounterEMPD
+Title: "電子處方箋-門診基本資料"
+Description: "電子處方箋-門診基本資料範例"
+Usage: #example
+* meta.profile = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Encounter-EMPD"
+* identifier[0].system = "https://nhicore.nhi.gov.tw/empd/sid/visit-identifier"
+* identifier[0].value = "0USE4FA11RP4J370WR4K"
+* identifier[1].system = "https://nhicore.nhi.gov.tw/empd/sid/nhi-card-visit-sequence"
+* identifier[1].value = "001"
+* status = #finished
+* class = $CaseType-cs#01 "西醫一般案件"
+* serviceType = https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/medical-treatment-department-nhi-tw#00 "不分科"
+* period.start = "2026-07-21"
 * subject = Reference(Patient/pat-ep)

@@ -8,7 +8,7 @@ Id: Media-DS
 Title: "調劑單張-領藥者數位簽章"
 Description: """此Profiles用於描述調劑單張之領藥者數位簽章。
 如為開立第一級、第二級及第三級管制藥品專用處方箋，此Profiles為必填"""
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^date = "2024-01-02"
 * status MS
 * subject 1..

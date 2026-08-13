@@ -2,7 +2,7 @@ CodeSystem: PartCodeCodeSystem
 Id: PartCode-cs
 Title: "部分負擔代碼"
 Description: "用於表示部分負擔代碼。第一碼為醫療院所層級：西醫 A（醫學中心）B（區域醫院）C（地區醫院）D（基層院所）；牙醫 E（醫學中心）F（區域醫院）G（地區醫院）H（基層院所）；中醫 N（醫學中心）Q（區域醫院）R（地區醫院）S（基層院所）"
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^status = #active
 * ^experimental = false
 * ^date = "2023-10-30"

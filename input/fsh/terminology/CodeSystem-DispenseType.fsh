@@ -2,7 +2,7 @@ CodeSystem: DispenseTypeCodeSystem
 Id: DispenseType-cs
 Title: "醫令調劑方式"
 Description: "用於表示醫令調劑方式代碼"
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^status = #active
 * ^experimental = false
 * ^date = "2024-01-15"

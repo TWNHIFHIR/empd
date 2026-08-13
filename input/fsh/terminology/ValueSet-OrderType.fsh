@@ -4,7 +4,7 @@ ValueSet: OrderTypeValueSet
 Id: OrderType-vs
 Title: "醫令類別值集"
 Description: "醫令類別值集"
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^status = #active
 * ^experimental = false
 * ^date = "2024-02-22"

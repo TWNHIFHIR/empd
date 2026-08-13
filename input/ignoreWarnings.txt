@@ -1,143 +1,52 @@
 == Suppressed Messages ==
 
-# Add warning and/or information messages here after you've confirmed that they aren't really a problem
+# Validator 無法解析外部識別碼的 system URL；這些 URL 僅作為 Identifier.system 使用，不影響識別碼語意。
+% URL value%
 
-# 不影響實作的回報
-WARNING: Bundle/bun-ds: Bundle.identifier.system: No definition could be found for URL value 'http://www.moi.gov.tw/'
-WARNING: Bundle/bun-ds: Bundle.entry[1].resource/*Patient/pat-ds*/.identifier[0].system: No definition could be found for URL value 'http://www.moi.gov.tw/'
-WARNING: Bundle/bun-ds: Bundle.entry[2].resource/*Organization/org-ds*/.identifier[0].system: No definition could be found for URL value 'http://ns.electronichealth.net.au/id/hi/hpio/1.0'
-WARNING: Bundle/bun-ds: Bundle.entry[3].resource/*Organization/org-dis-ds*/.identifier[0].system: No definition could be found for URL value 'http://ns.electronichealth.net.au/id/hi/hpio/1.0'
-WARNING: Bundle/bun-ds: Bundle.entry[4].resource/*Practitioner/pra-ds*/.identifier[0].system: No definition could be found for URL value 'http://www.moi.gov.tw'
-WARNING: Bundle/bun-ds: Bundle.entry[5].resource/*Practitioner/pra-dis-ds*/.qualification[0].identifier[0].system: No definition could be found for URL value 'https://www.mohw.gov.tw/'
-WARNING: Bundle/bun-ds: Bundle.entry[10].resource.code.coding[0].system: A definition for CodeSystem 'https://twcore.mohw.gov.tw' could not be found, so the code cannot be validated
-WARNING: Bundle/bun-ds: Bundle.entry[11].resource/*Medication/med-01-ds*/.ingredient[0].item.ofType(CodeableConcept).coding[0]: Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided
-WARNING: Bundle/bun-ep: Bundle.identifier.system: No definition could be found for URL value 'http://www.moi.gov.tw/'
-WARNING: Bundle/bun-ep: Bundle.entry[1].resource/*Patient/pat-ep*/.identifier[0].system: No definition could be found for URL value 'http://www.moi.gov.tw/'
-WARNING: Bundle/bun-ep: Bundle.entry[2].resource/*Organization/org-ep*/.identifier[0].system: No definition could be found for URL value 'http://ns.electronichealth.net.au/id/hi/hpio/1.0'
-WARNING: Bundle/bun-ep: Bundle.entry[3].resource/*Practitioner/pra-ep*/.qualification[0].identifier[0].system: No definition could be found for URL value 'https://www.mohw.gov.tw/'
-WARNING: ChargeItem/cha-ds: ChargeItem.code.coding[0].system: A definition for CodeSystem 'https://twcore.mohw.gov.tw' could not be found, so the code cannot be validated
-WARNING: Medication/med-01-ds: Medication.ingredient[0].item.ofType(CodeableConcept).coding[0]: Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided
-WARNING: Medication/med-01-ep: Medication.ingredient[0].item.ofType(CodeableConcept).coding[0]: Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided
-WARNING: MedicationRequest/med-req-01-ds: MedicationRequest.identifier[0].system: No definition could be found for URL value 'http://www.moi.gov.tw/'
-WARNING: MedicationRequest/med-req-01-ep: MedicationRequest.identifier[0].system: No definition could be found for URL value 'http://www.moi.gov.tw/'
-WARNING: Organization/org-dis-ds: Organization.identifier[0].system: No definition could be found for URL value 'http://ns.electronichealth.net.au/id/hi/hpio/1.0'
-WARNING: Organization/org-ds: Organization.identifier[0].system: No definition could be found for URL value 'http://ns.electronichealth.net.au/id/hi/hpio/1.0'
-WARNING: Organization/org-ep: Organization.identifier[0].system: No definition could be found for URL value 'http://ns.electronichealth.net.au/id/hi/hpio/1.0'
-WARNING: Patient/pat-ds: Patient.identifier[0].system: No definition could be found for URL value 'http://www.moi.gov.tw/'
-WARNING: Patient/pat-ep: Patient.identifier[0].system: No definition could be found for URL value 'http://www.moi.gov.tw/'
-WARNING: Practitioner/pra-dis-ds: Practitioner.qualification[0].identifier[0].system: No definition could be found for URL value 'https://www.mohw.gov.tw/'
-WARNING: Practitioner/pra-ds: Practitioner.identifier[0].system: No definition could be found for URL value 'http://www.moi.gov.tw'
-WARNING: Practitioner/pra-ep: Practitioner.qualification[0].identifier[0].system: No definition could be found for URL value 'https://www.mohw.gov.tw/'
-INFORMATION: StructureDefinition/Condition-DS: StructureDefinition.snapshot.element[17].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
-INFORMATION: StructureDefinition/Condition-EMPD: StructureDefinition.snapshot.element[17].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
-INFORMATION: StructureDefinition/Encounter-DS: StructureDefinition.snapshot.element[36].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
-INFORMATION: StructureDefinition/Encounter-EMPD: StructureDefinition.snapshot.element[36].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
-INFORMATION: StructureDefinition/Medication-DS: StructureDefinition.snapshot.element[21].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
-INFORMATION: StructureDefinition/Medication-EMPD: StructureDefinition.snapshot.element[13].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
-INFORMATION: StructureDefinition/MedicationDispense-DS: StructureDefinition.snapshot.element[55].mapping[0].map: The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
-INFORMATION: StructureDefinition/MedicationDispense-DS: StructureDefinition.snapshot.element[27].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
-INFORMATION: StructureDefinition/MedicationRequest-DS: StructureDefinition.differential.element[3].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
-INFORMATION: StructureDefinition/MedicationRequest-DS: StructureDefinition.snapshot.element[14].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
-INFORMATION: StructureDefinition/MedicationRequest-DS: StructureDefinition.snapshot.element[26].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
-INFORMATION: StructureDefinition/MedicationRequest-EMPD: StructureDefinition.snapshot.element[14].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
-INFORMATION: StructureDefinition/MedicationRequest-EMPD: StructureDefinition.snapshot.element[26].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
-WARNING: StructureDefinition.where(url = 'https://nhicore.nhi.gov.tw/empd/StructureDefinition/Observationtwcore'): The Implementation Guide contains no examples for this profile
-INFORMATION: StructureDefinition/Organization-DS: StructureDefinition.snapshot.element[58].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
-INFORMATION: StructureDefinition/Organization-EMPD: StructureDefinition.snapshot.element[58].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
-INFORMATION: StructureDefinition/Patient-DS: StructureDefinition.snapshot.element[97].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
-INFORMATION: StructureDefinition/Patient-EMPD: StructureDefinition.snapshot.element[97].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
-WARNING: MedicationRequest/med-req-02-ep: MedicationRequest.identifier[0].system: No definition could be found for URL value 'http://www.moi.gov.tw/'
-INFORMATION: StructureDefinition/MedicationRequest-EMPD: StructureDefinition.differential.element[4].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
-WARNING: StructureDefinition/MedicationRequest-EMPD: StructureDefinition.snapshot.element[0].constraint[5]: empd-ord-1: The left side is inherently a collection, and so the expression 'coding.system = 'https://nhicore.nhi.gov.tw/empd/CodeSystem/OrderType-cs'' may fail or return false if there is more than one item in the content being evaluated
-WARNING: StructureDefinition/MedicationRequest-EMPD: StructureDefinition.snapshot.element[0].constraint[5]: empd-ord-1: The left side is inherently a collection, and so the expression 'coding.code = '3'' may fail or return false if there is more than one item in the content being evaluated
-WARNING: Bundle/bun-ds: Bundle.entry[13].resource.identifier[0].system: No definition could be found for URL value 'http://www.moi.gov.tw/'
-WARNING: Bundle/bun-ep: Bundle.entry[4].resource/*Encounter/enc-ep*/.identifier[0].system: No definition could be found for URL value 'https://www.nhi.gov.tw/ch/mp-1.html'
-WARNING: Bundle/bun-ep: Bundle.entry[8].resource/*Medication/med-01-ep*/.ingredient[0].item.ofType(CodeableConcept).coding[0]: Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided
-WARNING: Bundle/bun-ep: Bundle.entry[10].resource.identifier[0].system: No definition could be found for URL value 'http://www.moi.gov.tw/'
-WARNING: Encounter/enc-ep: Encounter.identifier[0].system: No definition could be found for URL value 'https://www.nhi.gov.tw/ch/mp-1.html'
-INFORMATION: StructureDefinition/Bundle-DS: StructureDefinition.snapshot.element[4].binding.extension[0]: The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.3.0 is deprecated with the note: 'Use additionalBinding extension or element instead'
-INFORMATION: StructureDefinition/Medication-DS: StructureDefinition.snapshot.element[34].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
-INFORMATION: StructureDefinition/Medication-EMPD: StructureDefinition.snapshot.element[26].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
-INFORMATION: StructureDefinition/Organization-DS: StructureDefinition.snapshot.element[84].type[0].extension[1]: The extension http://hl7.org/fhir/StructureDefinition/regex|5.3.0 is deprecated with the note: 'This was deprecated in favor of using a constraint on the element using FHIRPath, since constraints allow for the provision of a human readable message associated with the regex'
-INFORMATION: ValueSet/NonNHIMaterial-vs: ValueSet.compose.include[0]: The value set references CodeSystem 'https://nhicore.nhi.gov.tw/empd/CodeSystem/NonNHIMaterial-cs' which has status 'fragment'
-INFORMATION: ValueSet/NonNHIMedication-vs: ValueSet.compose.include[0]: The value set references CodeSystem 'https://nhicore.nhi.gov.tw/empd/CodeSystem/NonNHIMedication-cs' which has status 'fragment'
-INFORMATION: Bundle/bun-ds: Bundle.entry[0].resource/*Composition/com-ds*/.type: None of the codings provided are in the value set 'FHIR Document Type Codes' (http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1), and a coding is recommended to come from this value set (codes = http://loinc.org#29304-3)
-INFORMATION: Bundle/bun-ds: Bundle.entry[9].resource/*Coverage/cov-ds*/.type: None of the codings provided are in the value set 'Coverage Type and Self-Pay Codes' (http://hl7.org/fhir/ValueSet/coverage-type|4.0.1), and a coding is recommended to come from this value set (codes = https://nhicore.nhi.gov.tw/empd/CodeSystem/PaymentCategory-cs#4)
-INFORMATION: Bundle/bun-ep: Bundle.entry[7].resource/*Coverage/cov-ep*/.type: None of the codings provided are in the value set 'Coverage Type and Self-Pay Codes' (http://hl7.org/fhir/ValueSet/coverage-type|4.0.1), and a coding is recommended to come from this value set (codes = https://nhicore.nhi.gov.tw/empd/CodeSystem/PaymentCategory-cs#1)
-INFORMATION: Coverage/cov-ds: Coverage.type: None of the codings provided are in the value set 'Coverage Type and Self-Pay Codes' (http://hl7.org/fhir/ValueSet/coverage-type|4.0.1), and a coding is recommended to come from this value set (codes = https://nhicore.nhi.gov.tw/empd/CodeSystem/PaymentCategory-cs#4)
-INFORMATION: Coverage/cov-ep: Coverage.type: None of the codings provided are in the value set 'Coverage Type and Self-Pay Codes' (http://hl7.org/fhir/ValueSet/coverage-type|4.0.1), and a coding is recommended to come from this value set (codes = https://nhicore.nhi.gov.tw/empd/CodeSystem/PaymentCategory-cs#1)
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDClient: CapabilityStatement.rest[0].resource[0].interaction[0].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDClient: CapabilityStatement.rest[0].resource[0].interaction[1].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDClient: CapabilityStatement.rest[0].resource[1].interaction[0].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDClient: CapabilityStatement.rest[0].resource[1].interaction[1].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDClient: CapabilityStatement.rest[0].resource[2].interaction[0].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDClient: CapabilityStatement.rest[0].resource[2].interaction[1].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDClient: CapabilityStatement.rest[0].resource[3].interaction[0].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDClient: CapabilityStatement.rest[0].resource[3].interaction[1].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDClient: CapabilityStatement.rest[0].resource[4].interaction[0].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDClient: CapabilityStatement.rest[0].resource[4].interaction[1].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDClient: CapabilityStatement.rest[0].resource[4].interaction[2].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDClient: CapabilityStatement.rest[0].resource[5].interaction[0].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDClient: CapabilityStatement.rest[0].resource[5].interaction[1].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDClient: CapabilityStatement.rest[0].resource[6].interaction[0].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDClient: CapabilityStatement.rest[0].resource[6].interaction[1].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDClient: CapabilityStatement.rest[0].resource[7].interaction[0].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDClient: CapabilityStatement.rest[0].resource[7].interaction[1].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDClient: CapabilityStatement.rest[0].resource[8].interaction[0].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDClient: CapabilityStatement.rest[0].resource[8].interaction[1].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDClient: CapabilityStatement.rest[0].resource[9].interaction[0].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDClient: CapabilityStatement.rest[0].resource[9].interaction[1].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDClient: CapabilityStatement.rest[0].resource[10].interaction[0].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDClient: CapabilityStatement.rest[0].resource[10].interaction[1].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDClient: CapabilityStatement.rest[0].resource[11].interaction[0].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDClient: CapabilityStatement.rest[0].resource[11].interaction[1].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDClient: CapabilityStatement.rest[0].resource[12].interaction[0].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDClient: CapabilityStatement.rest[0].resource[12].interaction[1].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDClient: CapabilityStatement.rest[0].resource[13].interaction[0].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDClient: CapabilityStatement.rest[0].resource[13].interaction[1].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDServer: CapabilityStatement.rest[0].resource[0].interaction[0].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDServer: CapabilityStatement.rest[0].resource[0].interaction[1].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDServer: CapabilityStatement.rest[0].resource[1].interaction[0].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDServer: CapabilityStatement.rest[0].resource[1].interaction[1].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDServer: CapabilityStatement.rest[0].resource[2].interaction[0].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDServer: CapabilityStatement.rest[0].resource[2].interaction[1].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDServer: CapabilityStatement.rest[0].resource[3].interaction[0].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDServer: CapabilityStatement.rest[0].resource[3].interaction[1].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDServer: CapabilityStatement.rest[0].resource[4].interaction[0].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDServer: CapabilityStatement.rest[0].resource[4].interaction[1].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDServer: CapabilityStatement.rest[0].resource[5].interaction[0].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDServer: CapabilityStatement.rest[0].resource[5].interaction[1].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDServer: CapabilityStatement.rest[0].resource[6].interaction[0].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDServer: CapabilityStatement.rest[0].resource[6].interaction[1].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDServer: CapabilityStatement.rest[0].resource[7].interaction[0].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDServer: CapabilityStatement.rest[0].resource[7].interaction[1].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDServer: CapabilityStatement.rest[0].resource[8].interaction[0].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDServer: CapabilityStatement.rest[0].resource[8].interaction[1].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDServer: CapabilityStatement.rest[0].resource[9].interaction[0].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDServer: CapabilityStatement.rest[0].resource[9].interaction[1].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDServer: CapabilityStatement.rest[0].resource[10].interaction[0].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDServer: CapabilityStatement.rest[0].resource[10].interaction[1].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDServer: CapabilityStatement.rest[0].resource[11].interaction[0].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDServer: CapabilityStatement.rest[0].resource[11].interaction[1].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDServer: CapabilityStatement.rest[0].resource[12].interaction[0].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDServer: CapabilityStatement.rest[0].resource[12].interaction[1].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDServer: CapabilityStatement.rest[0].resource[13].interaction[0].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: CapabilityStatement/CapabilityStatementEMPDServer: CapabilityStatement.rest[0].resource[13].interaction[1].extension[0].value.ofType(code): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/conformance-expectation|4.0.1
-INFORMATION: StructureDefinition.snapshot.element[37].binding.valueSet: Pinned the version of http://terminology.hl7.org/ValueSet/v3-ActCode to 2018-08-12 from choices of 2.0.0 (hl7.terminology.r4#5.0.0), 3.0.0 (hl7.terminology.r4#7.0.0)
-INFORMATION: StructureDefinition.snapshot.element[61].binding.valueSet: Pinned the version of http://terminology.hl7.org/ValueSet/v3-ActCode to 2018-08-12 from choices of 2.0.0 (hl7.terminology.r4#5.0.0), 3.0.0 (hl7.terminology.r4#7.0.0)
-INFORMATION: StructureDefinition.snapshot.element[25].binding.valueSet: Pinned the version of http://terminology.hl7.org/ValueSet/v3-ActEncounterCode to 2014-03-26 from choices of 2.0.0 (hl7.terminology.r4#5.0.0), 3.0.0 (hl7.terminology.r4#7.0.0)
-INFORMATION: StructureDefinition.snapshot.element[30].binding.valueSet: Pinned the version of http://terminology.hl7.org/ValueSet/v3-ActEncounterCode to 2014-03-26 from choices of 2.0.0 (hl7.terminology.r4#5.0.0), 3.0.0 (hl7.terminology.r4#7.0.0)
-INFORMATION: StructureDefinition.snapshot.element[62].binding.valueSet: Pinned the version of http://terminology.hl7.org/ValueSet/v3-ActPriority to 2018-08-12 from choices of 2.0.0 (hl7.terminology.r4#5.0.0), 3.0.0 (hl7.terminology.r4#7.0.0)
-INFORMATION: StructureDefinition.snapshot.element[97].binding.valueSet: Pinned the version of http://terminology.hl7.org/ValueSet/v2-0092 to 2.9 from choices of 2.0.0 (hl7.terminology.r4#5.0.0), 3.0.0 (hl7.terminology.r4#7.1.0)
-INFORMATION: StructureDefinition.snapshot.element[30].binding.valueSet: Pinned the version of http://terminology.hl7.org/ValueSet/v3-ActEncounterCode to 2014-03-26 from choices of 2.0.0 (hl7.terminology.r4#5.0.0), 3.0.0 (hl7.terminology.r4#7.0.0)
-INFORMATION: StructureDefinition.snapshot.element[62].binding.valueSet: Pinned the version of http://terminology.hl7.org/ValueSet/v3-ActPriority to 2018-08-12 from choices of 2.0.0 (hl7.terminology.r4#5.0.0), 3.0.0 (hl7.terminology.r4#7.0.0)
-INFORMATION: StructureDefinition.snapshot.element[97].binding.valueSet: Pinned the version of http://terminology.hl7.org/ValueSet/v2-0092 to 2.9 from choices of 2.0.0 (hl7.terminology.r4#5.0.0), 3.0.0 (hl7.terminology.r4#7.1.0)
-INFORMATION: StructureDefinition.snapshot.element[46].binding.valueSet: Pinned the version of http://terminology.hl7.org/ValueSet/v3-ActPharmacySupplyType to 2014-03-26 from choices of 2.0.0 (hl7.terminology.r4#5.0.0), 3.0.0 (hl7.terminology.r4#7.0.0)
-INFORMATION: StructureDefinition.snapshot.element[139].binding.valueSet: Pinned the version of http://terminology.hl7.org/ValueSet/v3-ActSubstanceAdminSubstitutionCode to 2014-03-26 from choices of 2.0.0 (hl7.terminology.r4#5.0.0), 3.0.0 (hl7.terminology.r4#7.0.0)
-INFORMATION: StructureDefinition.snapshot.element[140].binding.valueSet: Pinned the version of http://terminology.hl7.org/ValueSet/v3-SubstanceAdminSubstitutionReason to 2014-03-26 from choices of 2.0.0 (hl7.terminology.r4#5.0.0), 3.0.0 (hl7.terminology.r4#7.0.0)
-INFORMATION: StructureDefinition.snapshot.element[128].binding.valueSet: Pinned the version of http://terminology.hl7.org/ValueSet/v3-ActSubstanceAdminSubstitutionCode to 2014-03-26 from choices of 2.0.0 (hl7.terminology.r4#5.0.0), 3.0.0 (hl7.terminology.r4#7.0.0)
-INFORMATION: StructureDefinition.snapshot.element[129].binding.valueSet: Pinned the version of http://terminology.hl7.org/ValueSet/v3-SubstanceAdminSubstitutionReason to 2014-03-26 from choices of 2.0.0 (hl7.terminology.r4#5.0.0), 3.0.0 (hl7.terminology.r4#7.0.0)
-INFORMATION: StructureDefinition.snapshot.element[139].binding.valueSet: Pinned the version of http://terminology.hl7.org/ValueSet/v3-ActSubstanceAdminSubstitutionCode to 2014-03-26 from choices of 2.0.0 (hl7.terminology.r4#5.0.0), 3.0.0 (hl7.terminology.r4#7.0.0)
-INFORMATION: StructureDefinition.snapshot.element[140].binding.valueSet: Pinned the version of http://terminology.hl7.org/ValueSet/v3-SubstanceAdminSubstitutionReason to 2014-03-26 from choices of 2.0.0 (hl7.terminology.r4#5.0.0), 3.0.0 (hl7.terminology.r4#7.0.0)
-INFORMATION: StructureDefinition.snapshot.element[9].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/patient-nationality to 5.3.0 from choices of 4.0.1 (hl7.fhir.r4.core#4.0.1), 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)
-INFORMATION: StructureDefinition.snapshot.element[9].type[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/patient-nationality to 5.3.0 from choices of 4.0.1 (hl7.fhir.r4.core#4.0.1), 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (hl7.fhir.uv.extensions.r4#5.3.0)
+# TW Core 0.3.2 套件中的 ICD-10-CM CodeSystem 無法被 Publisher 載入；
+A definition for CodeSystem 'https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/icd-10-cm-2023-tw' could not be found, so the code cannot be validated
+
+# slicing discriminator 使用 pattern 的 R5 相容性提示；
+# 若此 slicing 為繼承而來，且目前 IG 使用 FHIR R4，可抑制。
+% The discriminator type 'pattern' is deprecated in R5%
+
+# Publisher 載入新版 extensions package 後產生的 deprecated extension 提示。
+% The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.3.0 is deprecated%
+% The extension http://hl7.org/fhir/StructureDefinition/regex|5.3.0 is deprecated%
+
+# 專案目前刻意維持 TW Core 0.3.2，尚未升級至新版。
+% The ImplementationGuide uses package tw.gov.mohw.twcore#0.3.2%
+
+# Publisher 在多個 terminology package 版本中自動選定版本。
+% Pinned the version of %
+
+# 採用建議型值集，但本 IG 情境使用其他代碼系統。
+% and a coding is recommended to come from this value set%
+
+# 目前沒有配置 OID 的需求。
+% have an OID%
+
+# 值集內容過大，QA 頁面僅顯示部分 expansion。
+% The value set expansion is too large, and only a subset has been displayed%
+
+# 範例中的 coding 未符合 Profile 已定義的 slice；目前確認不影響範例呈現。
+% This element does not match any known slice defined in the profile %
+
+# Bundle 範例中存在未一併納入的參照資源；目前僅作範例驗證使用。
+% Can't find 'Organization/org-02-ep' in the bundle %
+
+# 同一個 Medication 範例同時符合 Medication-DS 與 Medication-Self-EMPD。
+% Found multiple matching profiles %
+% The entry resource matched more than one of the allowed profiles %
+
+# 藥品成分僅提供文字，未提供 coding.system；目前保留此範例內容。
+% Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided%
+
+# MedicationDispense mapping 文字被 Publisher 判定疑似包含 HTML 標籤；目前確認不影響 IG 顯示。
+% The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk%
+
+# Observationtwcore 為共用 Profile，目前未提供獨立範例。
+% The Implementation Guide contains no examples for this profile%
+
+# 非健保藥品及特殊材料 CodeSystem 僅收錄部分代碼，完整代碼由外部來源維護。
+% which has status 'fragment'%

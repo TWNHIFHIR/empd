@@ -4,7 +4,7 @@ ValueSet: NonNHIMaterialValueSet
 Id: NonNHIMaterial-vs
 Title: "無健保代碼之特材值集"
 Description: "用於無健保代碼之特材值集，僅包含本IG定義之無健保代碼特材代碼"
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^status = #active
 * ^experimental = false
 * ^date = "2026-05-26"

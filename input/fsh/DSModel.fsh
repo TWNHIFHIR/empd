@@ -4,7 +4,7 @@ Id: ds-model
 Title: "調劑單張-邏輯模型"
 Description: "用於描述調劑單張邏輯模型"
 * ^url = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/ds-model"
-* ^version = "0.1.0"
+* ^version = "0.2.1"
 * ^date = "2024-04-20"
 * . ^short = "調劑單張邏輯模型"
 * . ^definition = "用於描述調劑單張邏輯模型"

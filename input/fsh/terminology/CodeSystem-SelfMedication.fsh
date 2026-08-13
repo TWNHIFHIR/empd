@@ -1,8 +1,8 @@
 CodeSystem: NonNHIMedicationCodeSystem
 Id: NonNHIMedication-cs
 Title: "無健保代碼之藥品"
-Description: "用於無健保代碼之藥品，代碼格式為999999加流水號4碼，流水號由院所自訂。僅提供參考"
-* ^version = "0.1.0"
+Description: "用於無健保代碼之藥品。編碼規則：(一)藥品許可證字號（共12~14碼）；(二)無許可證字號時以999999+流水號4碼（共10碼）編碼，流水號由院所自訂。僅提供參考"
+* ^version = "0.2.1"
 * ^status = #active
 * ^experimental = false
 * ^date = "2026-05-26"
