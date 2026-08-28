@@ -2,8 +2,8 @@ Alias: $NonNHIMedication-cs = https://nhicore.nhi.gov.tw/empd/CodeSystem/NonNHIM
 
 ValueSet: NonNHIMedicationValueSet
 Id: NonNHIMedication-vs
-Title: "自費藥物值集"
-Description: "自費藥物值集"
+Title: "無健保代碼之藥品值集"
+Description: "用於無健保代碼之藥品值集，僅包含本IG定義之無健保代碼藥品代碼"
 * ^version = "0.2.1"
 * ^status = #active
 * ^experimental = false

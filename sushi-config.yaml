@@ -24,10 +24,6 @@ dependencies:
       id: TWCore
       uri: https://twcore.mohw.gov.tw/ig/twcore/ImplementationGuide/tw.gov.mohw.twcore
       version: 0.3.2
-    tw.gov.mohw.nhi.pas:
-      id: NHIPAS
-      uri: https://nhicore.nhi.gov.tw/pas/ImplementationGuide/tw.gov.mohw.nhi.pas
-      version: 1.2.3
 #menu:
 #  Home: index.html
 #  Artifacts: artifacts.html

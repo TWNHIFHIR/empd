@@ -11,8 +11,6 @@ Alias: $Observation-DS-BodyWeight = https://nhicore.nhi.gov.tw/empd/StructureDef
 Alias: $Coverage-EMPD = https://nhicore.nhi.gov.tw/empd/StructureDefinition/Coverage-EMR
 Alias: $Media-DS = https://nhicore.nhi.gov.tw/empd/StructureDefinition/Media-DS
 Alias: $MedicationDispense-DS = https://nhicore.nhi.gov.tw/empd/StructureDefinition/MedicationDispense-DS
-Alias: $MedicationSelfEMPD = https://nhicore.nhi.gov.tw/empd/StructureDefinition/Medication-Self-EMPD
-Alias: $MedicationSelfEMPD = https://nhicore.nhi.gov.tw/empd/StructureDefinition/Medication-Self-EMPD
 
 Profile: BundleDS
 Parent: TWCoreBundle
@@ -55,7 +53,7 @@ Description: "Profiles用於打包調劑單張所有相關資料，利用此Bund
 * entry[Practitioner].resource 1.. MS
 * entry[Practitioner].resource only $Practitioner-DS
 * entry[Medication].resource 1.. MS
-* entry[Medication].resource only $Medication-DS or $MedicationSelfEMPD
+* entry[Medication].resource only $Medication-DS 
 * entry[MedicationRequest].resource 1.. MS
 * entry[MedicationRequest].resource only $MedicationRequest-DS
 * entry[ObservationBodyWeight].resource 1.. MS
@@ -113,9 +111,6 @@ Usage: #example
 * entry[+]
   * fullUrl = "https://nhicore.nhi.gov.tw/empd/Medication/med-01-ds"
   * resource = med-01-ds
-* entry[+]
-  * fullUrl = "https://nhicore.nhi.gov.tw/empd/Medication/MedicationSelfEMPD-non01"
-  * resource = MedicationSelfEMPD-non01
 * entry[+]
   * fullUrl = "https://nhicore.nhi.gov.tw/empd/MedicationRequest/med-req-01-ds"
   * resource = med-req-01-ds

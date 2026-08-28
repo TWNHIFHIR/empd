@@ -11,7 +11,7 @@ Alias: $MedicationDispense-DS = https://nhicore.nhi.gov.tw/empd/StructureDefinit
 Alias: $ChargeItem-DS = https://nhicore.nhi.gov.tw/empd/StructureDefinition/ChargeItem-DS
 Alias: $Media-DS = https://nhicore.nhi.gov.tw/empd/StructureDefinition/Media-DS
 Alias: $loinc = http://loinc.org
-Alias: $MedicationSelfEMPD = https://nhicore.nhi.gov.tw/empd/StructureDefinition/Medication-Self-EMPD
+
 
 Profile: CompositionDS
 Parent: TWCoreComposition
@@ -74,7 +74,7 @@ Description: "用於表示調劑單張資料集之文檔"
       * code 1..
       * code = #29551-9 (exactly)
       * display = "Medication prescribed Narrative" (exactly)
-  * entry only Reference($MedicationRequest-DS or $Medication-DS or $MedicationSelfEMPD or $MedicationDispense-DS or $ChargeItem-DS)
+  * entry only Reference($MedicationRequest-DS or $Medication-DS or $MedicationDispense-DS or $ChargeItem-DS)
     * ^slicing.discriminator.type = #profile
     * ^slicing.discriminator.path = "resolve()"
     * ^slicing.rules = #open
@@ -84,7 +84,7 @@ Description: "用於表示調劑單張資料集之文檔"
       MedicationDispense 1..* and
       sliceEntry 0..1
   * entry[MedicationRequest] only Reference($MedicationRequest-DS)
-  * entry[Medication] only Reference($Medication-DS or $MedicationSelfEMPD)
+  * entry[Medication] only Reference($Medication-DS)
   * entry[MedicationDispense] only Reference($MedicationDispense-DS)
   * entry[sliceEntry] only Reference($ChargeItem-DS)
 * section[Media] ^short = "領藥者數位簽章"
@@ -125,7 +125,6 @@ Usage: #example
 * section[MedicationPrescribed].code = $loinc#29551-9
 * section[MedicationPrescribed].code.text = "Medication prescribed Narrative Narrative"
 * section[MedicationPrescribed].entry[0] = Reference(Medication/med-01-ds)
-* section[MedicationPrescribed].entry[+] = Reference(Medication/MedicationSelfEMPD-non01)
 * section[MedicationPrescribed].entry[+] = Reference(MedicationRequest/med-req-01-ds)
 * section[MedicationPrescribed].entry[+] = Reference(MedicationDispense/med-dis-01-ds)
 * section[MedicationPrescribed].entry[+] = Reference(ChargeItem/cha-ds)

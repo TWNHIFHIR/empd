@@ -8,6 +8,4 @@ Context: MedicationRequest
   * ^short = "擴充的資料項目。[應填入給藥總日份 Total Medication Days]"
   * ^definition = "擴充的資料項目。"
 * value[x] 1.. MS
-* value[x] only Quantity
-  * value 1.. MS
-  * unit MS
+* value[x] only positiveInt

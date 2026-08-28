@@ -17,6 +17,8 @@ Description: """此Profiles繼承於臺灣核心-病情、問題或診斷(TW Cor
 * code 1..1
   * ^short = "病情、問題或診斷的識別。[應填入國際疾病分類代碼ICD Code(International Classification of Diseases)]"
   * ^definition = "病情、問題或診斷的識別\r\n[國際疾病分類代碼ICD Code(International Classification of Diseases)]應含主診斷或次診斷之ICD代碼"
+  * coding[icd10-cm-2023].system 1..1
+  * coding[icd10-cm-2023].code 1..1
 * subject only Reference(Group or $Patient-DS)
 * encounter only Reference($Encounter-DS)
 * recorder only Reference(TWCorePractitionerRole or TWCoreRelatedPerson or $Practitioner-DS or $Patient-DS)

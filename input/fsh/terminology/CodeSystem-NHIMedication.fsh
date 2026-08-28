@@ -1,7 +1,7 @@
 CodeSystem: NHIMedicationCodes
 Id: NHIMedication-cs
-Title: "NHI-健保事前審查-用藥品項值集"
-Description:  "NHI-健保事前審查-用藥品項，參照自[健保用藥品項](https://www.nhi.gov.tw/ch/lp-2466-1.html)中的「健保用藥品項115年7月查詢檔(帶走所有壓縮檔115.7.1更新)」。  
+Title: "NHI-電子處方箋-用藥品項值集"
+Description:  "NHI-電子處方箋-用藥品項，參照自[健保用藥品項](https://www.nhi.gov.tw/ch/lp-2466-1.html)中的「健保用藥品項115年7月查詢檔(帶走所有壓縮檔115.7.1更新)」。  
 
 代碼出版日期：2025-04-30；資料所屬單位：衛生福利部中央健康保險署。
 

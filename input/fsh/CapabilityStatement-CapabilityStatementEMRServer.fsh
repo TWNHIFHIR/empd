@@ -108,7 +108,6 @@ Usage: #definition
 * rest.resource[+].type = #Medication
 * rest.resource[=].supportedProfile[0] = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Medication-EMPD"
 * rest.resource[=].supportedProfile[+] = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Medication-DS"
-* rest.resource[=].supportedProfile[+] = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Medication-Self-EMPD"
 * rest.resource[=].interaction[0].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].interaction[=].extension.valueCode = #SHALL
 * rest.resource[=].interaction[=].code = #create

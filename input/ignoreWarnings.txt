@@ -33,11 +33,8 @@ A definition for CodeSystem 'https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/icd
 % This element does not match any known slice defined in the profile %
 
 # Bundle 範例中存在未一併納入的參照資源；目前僅作範例驗證使用。
-% Can't find 'Organization/org-02-ep' in the bundle %
+% Can't find 'Organization/org-nhi-ep' in the bundle %
 
-# 同一個 Medication 範例同時符合 Medication-DS 與 Medication-Self-EMPD。
-% Found multiple matching profiles %
-% The entry resource matched more than one of the allowed profiles %
 
 # 藥品成分僅提供文字，未提供 coding.system；目前保留此範例內容。
 % Coding has no system. A code with no system has no defined meaning, and it cannot be validated. A system should be provided%
@@ -50,3 +47,22 @@ A definition for CodeSystem 'https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/icd
 
 # 非健保藥品及特殊材料 CodeSystem 僅收錄部分代碼，完整代碼由外部來源維護。
 % which has status 'fragment'%
+
+# UCUM {tbl} 為錠劑數量之表示方式；已於 Quantity.unit 提供可讀單位資訊，annotation 僅供識別，不作為單位比較依據。
+%UCUM Codes that contain human readable annotations like {tbl} can be misleading (e.g. they are ignored when comparing units). Best Practice is not to depend on annotations in the UCUM code, so this usage should be checked%
+
+# 使用 FHIR R4 原生 MedicationRequest.status 代碼系統，Publisher 判定該 CodeSystem 為 draft，此屬於 FHIR 原生規格提示，非本 IG 設計問題，不影響實作與實際代碼驗證。
+% Reference to draft CodeSystem%
+
+# NonNHIMedication-cs 為 fragment CodeSystem，使用無健保代碼藥品暫編碼時可能出現 Unknown Code 提示，因此忽略此類訊息。
+% in the CodeSystem 'https://nhicore.nhi.gov.tw/empd/CodeSystem/NonNHIMedication-cs'%
+# NonNHIMaterial-cs 為 fragment CodeSystem，使用無健保代碼特材暫編碼時可能出現 Unknown Code 提示，因此忽略此類訊息。
+% in the CodeSystem 'https://nhicore.nhi.gov.tw/empd/CodeSystem/NonNHIMaterial-cs'%
+
+# DSModel mapping 使用 EMPD canonical URL 作為 mapping URI，忽略 canonical link 版本安全性提示。
+%for "DSModel" is a canonical link and is therefore unsafe with regard to versions%
+# EMPDModel mapping 使用 EMPD canonical URL 作為 mapping URI，忽略 canonical link 版本安全性提示。
+%for "EMPDModel" is a canonical link and is therefore unsafe with regard to versions%
+
+# Observation.performer 為 FHIR Best Practice 建議欄位，部分電子處方箋情境無法取得或不要求提供執行者，因此忽略此提示。
+%Best Practice Recommendation: In general, all observations should have a performer%

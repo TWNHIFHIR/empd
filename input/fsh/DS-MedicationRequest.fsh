@@ -102,6 +102,4 @@ Usage: #example
 * note[+].text = "否"
 * extension
   * url = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Extension-TotalDuration"
-  * valueQuantity
-    * value = 7
-    * unit = "days"
+  * valuePositiveInt = 7

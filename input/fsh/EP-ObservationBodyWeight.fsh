@@ -9,7 +9,7 @@ Description: """此Profiles繼承於臺灣核心-生命體徵(TW Core Observatio
 若調劑藥物劑量須配合體重而有所調整，則必須使用此Profiles
 [[*FMM1*](http://build.fhir.org/versions.html#maturity)]"""
 * ^version = "0.2.1"
-* ^date = "2023-10-30"
+
 * code.coding
   * system = "http://loinc.org" (exactly)
   * code = #29463-7 (exactly)
@@ -39,4 +39,3 @@ Usage: #example
 * category[VSCat] = $observation-category#vital-signs "Vital Signs"
 * effectiveDateTime = "2023-12-21"
 * valueQuantity = 50 'kg' "kg"
-* performer = Reference(pra-ep)

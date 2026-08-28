@@ -23,6 +23,8 @@ Description: """此Profiles繼承於臺灣核心-藥品(TW Core Medication) ，�
 * code.coding contains
     nhi-medication 0..1 MS 
 * code.coding[nhi-medication] from https://nhicore.nhi.gov.tw/empd/ValueSet/NHIMedication-vs (required)
+* code.coding[nhi-medication].code 1..1
+* code.coding[nhi-medication].system 1..1
 
 Instance: med-01-ds
 InstanceOf: MedicationDS

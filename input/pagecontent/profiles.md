@@ -6,55 +6,56 @@
 
 + Bundle
 
-[電子處方箋-Bundle](StructureDefinition-Bundle-EMPD.html)
+    - [電子處方箋-Bundle](StructureDefinition-Bundle-EMPD.html)
 
 + Composition
 
-[電子處方箋-Composition](StructureDefinition-Composition-EMPD.html)
+    - [電子處方箋-Composition](StructureDefinition-Composition-EMPD.html)
 
 + Organization
 
-[電子處方箋-醫事機構基本資料](StructureDefinition-Organization-EMPD.html)
+    - [電子處方箋-醫事機構基本資料](StructureDefinition-Organization-EMPD.html)
+
+    - [TW Core Organization Government](https://twcore.mohw.gov.tw/ig/twcore/0.3.2/StructureDefinition-Organization-govt-twcore.html)
 
 + Patient
 
-[電子處方箋-病人基本資料](StructureDefinition-Patient-EMPD.html)
+    - [電子處方箋-病人基本資料](StructureDefinition-Patient-EMPD.html)
 
 + Practitioner
 
-[電子處方箋-醫事人員基本資料](StructureDefinition-Practitioner-EMPD.html)
+    - [電子處方箋-醫事人員基本資料](StructureDefinition-Practitioner-EMPD.html)
 
 + Encounter
 
-[電子處方箋-門診基本資料](StructureDefinition-Encounter-EMPD.html)
+    - [電子處方箋-門診基本資料](StructureDefinition-Encounter-EMPD.html)
 
 + Condition
 
-[電子處方箋-診斷](StructureDefinition-Condition-EMPD.html)
+    - [電子處方箋-診斷](StructureDefinition-Condition-EMPD.html)
 
 + Observation
 
-[電子處方箋-體重](StructureDefinition-Observation-EMPD-BodyWeight.html)
+    - [電子處方箋-體重](StructureDefinition-Observation-EMPD-BodyWeight.html)
 
 + Coverage
 
-[電子處方箋-就醫身分別](StructureDefinition-Coverage-EMR.html)
+    - [電子處方箋-就醫身分別](StructureDefinition-Coverage-EMR.html)
 
 + Medication
 
-[電子處方箋-藥物處方內容(健保代碼)](StructureDefinition-Medication-EMPD.html)
+    - [電子處方箋-藥物處方內容(健保代碼)](StructureDefinition-Medication-EMPD.html)
 
-[電子處方箋-自費藥物(無健保代碼及特材)](StructureDefinition-Medication-Self-EMPD.html)
 
 + MedicationRequest
 
-[電子處方箋-處方內容(健保代碼)](StructureDefinition-MedicationRequest-EMPD.html)
-
-[電子處方箋-處方內容(無健保代碼及特材)](StructureDefinition-MedicationRequest-Self-EMPD.html)
+    - [電子處方箋-處方內容(健保代碼)](StructureDefinition-MedicationRequest-EMPD.html)
 
 + Extension
 
-[給藥總日份](StructureDefinition-Extension-TotalDuration.html)
+    - [給藥總日份](StructureDefinition-Extension-TotalDuration.html)
+
+    - [給付類別](StructureDefinition-Extension-PaymentCategory.html)
 
 ### 調劑單張
 
@@ -102,7 +103,6 @@
 
 [調劑單張-藥物處方內容(Medication)](StructureDefinition-Medication-DS.html)
 
-[調劑單張-自費藥物(Medication)](StructureDefinition-Medication-Self-EMPD.html)
 
 + MedicationRequest
 
@@ -119,6 +119,7 @@
 + Extension
 
 [給藥總日份](StructureDefinition-Extension-TotalDuration.html)
+
 
 ### TW Core IG Extensions
 本IG Profiles繼承於臺灣核心實作指引，Profiles中所使用到之Extension可參閱[TW Core Extension](https://twcore.mohw.gov.tw/ig/twcore/profiles-and-extensions.html#extensions)。

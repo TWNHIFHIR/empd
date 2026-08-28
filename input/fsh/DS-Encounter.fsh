@@ -1,8 +1,8 @@
 Alias: $Patient-DS = https://nhicore.nhi.gov.tw/empd/StructureDefinition/Patient-DS
 Alias: $sct = http://snomed.info/sct
 Alias: $sct = http://snomed.info/sct
-Alias: $CaseType-cs = https://nhicore.nhi.gov.tw/empd/CodeSystem/CaseType-cs
-Alias: $CaseType-vs = https://nhicore.nhi.gov.tw/empd/ValueSet/CaseType-vs
+Alias: $CaseType-cs = https://nhicore.nhi.gov.tw/empd/CodeSystem/nhi-outpatient-case-type
+Alias: $CaseType-vs = https://nhicore.nhi.gov.tw/empd/ValueSet/nhi-case-type
 
 Profile: EncounterDS
 Parent: TWCoreEncounter
