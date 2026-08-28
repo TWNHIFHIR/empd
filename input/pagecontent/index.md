@@ -1,8 +1,7 @@
-
 <div class="bg-danger" style="ol { counter-reset: item } li { display: block } li:before { content: counters（item, ">
-<p><b>請注意</b>：您目前所看到的IG為持續建置 (ci-build) 版，主要依據實作者及業務端需求即時調整，因而會比健保署 <a href="https://nhicore.nhi.gov.tw/empd/">正式版 IG</a> 內容新，僅供未來想以最新版本規格進行資料上傳的人員參考，於正式發布後才會調整健保署FHIR伺服器規格。<br/>
-<br/>
-<b>醫院實作時請以V0.1.0為主進行實例驗證，目前健保署端的伺服器採用V0.1.0版規格。</b></p>
+  <p><b>請注意</b>：您目前所看到的IG為持續建置 (ci-build) 版，主要依據實作者及業務端需求即時調整，因而會比健保署 <a href="https://nhicore.nhi.gov.tw/empd/">正式版 IG</a> 內容新，僅供未來想以最新版本規格進行資料上傳的人員參考，於正式發布後才會調整健保署FHIR伺服器規格。<br/>
+  <br/>
+  <b>醫院實作時請以V0.1.0為主進行實例驗證，目前健保署端的伺服器採用V0.1.0版規格。</b></p>
 </div>
 <br/>
 
@@ -92,7 +91,17 @@
       <li><code>MedicationRequest.dosageInstruction.doseAndRate.dose[x]</code>及<code>doseQuantity</code>：基數<code>1..1</code>→<code>0..1</code>，當為特材時可不填</li>
     </ul>
   </li>
-  <li>修改 <a href="StructureDefinition-Condition-EMPD.html">Profile: 電子處方箋-診斷（Condition-EMPD）</a><ul><li><code>Condition.note</code>：</li><ul><li>改為表示「醫療評估內容註記」</li><li>原「部分負擔代碼」改至 <a href="StructureDefinition-Encounter-EMPD.html">Encounter.type</a></li></ul></li> </ul></li>
+  <li>修改 <a href="StructureDefinition-Condition-EMPD.html">Profile: 電子處方箋-診斷（Condition-EMPD）</a>
+    <ul>
+      <li><code>Condition.note</code>：</li>
+      <li>
+        <ul>
+          <li>改為表示「醫療評估內容註記」</li>
+          <li>原「部分負擔代碼」改至 <a href="StructureDefinition-Encounter-EMPD.html">Encounter.type</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
   <li>修改 <a href="StructureDefinition-Bundle-DS.html">Profile: 調劑單張-Bundle（Bundle-DS）</a>
     <ul>
       <li><code>Bundle.entry</code>：最低筆數<code>12</code>→<code>11</code></li>
@@ -123,15 +132,15 @@
 
 ### 專案介紹
 
-臺灣電子處方箋與調劑單張實作指引（Taiwan Electronic Medication Prescription and Dispense Implementation Guide，簡稱TW EMPD IG），採用HL7® FHIR® standard（Fast Healthcare Interoperability Resources）IG建置方法，在FHIR [R4.0.1](https://hl7.org/fhir/R4/)之標準基礎上，繼承臺灣核心實作指引（Taiwan Core Implementation Guide，簡稱TW core IG）V1.0.0版本，進一步定義適用於臺灣電子處方箋與調劑單張資料需求的Resources（類似資料表）、其中的資料項目（意即欄位）、基數（意即0..1、0..*、1..1或1..*）及資料類型（文字、日期時間、代碼等）等。
+臺灣電子處方箋與調劑單張實作指引（Taiwan Electronic Medication Prescription and Dispense Implementation Guide，簡稱TW EMPD IG），採用HL7® FHIR® standard（Fast Healthcare Interoperability Resources）IG建置方法，在FHIR [R4.0.1](https://hl7.org/fhir/R4/)之標準基礎上，繼承臺灣核心實作指引（Taiwan Core Implementation Guide，簡稱TW core IG）V1.0.0版本，進一步定義適用於臺灣電子處方箋與調劑單張資料需求的Resources（類似資料表）、其中的資料項目（意即欄位）、基數（意即0..1、0.._、1..1或1.._）及資料類型（文字、日期時間、代碼等）等。
 
 ### 專案背景
 
-民國94年12月進行「醫療院所病歷電子化現況調查」之結果顯示：國內醫院病歷電子化發展已相當普及，共計約有5成醫院病歷資料已進行電腦化，約3成醫院病歷電子化已進展至院內整合階段並逐漸邁向院際之分享與交換應用，顯示過去幾年推動病歷電子化之發展已具初步成效，應順勢大力推展。  
+民國94年12月進行「醫療院所病歷電子化現況調查」之結果顯示：國內醫院病歷電子化發展已相當普及，共計約有5成醫院病歷資料已進行電腦化，約3成醫院病歷電子化已進展至院內整合階段並逐漸邁向院際之分享與交換應用，顯示過去幾年推動病歷電子化之發展已具初步成效，應順勢大力推展。
 
-為了延續「網路健康服務推動計畫（民國91至94年）」、「衛生局所網路便民服務計畫（民國92至95年）」等計畫之基礎，落實本部「全人健康照護」政策目標，推動「從出生前到老去健康資訊ｅ化流通」發展策略，民國93年10月開始規劃「國民健康資訊建設計畫（National Health Informatics Project，NHIP）」，並於民國94及95年提出計畫申請，於民國96年8月14日核定通過，由政府扮演推動角色，營造國家健康資訊發展環境，推動衛生醫療資訊之重要基礎建設，其中，「推動實施電子病歷」與「建立及營運醫事憑證管理中心 (Healthcare Certification Authority，HCA )」即為NHIP之兩大分項計畫。  
+為了延續「網路健康服務推動計畫（民國91至94年）」、「衛生局所網路便民服務計畫（民國92至95年）」等計畫之基礎，落實本部「全人健康照護」政策目標，推動「從出生前到老去健康資訊ｅ化流通」發展策略，民國93年10月開始規劃「國民健康資訊建設計畫（National Health Informatics Project，NHIP）」，並於民國94及95年提出計畫申請，於民國96年8月14日核定通過，由政府扮演推動角色，營造國家健康資訊發展環境，推動衛生醫療資訊之重要基礎建設，其中，「推動實施電子病歷」與「建立及營運醫事憑證管理中心 (Healthcare Certification Authority，HCA )」即為NHIP之兩大分項計畫。
 
-「智慧醫療服務計畫」為行政院98年4月30日核定之「健康照護升值白金方案－加值產業」項下四大方案之一，該方案項下包含「推動遠距健康照護計畫」、「推動電子病歷及醫療影像傳輸計畫」、「健保IC卡改善計畫」、「醫院安全關懷RFID計畫」、「健康資料庫加值應用計畫」五大計畫。  
+「智慧醫療服務計畫」為行政院98年4月30日核定之「健康照護升值白金方案－加值產業」項下四大方案之一，該方案項下包含「推動遠距健康照護計畫」、「推動電子病歷及醫療影像傳輸計畫」、「健保IC卡改善計畫」、「醫院安全關懷RFID計畫」、「健康資料庫加值應用計畫」五大計畫。
 
 後續，本部除繼續推動醫療院所實施電子病歷及互通外，並擬規劃台灣健康雲計畫，發展電子病歷雲端服務，增加國內醫療院所推動電子病歷之意願。
 
@@ -147,24 +156,24 @@
 
 <br>
 
-* [首頁](index.html)：EMPD IG介紹及背景說明。
-* 視覺化邏輯模型：EMPD IG邏輯模型架構視覺化圖。
-    - [電子處方箋 視覺化邏輯模型](EPvsmodel.html)
-    - [調劑單張 視覺化邏輯模型](DSvsmodel.html)
-* 規範文件
-    - [能力聲明](capability.html) ：應用EMPD IG於建置業務目的使用的FHIR Server時，該FHIR Server必須及建議應該支援的資料存取功能。
-    - [查詢參數與操作定義](Search.html)：查詢FHIR Server的Profiles時，針對各Profiles可使用的查詢參數及操作定義。
-    - [邏輯模型](logicmodel.html) ：EMPD IG的所有邏輯模型(Logical Models)，邏輯模型會定義相應情境下使用的所有資料欄位。為了便於實作者快速理解，資料欄位會使用易於理解的命名，實作者再透過邏輯模型中的功能頁籤「Mappings」瞭解各資料欄位實際使用本IG的哪個Profiles的哪個資料項目(element)。
-    - [FHIR Profiles及Extensions](profiles.html)：
-        - EMPD IG的所有Profiles之定義與範例。
-        - 各資料項目不同實作強制程度的Terminology。
-    - [專門術語](Termino.html) ：EMPD IG所使用的專門術語，包括代碼系統（Code Systems）及值集（Value Sets）。
-* 範例檔：符合EMPD IG所定義Profiles之範例檔。
-    - [電子處方箋 範例檔](EPexample.html)
-    - [調劑單張 範例檔](DSexample.html)
-* [結構定義與範例檔下載](download.html)：實作者若不偏好使用FHIR RESTful API驗證資料是否符合Profiles，可直接下載所需的格式驗證檔，包括XML、JSON及Turtle三種格式，亦可於此下載完整範例檔。
-* [安全性](Security.html)：主要說明採用EMPD IG網站進行實作時，有關資料存取授權的作法。
-* 版本異動：若EMPD IG網站的版本有所異動，皆可透過異動說明頁得以瞭解版本間的異動差異
+- [首頁](index.html)：EMPD IG介紹及背景說明。
+- 視覺化邏輯模型：EMPD IG邏輯模型架構視覺化圖。
+  - [電子處方箋 視覺化邏輯模型](EPvsmodel.html)
+  - [調劑單張 視覺化邏輯模型](DSvsmodel.html)
+- 規範文件
+  - [能力聲明](capability.html) ：應用EMPD IG於建置業務目的使用的FHIR Server時，該FHIR Server必須及建議應該支援的資料存取功能。
+  - [查詢參數與操作定義](Search.html)：查詢FHIR Server的Profiles時，針對各Profiles可使用的查詢參數及操作定義。
+  - [邏輯模型](logicmodel.html) ：EMPD IG的所有邏輯模型(Logical Models)，邏輯模型會定義相應情境下使用的所有資料欄位。為了便於實作者快速理解，資料欄位會使用易於理解的命名，實作者再透過邏輯模型中的功能頁籤「Mappings」瞭解各資料欄位實際使用本IG的哪個Profiles的哪個資料項目(element)。
+  - [FHIR Profiles及Extensions](profiles.html)：
+    - EMPD IG的所有Profiles之定義與範例。
+    - 各資料項目不同實作強制程度的Terminology。
+  - [專門術語](Termino.html) ：EMPD IG所使用的專門術語，包括代碼系統（Code Systems）及值集（Value Sets）。
+- 範例檔：符合EMPD IG所定義Profiles之範例檔。
+  - [電子處方箋 範例檔](EPexample.html)
+  - [調劑單張 範例檔](DSexample.html)
+- [結構定義與範例檔下載](download.html)：實作者若不偏好使用FHIR RESTful API驗證資料是否符合Profiles，可直接下載所需的格式驗證檔，包括XML、JSON及Turtle三種格式，亦可於此下載完整範例檔。
+- [安全性](Security.html)：主要說明採用EMPD IG網站進行實作時，有關資料存取授權的作法。
+- 版本異動：若EMPD IG網站的版本有所異動，皆可透過異動說明頁得以瞭解版本間的異動差異
 
 ### 專有名詞定義
 
