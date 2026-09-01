@@ -9,8 +9,8 @@ Id: Organization-EMPD
 Title: "電子處方箋-醫事機構基本資料"
 Description: """此Profiles繼承於臺灣核心-機構(TW Core Organization) ，並進一步用於描述電子處方箋之醫事機構基本資料
 [[*FMM1*](http://build.fhir.org/versions.html#maturity)]"""
-* ^version = "0.2.1"
-* identifier 1..2
+* ^version = "0.2.2"
+* identifier 1..1
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "system"
 * identifier ^slicing.rules = #closed
