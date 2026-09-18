@@ -66,3 +66,9 @@ A definition for CodeSystem 'https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/icd
 
 # Observation.performer 為 FHIR Best Practice 建議欄位，部分電子處方箋情境無法取得或不要求提供執行者，因此忽略此提示。
 %Best Practice Recommendation: In general, all observations should have a performer%
+
+# Organization.identifier 包含多個識別碼 slice，Publisher 依各 slice 最大基數加總產生提示，屬預期之 slicing 設計。
+%The slice definition for Organization.identifier has a maximum of 1 but the slices add up to a maximum of 2%
+
+# 介紹頁面使用之正式版 IG 連結，非版本化 Canonical Reference，予以忽略。
+%for "正式版 IG" is a canonical link and is therefore unsafe with regard to versions%

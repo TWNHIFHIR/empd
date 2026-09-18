@@ -54,22 +54,22 @@ Usage: #example
 
 Instance: con-04-ep
 InstanceOf: ConditionEMPD
-Title: "電子處方箋-診斷-第二型糖尿病，無併發症"
-Description: "電子處方箋-第二型糖尿病，無併發症診斷資訊範例。"
+Title: "電子處方箋-診斷-第二型糖尿病，未伴有併發症"
+Description: "電子處方箋-第二型糖尿病，未伴有併發症診斷資訊範例。"
 Usage: #example
 * meta.profile = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Condition-EMPD"
 * clinicalStatus = $condition-clinical#active "Active"
 * category = $loinc#29548-5 "Diagnosis Narrative"
-* code = $icd-10-cm-2023-tw#E11.9 "第二型糖尿病，無併發症"
+* code = $icd-10-cm-2023-tw#E11.9 "第二型糖尿病，未伴有併發症"
 * subject = Reference(Patient/pat-ep)
 
 Instance: con-05-ep
 InstanceOf: ConditionEMPD
-Title: "電子處方箋-診斷-注意力不足過動症"
-Description: "電子處方箋-注意力不足過動症診斷資訊範例。"
+Title: "電子處方箋-診斷-注意力不足過動症，不專注主顯型"
+Description: "電子處方箋-注意力不足過動症，不專注主顯型診斷資訊範例。"
 Usage: #example
 * meta.profile = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Condition-EMPD"
 * clinicalStatus = $condition-clinical#active "Active"
 * category = $loinc#29548-5 "Diagnosis Narrative"
-* code = $icd-10-cm-2023-tw#F90.0 "注意力不足過動症"
+* code = $icd-10-cm-2023-tw#F90.0 "注意力不足過動症，不專注主顯型，不專注主顯型"
 * subject = Reference(Patient/pat-ep)

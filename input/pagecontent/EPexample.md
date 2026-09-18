@@ -3,20 +3,20 @@
 ### Bundle
 
 - [電子處方箋-健保代碼用藥-Bundle](Bundle-bun-01-ep.html)
+- [電子處方箋-健保代碼管制藥品-Bundle](Bundle-bun-01-ep.html)
 - [電子處方箋-食藥署藥品-Bundle](Bundle-bun-02-ep.html)
 - [電子處方箋-無健保代碼用藥-Bundle](Bundle-bun-03-ep.html)
 - [電子處方箋-多項用藥-Bundle](Bundle-bun-04-ep.html)
-- [電子處方箋-健保代碼管制藥品-Bundle](Bundle-bun-05-ep.html)
-- [電子處方箋-特材-Bundle](Bundle-bun-06-ep.html)
+- [電子處方箋-特材-Bundle](Bundle-bun-05-ep.html)
 
 ### Composition
 
 - [電子處方箋-健保代碼用藥-Composition](Composition-com-01-ep.html)
+- [電子處方箋-健保代碼管制藥品-Composition](Composition-com-01-ep.html)
 - [電子處方箋-食藥署藥品-Composition](Composition-com-02-ep.html)
 - [電子處方箋-無健保代碼用藥-Composition](Composition-com-03-ep.html)
 - [電子處方箋-多項用藥-Composition](Composition-com-04-ep.html)
-- [電子處方箋-健保代碼管制藥品-Composition](Composition-com-05-ep.html)
-- [電子處方箋-特材-Composition](Composition-com-06-ep.html)
+- [電子處方箋-特材-Composition](Composition-com-05-ep.html)
 
 ### Organization
 
@@ -43,8 +43,8 @@
 - [電子處方箋-診斷-未明示側性之急性結膜炎](Condition-con-01-ep.html)
 - [電子處方箋-診斷-本態性(原發性)高血壓](Condition-con-02-ep.html)
 - [電子處方箋-診斷-源於冠狀動脈鈣化病變之冠狀動脈粥樣硬化症](Condition-con-03-ep.html)
-- [電子處方箋-診斷-第二型糖尿病，無併發症](Condition-con-04-ep.html)
-- [電子處方箋-診斷-注意力不足過動症](Condition-con-05-ep.html)
+- [電子處方箋-診斷-第二型糖尿病，未伴有併發症](Condition-con-04-ep.html)
+- [電子處方箋-診斷-注意力不足過動症，不專注主顯型](Condition-con-05-ep.html)
 ### Observation
 
 - [電子處方箋-體重](Observation-obs-ep.html)

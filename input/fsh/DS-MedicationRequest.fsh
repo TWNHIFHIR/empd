@@ -91,7 +91,7 @@ Usage: #example
 * encounter = Reference(enc-ds)
 * category[typesOfPrescription] = $TypeOfPrescription-cs#B "慢性病處方箋"
 * category[dispenseType] = $DispenseType-cs#0 "自行調劑、檢驗(查)或物理治療"
-* category[selfpayStatus] = $SelfpayStatus-cs#00 "自費"
+* category[selfpayStatus] = $SelfpayStatus-cs#Y "自費"
 * dosageInstruction.method = $sct#419385000 "Use"
 * dispenseRequest
   * validityPeriod

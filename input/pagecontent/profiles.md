@@ -57,6 +57,8 @@
 
     - [給付類別](StructureDefinition-Extension-PaymentCategory.html)
 
+    - [須被合併之處方箋註記](StructureDefinition-Extension-CombinedPrescriptionNote.html)
+
 ### 調劑單張
 
 + Bundle
