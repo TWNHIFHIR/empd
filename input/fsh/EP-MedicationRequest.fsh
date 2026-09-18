@@ -1,6 +1,8 @@
 Alias: $Medication-EMPD = https://nhicore.nhi.gov.tw/empd/StructureDefinition/Medication-EMPD
 Alias: $Coverage-EMR = https://nhicore.nhi.gov.tw/empd/StructureDefinition/Coverage-EMR
-Alias: $medication-path-tw = https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/medication-path-tw
+Alias: $medication-path-sct-tw-vs = https://twcore.mohw.gov.tw/ig/twcore/ValueSet/medication-path-sct-tw
+Alias: $medication-path-tw-cs = https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/medication-path-tw
+Alias: $medication-path-tw-vs = https://twcore.mohw.gov.tw/ig/twcore/ValueSet/medication-path-tw
 Alias: $TypeOfPrescription-cs = https://nhicore.nhi.gov.tw/empd/CodeSystem/TypeOfPrescription-cs
 Alias: $TypeOfPrescription-vs = https://nhicore.nhi.gov.tw/empd/ValueSet/TypeOfPrescription-vs
 Alias: $OrderType-cs = https://nhicore.nhi.gov.tw/empd/CodeSystem/OrderType-cs
@@ -10,6 +12,9 @@ Alias: $SelfpayStatus-vs = https://nhicore.nhi.gov.tw/empd/ValueSet/SelfpayStatu
 Alias: $medicationrequest-status = http://hl7.org/fhir/CodeSystem/medicationrequest-status
 Alias: $NonNHIMaterial-vs = https://nhicore.nhi.gov.tw/empd/ValueSet/NonNHIMaterial-vs
 Alias: $NonNHIMaterial-cs = https://nhicore.nhi.gov.tw/empd/CodeSystem/NonNHIMaterial-cs
+Alias: $NHIMedicationFrequency-cs = https://nhicore.nhi.gov.tw/empd/CodeSystem/NHIMedicationFrequency-cs
+Alias: $GTSAbbreviation = http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation
+
 
 ValueSet: MedicationRequestStatusEMPD
 Id: medication-request-status-empd
@@ -80,19 +85,25 @@ Description: "此Profile繼承於臺灣核心-藥品處方(TW Core MedicationReq
 * medicationReference only Reference($Medication-EMPD)
 * insurance 1.. MS
 * insurance only Reference(ClaimResponse or $Coverage-EMR)
-* note ^short = "關於處方的資訊或其他相關備註說明。[應填入須被合併之處方箋註記]。"
 * dosageInstruction 
   * timing 1..1
-    * repeat 1..1 MS
-      * frequency 1..1 MS
-        * ^short = "此事件於每一期間的發生頻率。[應填入頻率 Frequency]"
+    * repeat 0..1 
+      * frequency 0..1 MS
+        * ^short = "藥品於指定使用時間週期內之使用次數。[應填入藥品使用次數 Frequency]"
+    * code 1..1 MS
     * code from https://nhicore.nhi.gov.tw/empd/ValueSet/NHIMedicationFrequency-HL7-vs
       * ^short = "BID ｜ TID ｜ QID ｜ AM ｜ PM ｜ QD ｜ QOD ｜ + [應填入使用時間]"
+      * coding 1..* MS
       * coding from https://nhicore.nhi.gov.tw/empd/ValueSet/NHIMedicationFrequency-HL7-vs (required)
+      * coding ^short = "藥品使用頻率及服用時間。[應填入藥品使用頻率及服用時間 Usagetime]"
+      * text ^short = "藥品使用頻率及使用時間之文字表示，並可補充代碼未能完整表達之資訊。"
   * route 1..1
+  * route from $medication-path-sct-tw-vs (extensible)
     * ^short = "藥品應如何進入體內。[應填入給藥途徑 Route of Administration]"
+    * coding from $medication-path-tw-vs (extensible)
   * method MS
     * ^short = "用藥的技術。[應填入用藥指示]"
+    * text ^short = "給藥方法之文字描述；當無適用代碼可完整表達給藥方法時，可於此以文字說明。"
   * doseAndRate 1.. MS
     * dose[x] MS
       * ^slicing.discriminator.type = #type
@@ -121,15 +132,17 @@ Description: "此Profile繼承於臺灣核心-藥品處方(TW Core MedicationReq
   * ^short = "對替代藥品的任何限制。填寫說明：有特殊情況時才填寫。"
   * allowed[x] MS
   * reason MS
-    * ^short = "為什麼要（不）進行替換。[應填入不得以其他廠牌藥品替代之理由]，有特殊情況時才填寫。"
+    * text
+      * ^short = "為什麼要（不）進行替換。[應填入不得以其他廠牌藥品替代之理由]，有特殊情況時才填寫。"
 * obeys empd-ord-1
 * obeys empd-medreq-2
 * obeys empd-medreq-3
+* obeys empd-medreq-4
 
 Invariant: empd-ord-1
 Description: "當醫令類別不是特殊材料（code=3）時，應填寫劑量、劑量單位、頻率、給藥途徑、給藥日數及給藥總量。"
 Severity: #error
-Expression: "category.coding.where(system = 'https://nhicore.nhi.gov.tw/empd/CodeSystem/OrderType-cs' and code = '3').exists() or (dosageInstruction.doseAndRate.dose.ofType(Quantity).value.exists() and dosageInstruction.doseAndRate.dose.ofType(Quantity).unit.exists() and dosageInstruction.timing.repeat.frequency.exists() and dosageInstruction.route.exists() and dispenseRequest.expectedSupplyDuration.exists())"
+Expression: "category.coding.where(system = 'https://nhicore.nhi.gov.tw/empd/CodeSystem/OrderType-cs' and code = '3').exists() or (dosageInstruction.doseAndRate.dose.ofType(Quantity).value.exists() and dosageInstruction.doseAndRate.dose.ofType(Quantity).unit.exists() and dosageInstruction.timing.code.coding.code.exists() and dosageInstruction.route.exists() and dispenseRequest.expectedSupplyDuration.exists())"
 
 Invariant: empd-medreq-2
 Description: "未使用 medicationReference 表示藥品時，應於 medicationCodeableConcept 填寫特材代碼。"
@@ -140,6 +153,11 @@ Invariant: empd-medreq-3
 Description: "無健保代碼之特材暫編碼須符合編碼規則：共12碼，第1-2碼依現行特材代碼前2碼編碼原則(2碼)+第3碼為大寫「Z」(1碼)+第4-9碼為許可證號(6碼)+ 第10-12碼為流水號(3碼)"
 Severity: #error
 Expression: "medication.ofType(CodeableConcept).exists() implies (medication.ofType(CodeableConcept).coding.where(system = 'https://nhicore.nhi.gov.tw/empd/CodeSystem/NonNHIMaterial-cs').exists() and medication.ofType(CodeableConcept).coding.where(system = 'https://nhicore.nhi.gov.tw/empd/CodeSystem/NonNHIMaterial-cs').all(code.matches('^(AC|BB|C[ABCDEFGHKMPRTVX]|F[ABEHNPSU]|H[EFH]|LE|N[ABCE]|RR|S[ACS]|T[BFKS]|W[BD])Z.{6}[0-9]{3}$')))"
+
+Invariant: empd-medreq-4
+Description: "當藥品使用頻率為依照醫師指示使用（ASORDER）時，給藥方法（dosageInstruction.method）應填寫。"
+Severity: #error
+Expression: "dosageInstruction.where(timing.code.coding.where(system = 'https://nhicore.nhi.gov.tw/empd/CodeSystem/NHIMedicationFrequency-cs' and code = 'ASORDER').exists()).all(method.exists())"
 
 Instance: med-req-01-ep
 InstanceOf: MedicationRequestEMPD
@@ -158,10 +176,11 @@ Usage: #example
 * subject = Reference(pat-ep)
 * category[typesOfPrescription] = $TypeOfPrescription-cs#A
 * category[orderType] = $OrderType-cs#1
-* category[selfpayStatus] = $SelfpayStatus-cs#01 "非自費"
+* category[selfpayStatus] = $SelfpayStatus-cs#N "非自費"
 * dosageInstruction
   * timing.repeat.frequency = 3
-  * route = $medication-path-tw#OD
+  * timing.code = $GTSAbbreviation#TID
+  * route = $medication-path-tw-cs#OD
   * doseAndRate.doseQuantity
     * value = 1
     * unit = "drop"
@@ -178,7 +197,6 @@ Usage: #example
     * unit = "mL"
     * system = "http://unitsofmeasure.org"
     * code = #mL
-* note.text = "是,須合併"
 * extension
   * url = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Extension-TotalDuration"
   * valuePositiveInt = 7
@@ -203,10 +221,11 @@ Usage: #example
 * subject = Reference(pat-ep)
 * category[typesOfPrescription] = $TypeOfPrescription-cs#B
 * category[orderType] = $OrderType-cs#1
-* category[selfpayStatus] = $SelfpayStatus-cs#00 "自費"
+* category[selfpayStatus] = $SelfpayStatus-cs#Y "自費"
 * dosageInstruction
   * timing.repeat.frequency = 1
-  * route = $medication-path-tw#PO
+  * timing.code = $GTSAbbreviation#QD
+  * route = $medication-path-tw-cs#PO
   * doseAndRate.doseQuantity
     * value = 1
     * unit = "tablet"
@@ -223,7 +242,6 @@ Usage: #example
     * unit = "tablet"
     * system = "http://unitsofmeasure.org"
     * code = #{tbl}
-* note.text = "否,無須合併"
 * extension
   * url = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Extension-TotalDuration"
   * valuePositiveInt = 28
@@ -249,10 +267,11 @@ Usage: #example
 * subject = Reference(pat-ep)
 * category[typesOfPrescription] = $TypeOfPrescription-cs#B
 * category[orderType] = $OrderType-cs#1
-* category[selfpayStatus] = $SelfpayStatus-cs#00 "自費"
+* category[selfpayStatus] = $SelfpayStatus-cs#Y "自費"
 * dosageInstruction
   * timing.repeat.frequency = 1
-  * route = $medication-path-tw#PO
+  * timing.code = $GTSAbbreviation#QD
+  * route = $medication-path-tw-cs#PO
   * doseAndRate.doseQuantity
     * value = 5
     * unit = "mL"
@@ -269,7 +288,6 @@ Usage: #example
     * unit = "mL"
     * system = "http://unitsofmeasure.org"
     * code = #mL
-* note.text = "否,無須合併"
 * extension
   * url = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Extension-TotalDuration"
   * valuePositiveInt = 28
@@ -291,10 +309,11 @@ Usage: #example
 * subject = Reference(pat-ep)
 * category[typesOfPrescription] = $TypeOfPrescription-cs#A
 * category[orderType] = $OrderType-cs#1
-* category[selfpayStatus] = $SelfpayStatus-cs#01 "非自費"
+* category[selfpayStatus] = $SelfpayStatus-cs#N "非自費"
 * dosageInstruction
   * timing.repeat.frequency = 2 
-  * route = $medication-path-tw#PO 
+  * timing.code = $GTSAbbreviation#BID
+  * route = $medication-path-tw-cs#PO 
   * doseAndRate.doseQuantity 
     * value = 1
     * unit = "tablet"
@@ -311,7 +330,6 @@ Usage: #example
     * unit = "tablet"
     * system = "http://unitsofmeasure.org"
     * code = #{tbl}
-* note.text = "否,無須合併"
 * extension // 給藥總日份
   * url = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Extension-TotalDuration"
   * valuePositiveInt = 28
@@ -333,10 +351,11 @@ Usage: #example
 * subject = Reference(pat-ep)
 * category[typesOfPrescription] = $TypeOfPrescription-cs#A
 * category[orderType] = $OrderType-cs#1
-* category[selfpayStatus] = $SelfpayStatus-cs#01 "非自費"
+* category[selfpayStatus] = $SelfpayStatus-cs#N "非自費"
 * dosageInstruction
   * timing.repeat.frequency = 1
-  * route = $medication-path-tw#PO
+  * timing.code = $GTSAbbreviation#QD
+  * route = $medication-path-tw-cs#PO
   * doseAndRate.doseQuantity
     * value = 1
     * unit = "tablet"
@@ -353,7 +372,6 @@ Usage: #example
     * unit = "tablet"
     * system = "http://unitsofmeasure.org"
     * code = #{tbl}
-* note.text = "否,無須合併"
 * extension
   * url = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Extension-TotalDuration"
   * valuePositiveInt = 28
@@ -375,10 +393,11 @@ Usage: #example
 * subject = Reference(pat-ep)
 * category[typesOfPrescription] = $TypeOfPrescription-cs#A
 * category[orderType] = $OrderType-cs#1
-* category[selfpayStatus] = $SelfpayStatus-cs#01 "非自費"
+* category[selfpayStatus] = $SelfpayStatus-cs#N "非自費"
 * dosageInstruction
   * timing.repeat.frequency = 1
-  * route = $medication-path-tw#PO
+  * timing.code = $GTSAbbreviation#QD
+  * route = $medication-path-tw-cs#PO
   * doseAndRate.doseQuantity
     * value = 1
     * unit = "tablet"
@@ -395,7 +414,6 @@ Usage: #example
     * unit = "tablet"
     * system = "http://unitsofmeasure.org"
     * code = #{tbl}
-* note.text = "否,無須合併"
 * extension
   * url = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Extension-TotalDuration"
   * valuePositiveInt = 28
@@ -417,10 +435,11 @@ Usage: #example
 * subject = Reference(pat-ep)
 * category[typesOfPrescription] = $TypeOfPrescription-cs#D
 * category[orderType] = $OrderType-cs#1
-* category[selfpayStatus] = $SelfpayStatus-cs#01 "非自費"
+* category[selfpayStatus] = $SelfpayStatus-cs#N "非自費"
 * dosageInstruction
   * timing.repeat.frequency = 2
-  * route = $medication-path-tw#PO
+  * timing.code = $GTSAbbreviation#BID
+  * route = $medication-path-tw-cs#PO
   * doseAndRate.doseQuantity
     * value = 1
     * unit = "tablet"
@@ -437,7 +456,6 @@ Usage: #example
     * unit = "tablet"
     * system = "http://unitsofmeasure.org"
     * code = #{tbl}
-* note.text = "否,無須合併"
 * extension
   * url = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Extension-TotalDuration"
   * valuePositiveInt = 28
@@ -458,7 +476,7 @@ Usage: #example
 * subject = Reference(pat-ep)
 * category[typesOfPrescription] = $TypeOfPrescription-cs#A
 * category[orderType] = $OrderType-cs#3
-* category[selfpayStatus] = $SelfpayStatus-cs#00 "自費"
+* category[selfpayStatus] = $SelfpayStatus-cs#Y "自費"
 * medicationCodeableConcept.coding[nonNHIMaterial].system = "https://nhicore.nhi.gov.tw/empd/CodeSystem/NonNHIMaterial-cs"
 * medicationCodeableConcept.coding[nonNHIMaterial].code = #CBZ001650001
 * medicationCodeableConcept.coding[nonNHIMaterial].display = "“賽禾醫療”冠狀動脈血管內碎石術導管"
