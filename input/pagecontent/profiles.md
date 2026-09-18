@@ -44,12 +44,12 @@
 
 + Medication
 
-    - [電子處方箋-藥物處方內容(健保代碼)](StructureDefinition-Medication-EMPD.html)
+    - [電子處方箋-藥物處方內容](StructureDefinition-Medication-EMPD.html)
 
 
 + MedicationRequest
 
-    - [電子處方箋-處方內容(健保代碼)](StructureDefinition-MedicationRequest-EMPD.html)
+    - [電子處方箋-處方內容](StructureDefinition-MedicationRequest-EMPD.html)
 
 + Extension
 
