@@ -11,9 +11,10 @@ Description: """此Profiles繼承於臺灣核心-生命體徵(TW Core Observatio
 * ^version = "0.2.1"
 
 * code.coding
+  * system 1..1
   * system = "http://loinc.org" (exactly)
+  * code 1..1 
   * code = #29463-7 (exactly)
-  * display = "Body weight" (exactly)
 * value[x] ^slicing.discriminator.type = #type
   * ^slicing.discriminator.path = "$this"
   * ^slicing.rules = #open

@@ -8,7 +8,8 @@
 <div class="bg-warning" style="ol { counter-reset: item } li { display: block } li:before { content: counters（item, ">
 因考量實作需求，於2026/9/18異動以下內容：
 <ol>
-  <li>修改代碼 <a href="CodeSystem-SelfpayStatus-cs.html" target="_blank" rel="noopener">CodeSystem: 自費註記</a>：<code>00</code>（自費）改為 <code>Y</code>（自費），<code>01</code>（非自費）改為 <code>N</code>（非自費）。</li>
+  <li>新增代碼 <a href="ValueSet-NonNHIMaterial-vs.html">ValueSet: 健保特材</a>：供健保代碼特材使用</li>
+  <li>修改代碼 <a href="ValueSet-SelfpayStatus-cs.html">ValueSet: 自費註記</a>：<code>00</code>（自費）改為 <code>Y</code>（自費），<code>01</code>（非自費）改為 <code>N</code>（非自費）。</li>
   <li>新增 <a href="StructureDefinition-Extension-CombinedPrescriptionNote.html">Extension：須被合併之處方箋註記（Extension-CombinedPrescriptionNote）</a>：<code>Extension.value[x]</code> 限用 boolean 且必填，以 <code>valueBoolean</code> 表示是否須合併。</li>
   <li>修改 <a href="StructureDefinition-MedicationRequest-EMPD.html">Profile: 電子處方箋-處方內容（MedicationRequest-EMPD）</a>
     <ul>
@@ -18,6 +19,7 @@
           <li><code>timing.code</code>：名稱由「使用時間」調整為「藥品使用頻率及服用時間」，基數由 <code>0..1</code> 調整為 <code>1..1</code>；<code>timing.code.coding</code> 基數由 <code>0..*</code> 調整為 <code>1..*</code></li>
         </ul>
       </li>
+      <li><code>MedicationRequest.medication[x]:medicationCodeableConcept.coding:NHIMaterial</code>：用以表示健保代碼特材。</li>
       <li>不得以其他廠牌藥品替代之理由 原由<code>MedicationRequest.substitution.reason</code> 表示，調整為填寫其 <code>MedicationRequest.substitution.reason.text</code> 欄位。</li>
     </ul>
   </li>
@@ -108,7 +110,7 @@
       <li><code>MedicationRequest</code>（<code>empd-medreq-3</code>）：無健保代碼之特材暫編碼須符合編碼規則：共12碼，第1-2碼依現行特材代碼前2碼編碼原則、第3碼為大寫「Z」、第4-9碼為許可證號（6碼）、第10-12碼為流水號（3碼）</li>
       <li><code>MedicationRequest.status</code>：原MedicationRequest.note之處方箋註銷註記改至此欄位表示，限使用<code>active</code>表示處方箋有效、<code>cancelled</code>表示處方箋已註銷</li>
       <li><code>MedicationRequest.category:orderType</code>：基數<code>0..1</code>→<code>1..1</code>，醫令類別改為必填</li>
-      <li><code>MedicationRequest.medication[x]:medicationCodeableConcept</code>：用以表示無健保代碼特材，<code>system</code>固定填寫<code>https://nhicore.nhi.gov.tw/empd/CodeSystem/NonNHIMaterial-cs</code></li>
+      <li><code>MedicationRequest.medication[x]:medicationCodeableConcept.coding:nonNHIMaterial</code>：用以表示無健保代碼特材，<code>system</code>固定填寫<code>https://nhicore.nhi.gov.tw/empd/CodeSystem/NonNHIMaterial-cs</code></li>
       <li><code>MedicationRequest.note</code>：<ul><li>改為表示「須被合併之處方箋註記」</li><li>原「處方箋註銷註記」改至 <code>MedicationRequest.status</code></li><li>原「自費註記」改至 <code>MedicationRequest.category:selfpayStatus</code></li></ul></li>
       <li><code>MedicationRequest.dosageInstruction.doseAndRate.dose[x]</code>及<code>doseQuantity</code>：基數<code>1..1</code>→<code>0..1</code>，當為特材時可不填</li>
     </ul>

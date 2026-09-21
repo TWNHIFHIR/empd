@@ -72,3 +72,6 @@ A definition for CodeSystem 'https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/icd
 
 # 介紹頁面使用之正式版 IG 連結，非版本化 Canonical Reference，予以忽略。
 %for "正式版 IG" is a canonical link and is therefore unsafe with regard to versions%
+
+# Encounter.serviceType.coding 提供三種 slice 選項，並透過 parent element 的最大基數 1 限制僅能擇一使用，故此訊息屬預期之 Profile 設計。
+The slice definition for Encounter.serviceType.coding has a maximum of 1 but the slices add up to a maximum of 3. Check that this is what is intended

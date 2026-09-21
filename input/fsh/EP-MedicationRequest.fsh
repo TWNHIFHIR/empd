@@ -14,6 +14,7 @@ Alias: $NonNHIMaterial-vs = https://nhicore.nhi.gov.tw/empd/ValueSet/NonNHIMater
 Alias: $NonNHIMaterial-cs = https://nhicore.nhi.gov.tw/empd/CodeSystem/NonNHIMaterial-cs
 Alias: $NHIMedicationFrequency-cs = https://nhicore.nhi.gov.tw/empd/CodeSystem/NHIMedicationFrequency-cs
 Alias: $GTSAbbreviation = http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation
+Alias: $NHIMaterial-vs = https://nhicore.nhi.gov.tw/empd/ValueSet/NHIMaterial-vs
 
 
 ValueSet: MedicationRequestStatusEMPD
@@ -43,6 +44,23 @@ Description: "此Profile繼承於臺灣核心-藥品處方(TW Core MedicationReq
 * identifier 2..
   * ^short = "此藥品處方的外部識別碼。[應填入處方箋單號 Prescription No.與項次 Item]"
   * ^definition = "與此藥品處方相關的識別碼，這些識別碼是由業務流程定義的，並且/或者在對resource本身的直接URL參照不合適的情況下用來參照它。它們是由執行者或其他系統指定給此resource的業務用識別碼，並隨著resource的更新和從伺服器到伺服器的傳播而保持不變。\r\n項次 Item: 使民眾及藥局確認藥品品項數"
+* identifier ^slicing.discriminator.type = #value
+* identifier ^slicing.discriminator.path = "use"
+* identifier ^slicing.rules = #closed
+* identifier contains 
+    PrescriptionNo 1..1 MS and
+    Item 1..1 MS
+
+* identifier[PrescriptionNo].use 1..1 MS
+* identifier[PrescriptionNo].use = #usual
+* identifier[PrescriptionNo].value 1..1 MS
+* identifier[PrescriptionNo].value ^short = "[應填入處方箋單號 Prescription No.]"
+
+* identifier[Item].use 1..1 MS
+* identifier[Item].use = #secondary
+* identifier[Item].value 1..1 MS
+* identifier[Item].value ^short = "[應填入處方箋項次 Item]"
+
 * category ^slicing.discriminator.type = #pattern
   * ^slicing.discriminator.path = "$this"
   * ^slicing.rules = #open
@@ -62,15 +80,21 @@ Description: "此Profile繼承於臺灣核心-藥品處方(TW Core MedicationReq
   * ^binding.description = "自費註記；應填入[SelfpayStatus](ValueSet-SelfpayStatus-vs.html)值集中適合的代碼。"
 * medication[x] only CodeableConcept-tw or Reference($Medication-EMPD)
 * medicationCodeableConcept MS
-* medicationCodeableConcept from $NonNHIMaterial-vs  (example)
-* medicationCodeableConcept.coding contains nonNHIMaterial 1..1 MS
+* medicationCodeableConcept.coding contains 
+    NHIMaterial 0..1 MS and
+    nonNHIMaterial 0..1 MS
 * medicationCodeableConcept.coding[fda-medication-tw] 0..0
 * medicationCodeableConcept.coding[rxnorm-medication-us-core] 0..0
 * medicationCodeableConcept.coding[nhi-medication-tw] 0..0
 * medicationCodeableConcept.coding[nhi-medication-ch-herb-tw] 0..0
 * medicationCodeableConcept.coding[atc-medication-code] 0..0
 * medicationCodeableConcept.coding[snomedct-medication-codes] 0..0
-* medicationCodeableConcept.coding[nonNHIMaterial] 1..1 
+* medicationCodeableConcept.coding[NHIMaterial] 0..1
+* medicationCodeableConcept.coding[NHIMaterial] from $NHIMaterial-vs (required)
+* medicationCodeableConcept.coding[NHIMaterial] ^short = "此為中央健康保險署(NHI)維護之特材代碼，主要針對申報使用，更新頻率相對頻繁，可免費使用，可依情境選用此代碼。"
+* medicationCodeableConcept.coding[NHIMaterial].system 1..1
+* medicationCodeableConcept.coding[NHIMaterial].code 1..1
+* medicationCodeableConcept.coding[nonNHIMaterial] 0..1 
 * medicationCodeableConcept.coding[nonNHIMaterial] from $NonNHIMaterial-vs (example)
 * medicationCodeableConcept.coding[nonNHIMaterial] ^short = "無健保代碼之特材健保代碼暫編碼。依下列說明編碼(共12碼):第1- 2 碼依現行特材代碼前 2 碼編碼原則 (2碼)+ 第 3 碼為 半形「 z 」 (1 碼)+ 第 4-9 碼為許可證號 (6 碼)+ 第 10-12 碼為流水號 (3 碼) 。"
 * medicationCodeableConcept.coding[nonNHIMaterial] ^definition = "當特材無正式健保代碼時，使用本IG定義之無健保代碼特材暫編碼表示健保代碼欄位。"
@@ -131,8 +155,8 @@ Description: "此Profile繼承於臺灣核心-藥品處方(TW Core MedicationReq
 * substitution MS
   * ^short = "對替代藥品的任何限制。填寫說明：有特殊情況時才填寫。"
   * allowed[x] MS
-  * reason MS
-    * text
+  * reason 1..1 MS
+    * text 1..1
       * ^short = "為什麼要（不）進行替換。[應填入不得以其他廠牌藥品替代之理由]，有特殊情況時才填寫。"
 * obeys empd-ord-1
 * obeys empd-medreq-2
@@ -165,10 +189,13 @@ Title: "電子處方箋-健保代碼-YEN KUANG EYE DROPS"
 Description: "電子處方箋-處方內容(MedicationRequest)使用健保代碼A000015421 YEN KUANG EYE DROPS。"
 Usage: #example
 * meta.profile = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/MedicationRequest-EMPD"
-* identifier[0]
+* identifier[PrescriptionNo]
+  * use = #usual
   * system = "https://nhicore.nhi.gov.tw/empd/identifier/prescription"
   * value = "Med000001"
-* identifier[+].value = "1"
+* identifier[Item]
+  * use = #secondary
+  * value = "1"
 * insurance = Reference(cov-01-ep)
 * status = #active
 * intent = #order
@@ -210,10 +237,13 @@ Title: "電子處方箋-處方內容-食藥署藥品許可證"
 Description: "電子處方箋-處方內容(MedicationRequest)使用衛署藥輸字第024969號之可得安穩 320/12.5 毫克膜衣錠。"
 Usage: #example
 * meta.profile = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/MedicationRequest-EMPD"
-* identifier[0]
+* identifier[PrescriptionNo]
+  * use = #usual
   * system = "https://nhicore.nhi.gov.tw/empd/identifier/prescription"
   * value = "Med000002"
-* identifier[+].value = "1"
+* identifier[Item]
+  * use = #secondary
+  * value = "1"
 * insurance = Reference(cov-01-ep)
 * status = #active
 * intent = #order
@@ -256,10 +286,13 @@ Title: "電子處方箋-處方內容-無健保代碼自費藥物"
 Description: "電子處方箋-處方內容(MedicationRequest)使用無健保代碼 Amlodipine 口服懸液 1 mg/mL（院內調製）。"
 Usage: #example
 * meta.profile = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/MedicationRequest-EMPD"
-* identifier[0]
+* identifier[PrescriptionNo]
+  * use = #usual
   * system = "https://nhicore.nhi.gov.tw/empd/identifier/prescription"
   * value = "Med000003"
-* identifier[+].value = "1"
+* identifier[Item]
+  * use = #secondary
+  * value = "1"
 * insurance = Reference(cov-02-ep)
 * status = #active
 * intent = #order
@@ -298,10 +331,12 @@ Title: "電子處方箋-處方內容-健保代碼BC071521G0"
 Description: "電子處方箋-處方內容(MedicationRequest)使用健保代碼BC071521G0 庫魯化錠 500 毫克。"
 Usage: #example
 * meta.profile = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/MedicationRequest-EMPD"
-* identifier[0]
+* identifier[PrescriptionNo]
   * system = "https://nhicore.nhi.gov.tw/empd/identifier/prescription"
   * value = "Med000004"
-* identifier[+].value = "1"
+* identifier[Item]
+  * use = #secondary
+  * value = "1"
 * insurance = Reference(cov-01-ep)
 * status = #active
 * intent = #order
@@ -340,10 +375,12 @@ Title: "電子處方箋-處方內容-健保代碼BC26406100"
 Description: "電子處方箋-電子處方箋-處方內容(MedicationRequest)使用健保代碼BC26406100 恩排糖膜衣錠 10 毫克。"
 Usage: #example
 * meta.profile = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/MedicationRequest-EMPD"
-* identifier[0]
+* identifier[PrescriptionNo]
   * system = "https://nhicore.nhi.gov.tw/empd/identifier/prescription"
   * value = "Med000004"
-* identifier[+].value = "2"
+* identifier[Item]
+  * use = #secondary
+  * value = "2"
 * insurance = Reference(cov-01-ep)
 * status = #active
 * intent = #order
@@ -382,10 +419,12 @@ Title: "電子處方箋-處方內容-健保代碼AB48089100"
 Description: "電子處方箋-處方內容(MedicationRequest)使用健保代碼AB48089100 代蜜持續性藥效錠 30 毫克。"
 Usage: #example
 * meta.profile = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/MedicationRequest-EMPD"
-* identifier[0]
+* identifier[PrescriptionNo]
   * system = "https://nhicore.nhi.gov.tw/empd/identifier/prescription"
   * value = "Med000004"
-* identifier[+].value = "3"
+* identifier[Item]
+  * use = #secondary
+  * value = "3"
 * insurance = Reference(cov-01-ep)
 * status = #active
 * intent = #order
@@ -424,10 +463,12 @@ Title: "電子處方箋-處方內容-健保代碼BC27080100"
 Description: "電子處方箋-處方內容(MedicationRequest)使用健保代碼BC27080100 利他能錠 10 毫克。"
 Usage: #example
 * meta.profile = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/MedicationRequest-EMPD"
-* identifier[0]
+* identifier[PrescriptionNo]
   * system = "https://nhicore.nhi.gov.tw/empd/identifier/prescription"
   * value = "Med000004"
-* identifier[+].value = "1"
+* identifier[Item]
+  * use = #secondary
+  * value = "1"
 * insurance = Reference(cov-01-ep)
 * status = #active
 * intent = #order
@@ -466,10 +507,12 @@ Title: "電子處方箋-無健保代碼特材－冠狀動脈血管內碎石術�
 Description: "電子處方箋-處方內容(MedicationRequest)使用無健保代碼之特材 冠狀動脈血管內碎石術導管。"
 Usage: #example
 * meta.profile = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/MedicationRequest-EMPD"
-* identifier[0]
+* identifier[PrescriptionNo]
   * system = "https://nhicore.nhi.gov.tw/empd/identifier/prescription"
   * value = "Med000005"
-* identifier[+].value = "1"
+* identifier[Item]
+  * use = #secondary
+  * value = "1"
 * insurance = Reference(cov-01-ep)
 * status = #active
 * intent = #order

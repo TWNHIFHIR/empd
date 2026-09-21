@@ -11,6 +11,7 @@
 + [自費狀態](CodeSystem-SelfpayStatus-cs.html)
 + [醫令調劑方式](CodeSystem-DispenseType-cs.html)
 + [部分負擔](CodeSystem-PartCode-cs.html)
++ [健保代碼之特材](CodeSystem-NHIMaterial-cs.html)
 + [無健保代碼之藥品](CodeSystem-NonNHIMedication-cs.html)
 + [無健保代碼之特材](CodeSystem-NonNHIMaterial-cs.html)
 
@@ -26,6 +27,7 @@
 + [自費狀態](ValueSet-SelfpayStatus-vs.html)
 + [醫令調劑方式](ValueSet-DispenseType-vs.html)
 + [部分負擔](ValueSet-PartCode-vs.html)
++ [健保代碼之特材](ValueSet-NHIMaterial-vs.html)
 + [無健保代碼之藥品](ValueSet-NonNHIMedication-vs.html)
 + [無健保代碼之特材](ValueSet-NonNHIMaterial-vs.html)
 
