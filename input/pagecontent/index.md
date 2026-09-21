@@ -9,7 +9,7 @@
 因考量實作需求，於2026/9/18異動以下內容：
 <ol>
   <li>新增代碼 <a href="ValueSet-NonNHIMaterial-vs.html">ValueSet: 健保特材</a>：供健保代碼特材使用</li>
-  <li>修改代碼 <a href="ValueSet-SelfpayStatus-cs.html">ValueSet: 自費註記</a>：<code>00</code>（自費）改為 <code>Y</code>（自費），<code>01</code>（非自費）改為 <code>N</code>（非自費）。</li>
+  <li>修改代碼 <a href="ValueSet-SelfpayStatus-vs.html">ValueSet: 自費註記</a>：<code>00</code>（自費）改為 <code>Y</code>（自費），<code>01</code>（非自費）改為 <code>N</code>（非自費）。</li>
   <li>新增 <a href="StructureDefinition-Extension-CombinedPrescriptionNote.html">Extension：須被合併之處方箋註記（Extension-CombinedPrescriptionNote）</a>：<code>Extension.value[x]</code> 限用 boolean 且必填，以 <code>valueBoolean</code> 表示是否須合併。</li>
   <li>修改 <a href="StructureDefinition-MedicationRequest-EMPD.html">Profile: 電子處方箋-處方內容（MedicationRequest-EMPD）</a>
     <ul>
