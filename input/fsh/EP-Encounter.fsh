@@ -44,6 +44,10 @@ Description: "此Profile繼承於臺灣核心-就醫事件(TW Core Encounter) �
 //* serviceType from TWMedicalDepartmentSCT (preferred)
 * serviceType 1..
   * ^short = "服務的特定型別。[應填入科別 Department]"
+* serviceType.coding 1..1
+* serviceType.coding[TWMedicalDepartmentSCT].code 1..1
+* serviceType.coding[TWMedicalConsultationDepartment].code 1..1
+* serviceType.coding[TWMedicalTreatmentDepartment].code 1..1
 * subject 1..
 * period 1..
   * start 1.. MS
