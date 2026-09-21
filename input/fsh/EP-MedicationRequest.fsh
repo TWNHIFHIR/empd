@@ -51,11 +51,13 @@ Description: "此Profile繼承於臺灣核心-藥品處方(TW Core MedicationReq
     PrescriptionNo 1..1 MS and
     Item 1..1 MS
 
+* identifier[PrescriptionNo] ^short = "用以識別電子處方箋之處方箋單號"
 * identifier[PrescriptionNo].use 1..1 MS
 * identifier[PrescriptionNo].use = #usual
 * identifier[PrescriptionNo].value 1..1 MS
 * identifier[PrescriptionNo].value ^short = "[應填入處方箋單號 Prescription No.]"
 
+* identifier[Item] ^short = "用以識別電子處方箋中處方項目之項次"
 * identifier[Item].use 1..1 MS
 * identifier[Item].use = #secondary
 * identifier[Item].value 1..1 MS
