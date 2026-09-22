@@ -6,6 +6,60 @@
 <br/>
 
 <div class="bg-warning" style="ol { counter-reset: item } li { display: block } li:before { content: counters（item, ">
+因考量實作需求，於2026/9/22異動以下內容：
+<ol>
+  <li>修改 <a href="StructureDefinition-Patient-EMPD.html">Profile: 電子處方箋-病人基本資料（Patient-EMPD）</a>
+    <ul>
+      <li><code>Patient.name:usual</code>：改為必填（<code>1..1</code>），並須填寫 <code>name:usual.text</code>，長度限制 60。</li>
+      <li><code>Patient.identifier:medicalRecord.value</code>：長度限制 10。</li>
+    </ul>
+  </li>
+  <li>修改 <a href="StructureDefinition-Observation-EMPD-BodyWeight.html">Profile: 電子處方箋-體重（Observation-EMPD-BodyWeight）</a>
+    <ul>
+      <li><code>Observation.valueQuantity.value</code>：數字限制 6,2（總長度不得超過 6 位數，小數不得超過 2 位，最大 9999.99；Constraint：<code>empd-obs-bw-1</code>）。</li>
+    </ul>
+  </li>
+  <li>修改 <a href="StructureDefinition-Encounter-EMPD.html">Profile: 電子處方箋-門診基本資料（Encounter-EMPD）</a>
+    <ul>
+      <li><code>Encounter.identifier:medical-encounter-identifier.value</code>：長度限制 20。</li>
+      <li><code>Encounter.identifier:func-sequence-number.value</code>：長度限制 4。</li>
+    </ul>
+  </li>
+  <li>修改 <a href="StructureDefinition-Practitioner-EMPD.html">Profile: 電子處方箋-醫事人員基本資料（Practitioner-EMPD）</a>
+    <ul>
+      <li><code>Practitioner.name.text</code>：長度限制 60。</li>
+      <li><code>Practitioner.telecom.value</code>：長度限制 20。</li>
+      <li><code>Practitioner.identifier:medicalLicenseNumber.value</code>：長度限制 30。</li>
+      <li><code>Practitioner.qualification.identifier.value</code>：長度限制 30。</li>
+    </ul>
+  </li>
+  <li>修改 <a href="StructureDefinition-Condition-EMPD.html">Profile: 電子處方箋-診斷（Condition-EMPD）</a>
+    <ul>
+      <li><code>Condition.note.text</code>：長度限制 1000。</li>
+    </ul>
+  </li>
+  <li>修改 <a href="StructureDefinition-MedicationRequest-EMPD.html">Profile: 電子處方箋-處方內容（MedicationRequest-EMPD）</a>
+    <ul>
+      <li><code>MedicationRequest.identifier:PrescriptionNo.value</code>：長度限制 64。</li>
+      <li><code>MedicationRequest.identifier:Item.value</code>：長度限制 2。</li>
+      <li><code>MedicationRequest.extension:TotalMedicationDays.value[x]</code>：給藥總日份不得超過 999。</li>
+      <li><code>MedicationRequest.dispenseRequest.numberOfRepeatsAllowed</code>：連續處方可調劑次數不得超過 99。</li>
+      <li><code>MedicationRequest.dispenseRequest.expectedSupplyDuration</code>：給藥日數不得超過 999 天，單位固定為天（<code>d</code>）。</li>
+      <li><code>MedicationRequest.dispenseRequest.quantity.value</code>：數字限制 6,2（Constraint：<code>empd-medreq-6</code>）。</li>
+      <li><code>MedicationRequest.dosageInstruction.doseAndRate.doseQuantity.value</code>：數字限制 11,3（Constraint：<code>empd-medreq-5</code>）。</li>
+      <li><code>MedicationRequest.dosageInstruction.doseAndRate.doseQuantity.unit</code>：長度限制 30。</li>
+      <li><code>MedicationRequest.dosageInstruction.method.text</code>：長度限制 600。</li>
+      <li><code>MedicationRequest.substitution.reason.text</code>：長度限制 800。</li>
+    </ul>
+  </li>
+  <li>修改 <a href="StructureDefinition-Medication-EMPD.html">Profile: 電子處方箋-藥物處方內容（Medication-EMPD）</a>
+    <ul>
+      <li><code>Medication.code.text</code>：長度限制 600。</li>
+    </ul>
+  </li>
+</ol>
+請留意這些異動，以避免影響您的實作。
+<hr style="border: 0; border-top: 2px solid #b8c2cc; margin: 28px 0;">
 因考量實作需求，於2026/9/18異動以下內容：
 <ol>
   <li>新增代碼 <a href="ValueSet-NonNHIMaterial-vs.html">ValueSet: 健保特材</a>：供健保代碼特材使用</li>

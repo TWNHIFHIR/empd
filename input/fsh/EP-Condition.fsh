@@ -17,6 +17,7 @@ Description: """此Profiles繼承於臺灣核心-病情、問題或診斷(TW Cor
   * coding[icd10-cm-2023].code 1..1
 * note 0..
   * ^short = "關於此Condition的附加資訊。[應填入醫療評估內容註記]。"
+  * text ^maxLength = 1000
 
 Instance: con-01-ep
 InstanceOf: ConditionEMPD

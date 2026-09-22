@@ -4,13 +4,12 @@
     "path": "https://nhicore.nhi.gov.tw/empd/0.2.1",
     "mode": "milestone",
     "milestone" : true,
-    "status": "trial-use",
-    "sequence": "Releases",
-    "release-label": "ci-build",
+    "status": "ci-build",
+    "sequence": "STU0.2.1",
     "desc": "修改Profiles、CodeSystems及限制",
     "descmd": "本版本主要修正與調整內容如下：\n\n1. 調整電子處方箋相關 Profile 及欄位定義。\n2. 新增及調整相關 CodeSystem 與 ValueSet。\n3. 調整 Constraint 與驗證規則。\n4. 新增及修正電子處方箋情境範例。\n\n詳細說明請參照[應用說明](https://nhicore.nhi.gov.tw/empd/index.html)",
     "title": "臺灣電子處方箋與調劑單張實作指引(TW EMPD IG)",
-    "ci-build": "https://nhicore.nhi.gov.tw/empd/build",
+    "ci-build": "https://build.fhir.org/ig/TWNHIFHIR/empd/",
     "category": "NHI",
     "introduction": "臺灣電子處方箋與調劑單張實作指引(TW EMPD IG)定義適用於臺灣電子處方箋以及調劑單張之相關規範，包含Profiles、範例文件和語意術語等。"
 }

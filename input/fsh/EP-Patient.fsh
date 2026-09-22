@@ -13,8 +13,13 @@ Description: """此Profiles繼承於臺灣核心-病人(TW Core Patient) ，並�
 * identifier 1..*
 * identifier ^short = "病人的身份識別碼（identifier），通常為業務目的所使用的識別碼，例如病歷號。[應填入身分證號Personal ID Number與病歷號碼 Chart No.]"
 * identifier[medicalRecord] ^short = "適用病歷號。(病歷號於電子處方箋為非必填欄位)"
+* identifier[medicalRecord].value ^maxLength = 10
 * name 1..
   * ^short = "病人的姓名。[應填入病患姓名 Name]"
+* name[usual] 1..1
+  * ^short = "病人的姓名。[應填入病患姓名 Name]"
+  * text 1..1
+    * ^maxLength = 60
 * gender ^short = "male ｜ female ｜ other ｜ unknown。[應填入性別 Gender]"
 * birthDate ^short = "病人出生日期。[應填入出生日期 Birth Date]"
 * obeys pat-id-1
@@ -40,8 +45,8 @@ Usage: #example
   * system = "https://www.tmip.com.tw/"
   * value = "A12345"
   * type = $v2-0203#MR
-* name
-  * use = #official
+* name[usual]
+  * use = #usual
   * text = "甄○康"
 * gender = #female
 * birthDate = "1985-01-02"

@@ -13,8 +13,7 @@ version: 0.2.1
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
 copyrightYear: 2025+
 releaseLabel: ci-build
-# license: CC0-1.0 # https://www.hl7.org/fhir/valueset-spdx-license.html
-# jurisdiction: urn:iso:std:iso:3166#TW "Taiwan, Province of China" # https://www.hl7.org/fhir/valueset-jurisdiction.html
+license: CC0-1.0 # https://www.hl7.org/fhir/valueset-spdx-license.html
 publisher:
   name: NHI
   url: https://www.nhi.gov.tw/en/mp-2.html

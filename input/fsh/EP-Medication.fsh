@@ -16,6 +16,7 @@ Description: """此Profiles繼承於臺灣核心-藥品(TW Core Medication) ，�
   * ^short = "指明這種藥品的代碼。[應填入健保代碼與藥品商品名稱 Brand Name]，健保代碼(code)；商品名稱 Brand Name(display)。"
   * text 1..
     * ^short = "概念的文字表示法。[應填入學名 Generic Name]"
+    * ^maxLength = 600
 * form 1..
   * ^short = "powder ｜ tablets ｜ capsule +此為SNOMED CT代碼，若機構已有購買相關授權，亦可使用。[應填入劑型 Dosage Form]"
   * text 1..

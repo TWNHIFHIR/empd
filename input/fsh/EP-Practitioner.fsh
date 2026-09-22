@@ -11,12 +11,16 @@ Description: "此Profile繼承於臺灣核心-健康照護服務提供人員(TW 
 * identifier[medicalLicenseNumber] ^short = "醫師證號。開立第一級、第二級及第三級管制藥品專用處方箋，此欄位為必填。[應填入醫事人員證書字號]"
 * identifier[medicalLicenseNumber].system = "https://dep.mohw.gov.tw/DOMA"
 * identifier[medicalLicenseNumber].system ^short  = "醫師證號的命名空間（namespace），請固定填「https://dep.mohw.gov.tw/DOMA」。"
+* identifier[medicalLicenseNumber].value ^maxLength = 30
 * name ^short = "照護服務提供人員的姓名。[應填入醫師姓名 Physician Name]"
+* name.text ^maxLength = 60
 * telecom ^short = "照護服務提供人員的詳細聯絡方式（適用於所有角色）。[應填入醫師聯絡電話]。開立第一級、第二級及第三級管制藥品專用處方箋，此欄位為必填。"
+* telecom.value ^maxLength = 20
 * qualification 0..1 MS
   * identifier 1..1 MS
     * value 1..1
       * ^short = "唯一值。開立第一級、第二級及第三級管制藥品專用處方箋，此欄位為必填。[應填入管制藥品使用執照號碼]"
+      * ^maxLength = 30
     * system 1..1
     * system = "https://cdmis.fda.gov.tw"
       * ^short = "管制藥品使用執照的命名空間（namespace），請固定填「https://cdmis.fda.gov.tw」。"

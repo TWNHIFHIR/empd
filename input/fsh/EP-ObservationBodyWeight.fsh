@@ -27,6 +27,12 @@ Description: """此Profiles繼承於臺灣核心-生命體徵(TW Core Observatio
   * system = "http://unitsofmeasure.org"
   * unit = "kg"
   * unit MS
+* obeys empd-obs-bw-1
+
+Invariant: empd-obs-bw-1
+Description: "體重數值總長度不得超過6位數，其中小數不得超過2位（最大 9999.99）。"
+Severity: #error
+Expression: "value.ofType(Quantity).value.all(toString().matches('^[0-9]{1,4}([.][0-9]{1,2})?$'))"
 
 Instance: obs-ep
 InstanceOf: ObservationEMPDBodyWeight

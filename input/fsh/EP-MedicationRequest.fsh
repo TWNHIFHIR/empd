@@ -39,6 +39,7 @@ Description: "此Profile繼承於臺灣核心-藥品處方(TW Core MedicationReq
 * extension contains ExtensionTotalDuration named TotalMedicationDays 1..1
 * extension[TotalMedicationDays] ^short = "擴充的資料項目。[應填入電子處方箋給藥總日份 Total Medication Days]"
   * ^isModifier = false
+* extension[TotalMedicationDays].value[x] ^maxValuePositiveInt = 999
 * status from MedicationRequestStatusEMPD (required)
 * status ^short = "表示處方箋目前之狀態。本實作指引限使用 active 與 cancelled；active 表示處方箋有效，cancelled 表示處方箋已註銷。[應填入處方箋註銷註記]"
 * identifier 2..
@@ -56,12 +57,14 @@ Description: "此Profile繼承於臺灣核心-藥品處方(TW Core MedicationReq
 * identifier[PrescriptionNo].use = #usual
 * identifier[PrescriptionNo].value 1..1 MS
 * identifier[PrescriptionNo].value ^short = "[應填入處方箋單號 Prescription No.]"
+* identifier[PrescriptionNo].value ^maxLength = 64
 
 * identifier[Item] ^short = "用以識別電子處方箋中處方項目之項次"
 * identifier[Item].use 1..1 MS
 * identifier[Item].use = #secondary
 * identifier[Item].value 1..1 MS
 * identifier[Item].value ^short = "[應填入處方箋項次 Item]"
+* identifier[Item].value ^maxLength = 2
 
 * category ^slicing.discriminator.type = #pattern
   * ^slicing.discriminator.path = "$this"
@@ -130,6 +133,7 @@ Description: "此Profile繼承於臺灣核心-藥品處方(TW Core MedicationReq
   * method MS
     * ^short = "用藥的技術。[應填入用藥指示]"
     * text ^short = "給藥方法之文字描述；當無適用代碼可完整表達給藥方法時，可於此以文字說明。"
+    * text ^maxLength = 600
   * doseAndRate 1.. MS
     * dose[x] MS
       * ^slicing.discriminator.type = #type
@@ -142,28 +146,37 @@ Description: "此Profile繼承於臺灣核心-藥品處方(TW Core MedicationReq
         * ^short = "Numerical value (with implicit precision).[應填入劑量 Dose]"
       * unit 1.. MS
         * ^short = "Unit representation.[應填入劑量單位 Dose units]"
+        * ^maxLength = 30
 * dispenseRequest 1..1 
   * validityPeriod 1..1
     * ^short = "處方可用以配藥的有效期限，包含起日與迄日[應填入處方箋有效日期]"
   * numberOfRepeatsAllowed 1..1
     * ^short = "可重複領藥的次數。[應填入連續處方可調劑次數 Refill Times]"
+    * ^maxValueUnsignedInt = 99
   * quantity 1..1 MS
     * value 1.. MS
       * ^short = "Numerical value (with implicit precision).[應填入給藥總量 Total Amount]"
     * unit 1.. MS
       * ^short = "Unit representation.[應填入給藥總量單位 Dose units]"
   * expectedSupplyDuration 0..1
-    * ^short = "每次配藥可持續的天數。[應填入給藥日數 Medication Days]"
+    * ^short = "每次配藥可持續的天數。[應填入給藥日數 Medication Days]，不得超過999天。"
+    * value ^maxValueDecimal = 999
+    * unit = "d"
+    * system = "http://unitsofmeasure.org"
+    * code = #d
 * substitution MS
   * ^short = "對替代藥品的任何限制。填寫說明：有特殊情況時才填寫。"
   * allowed[x] MS
   * reason 1..1 MS
     * text 1..1
       * ^short = "為什麼要（不）進行替換。[應填入不得以其他廠牌藥品替代之理由]，有特殊情況時才填寫。"
+      * ^maxLength = 800
 * obeys empd-ord-1
 * obeys empd-medreq-2
 * obeys empd-medreq-3
 * obeys empd-medreq-4
+* obeys empd-medreq-5
+* obeys empd-medreq-6
 
 Invariant: empd-ord-1
 Description: "當醫令類別不是特殊材料（code=3）時，應填寫劑量、劑量單位、頻率、給藥途徑、給藥日數及給藥總量。"
@@ -184,6 +197,16 @@ Invariant: empd-medreq-4
 Description: "當藥品使用頻率為依照醫師指示使用（ASORDER）時，給藥方法（dosageInstruction.method）應填寫。"
 Severity: #error
 Expression: "dosageInstruction.where(timing.code.coding.where(system = 'https://nhicore.nhi.gov.tw/empd/CodeSystem/NHIMedicationFrequency-cs' and code = 'ASORDER').exists()).all(method.exists())"
+
+Invariant: empd-medreq-5
+Description: "劑量（dosageInstruction.doseAndRate.doseQuantity.value）總長度不得超過11位數，其中小數不得超過3位。"
+Severity: #error
+Expression: "dosageInstruction.doseAndRate.dose.ofType(Quantity).value.all(toString().matches('^[0-9]{1,8}([.][0-9]{1,3})?$'))"
+
+Invariant: empd-medreq-6
+Description: "給藥總量（dispenseRequest.quantity.value）總長度不得超過6位數，其中小數不得超過2位。"
+Severity: #error
+Expression: "dispenseRequest.quantity.value.all(toString().matches('^[0-9]{1,4}([.][0-9]{1,2})?$'))"
 
 Instance: med-req-01-ep
 InstanceOf: MedicationRequestEMPD
@@ -226,9 +249,7 @@ Usage: #example
     * unit = "mL"
     * system = "http://unitsofmeasure.org"
     * code = #mL
-* extension
-  * url = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Extension-TotalDuration"
-  * valuePositiveInt = 7
+* extension[TotalMedicationDays].valuePositiveInt = 7
 * substitution
   * allowedBoolean = true
   * reason.text = "不可替代時始需註明"
@@ -274,9 +295,7 @@ Usage: #example
     * unit = "tablet"
     * system = "http://unitsofmeasure.org"
     * code = #{tbl}
-* extension
-  * url = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Extension-TotalDuration"
-  * valuePositiveInt = 28
+* extension[TotalMedicationDays].valuePositiveInt = 28
 * substitution
   * allowedBoolean = true
   * reason.text = "不可替代時始需註明"
@@ -323,9 +342,7 @@ Usage: #example
     * unit = "mL"
     * system = "http://unitsofmeasure.org"
     * code = #mL
-* extension
-  * url = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Extension-TotalDuration"
-  * valuePositiveInt = 28
+* extension[TotalMedicationDays].valuePositiveInt = 28
 
 Instance: med-req-04-ep
 InstanceOf: MedicationRequestEMPD
@@ -367,9 +384,7 @@ Usage: #example
     * unit = "tablet"
     * system = "http://unitsofmeasure.org"
     * code = #{tbl}
-* extension // 給藥總日份
-  * url = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Extension-TotalDuration"
-  * valuePositiveInt = 28
+* extension[TotalMedicationDays].valuePositiveInt = 28 // 給藥總日份
 
 Instance: med-req-05-ep
 InstanceOf: MedicationRequestEMPD
@@ -411,9 +426,7 @@ Usage: #example
     * unit = "tablet"
     * system = "http://unitsofmeasure.org"
     * code = #{tbl}
-* extension
-  * url = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Extension-TotalDuration"
-  * valuePositiveInt = 28
+* extension[TotalMedicationDays].valuePositiveInt = 28
 
 Instance: med-req-06-ep
 InstanceOf: MedicationRequestEMPD
@@ -455,9 +468,7 @@ Usage: #example
     * unit = "tablet"
     * system = "http://unitsofmeasure.org"
     * code = #{tbl}
-* extension
-  * url = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Extension-TotalDuration"
-  * valuePositiveInt = 28
+* extension[TotalMedicationDays].valuePositiveInt = 28
 
 Instance: med-req-07-ep
 InstanceOf: MedicationRequestEMPD
@@ -499,9 +510,7 @@ Usage: #example
     * unit = "tablet"
     * system = "http://unitsofmeasure.org"
     * code = #{tbl}
-* extension
-  * url = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Extension-TotalDuration"
-  * valuePositiveInt = 28
+* extension[TotalMedicationDays].valuePositiveInt = 28
 
 Instance: med-req-08-ep
 InstanceOf: MedicationRequestEMPD
@@ -532,6 +541,4 @@ Usage: #example
     * start = "2026-08-24"
     * end = "2026-08-26"
   * numberOfRepeatsAllowed = 0
-* extension
-  * url = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Extension-TotalDuration"
-  * valuePositiveInt = 1
+* extension[TotalMedicationDays].valuePositiveInt = 1

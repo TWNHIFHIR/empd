@@ -23,10 +23,12 @@ Description: "此Profile繼承於臺灣核心-就醫事件(TW Core Encounter) �
 * identifier[medical-encounter-identifier].system 1..1 MS
 * identifier[medical-encounter-identifier].system = "https://nhicore.nhi.gov.tw/empd/medical-encounter-identifier"
 * identifier[medical-encounter-identifier].value 1..1 MS
+* identifier[medical-encounter-identifier].value ^maxLength = 20
 * identifier[medical-encounter-identifier] ^short = "表示開立處方時取得之就醫識別碼，用以識別本次就醫紀錄。[應填入就醫識別碼]"
 * identifier[func-sequence-number].system 1..1 MS
 * identifier[func-sequence-number].system = "https://nhicore.nhi.gov.tw/empd/func-sequence-number"
 * identifier[func-sequence-number].value 1..1 MS
+* identifier[func-sequence-number].value ^maxLength = 4
 * identifier[func-sequence-number] ^short = "表示本次就醫之健保卡就醫序號；當就醫身分別為非自費時，此欄位為必填。[應填入健保卡就醫序號]"
 * class from NHICaseType (required)
   * ^short = "病人就醫的分類。[應填入案件分類]。(如為自費案件請使用代碼\"00\")"
@@ -61,7 +63,7 @@ Description: "電子處方箋-案件分類為西醫一般案件、部分負擔�
 Usage: #example
 * meta.profile = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Encounter-EMPD"
 * identifier[medical-encounter-identifier].system = "https://nhicore.nhi.gov.tw/empd/medical-encounter-identifier"
-* identifier[medical-encounter-identifier].value = "1101020012B234567890202608241515"
+* identifier[medical-encounter-identifier].value = "1101020012B234567890"
 * identifier[func-sequence-number].system = "https://nhicore.nhi.gov.tw/empd/func-sequence-number"
 * identifier[func-sequence-number].value = "001"
 * status = #finished
@@ -78,7 +80,7 @@ Description: "電子處方箋-案件分類為自費案件服務類別為不分�
 Usage: #example
 * meta.profile = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Encounter-EMPD"
 * identifier[medical-encounter-identifier].system = "https://nhicore.nhi.gov.tw/empd/medical-encounter-identifier"
-* identifier[medical-encounter-identifier].value = "0401180014A123456789202608241450"
+* identifier[medical-encounter-identifier].value = "0401180014A123456789"
 * status = #finished
 * class.system = "https://nhicore.nhi.gov.tw/empd/CodeSystem/nhi-outpatient-case-type"
 * class.code = #00 
