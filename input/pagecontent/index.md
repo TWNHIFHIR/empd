@@ -43,7 +43,7 @@
       <li><code>MedicationRequest.identifier:PrescriptionNo.value</code>：長度限制 64。</li>
       <li><code>MedicationRequest.identifier:Item.value</code>：長度限制 2。</li>
       <li><code>MedicationRequest.extension:TotalMedicationDays.value[x]</code>：給藥總日份不得超過 999。</li>
-      <li><code>MedicationRequest.dispenseRequest.numberOfRepeatsAllowed</code>：連續處方可調劑次數不得超過 99。</li>
+      <li><code>MedicationRequest.dispenseRequest.numberOfRepeatsAllowed</code>：處方可調劑次數不得超過 99。</li>
       <li><code>MedicationRequest.dispenseRequest.expectedSupplyDuration</code>：給藥日數不得超過 999 天，單位固定為天（<code>d</code>）。</li>
       <li><code>MedicationRequest.dispenseRequest.quantity.value</code>：數字限制 6,2（Constraint：<code>empd-medreq-6</code>）。</li>
       <li><code>MedicationRequest.dosageInstruction.doseAndRate.doseQuantity.value</code>：數字限制 11,3（Constraint：<code>empd-medreq-5</code>）。</li>

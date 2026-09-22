@@ -71,7 +71,7 @@ Description: "此Profile繼承於臺灣核心-藥品處方(TW Core MedicationReq
       * ^short = "End time with inclusive boundary, if not ongoing。[應填入處方箋有效日期]"
       * ^definition = "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.\r\n包含第二次之後的建議領藥日期；格式為西元YYYYMMDD"
   * numberOfRepeatsAllowed 1..
-    * ^short = "可重複領藥的次數。[應填入連續處方可調劑次數 Refill Times]"
+    * ^short = "可重複領藥的次數。[應填入處方可調劑次數 Refill Times]"
 
 Instance: med-req-01-ds
 InstanceOf: MedicationRequestDS

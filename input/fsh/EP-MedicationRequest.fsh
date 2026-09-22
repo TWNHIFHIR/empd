@@ -151,7 +151,7 @@ Description: "此Profile繼承於臺灣核心-藥品處方(TW Core MedicationReq
   * validityPeriod 1..1
     * ^short = "處方可用以配藥的有效期限，包含起日與迄日[應填入處方箋有效日期]"
   * numberOfRepeatsAllowed 1..1
-    * ^short = "可重複領藥的次數。[應填入連續處方可調劑次數 Refill Times]"
+    * ^short = "可重複領藥的次數。[應填入處方可調劑次數 Refill Times]"
     * ^maxValueUnsignedInt = 99
   * quantity 1..1 MS
     * value 1.. MS
