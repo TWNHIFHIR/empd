@@ -242,7 +242,7 @@ Usage: #example
   * validityPeriod
     * start = "2026-07-21"
     * end = "2026-07-24"
-  * numberOfRepeatsAllowed = 0
+  * numberOfRepeatsAllowed = 1
   * expectedSupplyDuration.value = 3
   * quantity
     * value = 5
@@ -288,7 +288,7 @@ Usage: #example
   * validityPeriod
     * start = "2026-08-24"
     * end = "2026-08-26"
-  * numberOfRepeatsAllowed = 0
+  * numberOfRepeatsAllowed = 1
   * expectedSupplyDuration.value = 28
   * quantity
     * value = 28
@@ -335,7 +335,7 @@ Usage: #example
   * validityPeriod
     * start = "2026-08-24"
     * end = "2026-08-27"
-  * numberOfRepeatsAllowed = 0
+  * numberOfRepeatsAllowed = 1
   * expectedSupplyDuration.value = 28
   * quantity
     * value = 140
@@ -377,7 +377,7 @@ Usage: #example
   * validityPeriod 
     * start = "2026-08-24"
     * end = "2026-08-27"
-  * numberOfRepeatsAllowed = 0  
+  * numberOfRepeatsAllowed = 1  
   * expectedSupplyDuration.value = 28  
   * quantity //給藥總量
     * value = 56
@@ -419,7 +419,7 @@ Usage: #example
   * validityPeriod
     * start = "2026-08-24"
     * end = "2026-08-27"
-  * numberOfRepeatsAllowed = 0
+  * numberOfRepeatsAllowed = 1
   * expectedSupplyDuration.value = 14
   * quantity
     * value = 14
@@ -461,7 +461,7 @@ Usage: #example
   * validityPeriod
     * start = "2026-08-24"
     * end = "2026-08-27"
-  * numberOfRepeatsAllowed = 0
+  * numberOfRepeatsAllowed = 1
   * expectedSupplyDuration.value = 7
   * quantity
     * value = 7
@@ -503,7 +503,7 @@ Usage: #example
   * validityPeriod
     * start = "2026-08-24"
     * end = "2026-08-26"
-  * numberOfRepeatsAllowed = 0
+  * numberOfRepeatsAllowed = 1
   * expectedSupplyDuration.value = 7
   * quantity
     * value = 14
@@ -540,5 +540,5 @@ Usage: #example
   * validityPeriod
     * start = "2026-08-24"
     * end = "2026-08-26"
-  * numberOfRepeatsAllowed = 0
+  * numberOfRepeatsAllowed = 1
 * extension[TotalMedicationDays].valuePositiveInt = 1
