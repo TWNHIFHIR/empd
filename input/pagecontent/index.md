@@ -6,6 +6,27 @@
 <br/>
 
 <div class="bg-warning" style="ol { counter-reset: item } li { display: block } li:before { content: counters（item, ">
+因考量實作需求，於2026/9/23異動以下內容：
+<ol>
+  <li>修改 <a href="StructureDefinition-Composition-EMPD.html">Profile: 電子處方箋-Composition（Composition-EMPD）</a>
+    <ul>
+      <li><code>Composition.section:Coverage.code.coding.display</code>：移除固定值</li>
+      <li><code>Composition.section:ObservationBodyWeight.code.coding.display</code>：移除固定值</li>
+      <li><code>Composition.section:Condition.code.coding.display</code>：移除固定值</li>
+      <li><code>Composition.section:MedicationPrescribed.code.coding.display</code>：移除固定值</li>
+    </ul>
+  </li>
+  <li>修改 <a href="StructureDefinition-Composition-DS.html">Profile: 調劑單張-Composition（Composition-DS）</a>
+    <ul>
+      <li><code>Composition.section:Coverage.code.coding.display</code>：移除固定值</li>
+      <li><code>Composition.section:BodyWeight.code.coding.display</code>：移除固定值</li>
+      <li><code>Composition.section:Condition.code.coding.display</code>：移除固定值</li>
+      <li><code>Composition.section:MedicationPrescribed.code.coding.display</code>：移除固定值</li>
+    </ul>
+  </li>
+</ol>
+請留意這些異動，以避免影響您的實作。
+<hr style="border: 0; border-top: 2px solid #b8c2cc; margin: 28px 0;">
 因考量實作需求，於2026/9/22異動以下內容：
 <ol>
   <li>修改 <a href="StructureDefinition-Patient-EMPD.html">Profile: 電子處方箋-病人基本資料（Patient-EMPD）</a>
