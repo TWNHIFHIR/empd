@@ -43,7 +43,6 @@ Description: "用於表示調劑單張資料集之文檔"
       * system = "http://loinc.org" (exactly)
       * code 1..
       * code = #29762-2 (exactly)
-      * display = "Social history Narrative" (exactly)
   * entry 1..
   * entry only Reference($Coverage-EMPD)
 * section[BodyWeight] ^short = "體重"
@@ -53,7 +52,6 @@ Description: "用於表示調劑單張資料集之文檔"
       * system = "http://loinc.org" (exactly)
       * code 1..
       * code = #85353-1 (exactly)
-      * display = "Vital signs, weight, height, head circumference, oxygen saturation and BMI panel" (exactly)
   * entry 1..
   * entry only Reference($Observation-DS-BodyWeight)
 * section[Condition] ^short = "診斷"
@@ -63,7 +61,6 @@ Description: "用於表示調劑單張資料集之文檔"
       * system = "http://loinc.org" (exactly)
       * code 1..
       * code = #29548-5 (exactly)
-      * display = "Diagnosis Narrative" (exactly)
   * entry 1..
   * entry only Reference($Condition-DS)
 * section[MedicationPrescribed] ^short = "處方內容"
@@ -73,7 +70,6 @@ Description: "用於表示調劑單張資料集之文檔"
       * system = "http://loinc.org" (exactly)
       * code 1..
       * code = #29551-9 (exactly)
-      * display = "Medication prescribed Narrative" (exactly)
   * entry only Reference($MedicationRequest-DS or $Medication-DS or $MedicationDispense-DS or $ChargeItem-DS)
     * ^slicing.discriminator.type = #profile
     * ^slicing.discriminator.path = "resolve()"

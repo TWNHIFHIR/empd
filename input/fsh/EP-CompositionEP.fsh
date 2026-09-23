@@ -45,7 +45,6 @@ Description: "用於表示電子處方箋資料集之文檔"
       * system = "http://loinc.org" (exactly)
       * code 1..
       * code = #29762-2 (exactly)
-      * display = "Social history Narrative" (exactly)
   * entry 1..1
   * entry only Reference($Coverage-EMPD)
     * reference 1..
@@ -56,7 +55,6 @@ Description: "用於表示電子處方箋資料集之文檔"
       * system = "http://loinc.org" (exactly)
       * code 1..
       * code = #85353-1 (exactly)
-      * display = "Vital signs, weight, height, head circumference, oxygen saturation and BMI panel" (exactly)
   * entry 1..1
   * entry only Reference($Observation-EMPD-BodyWeight)
     * reference 1..
@@ -67,7 +65,6 @@ Description: "用於表示電子處方箋資料集之文檔"
       * system = "http://loinc.org" (exactly)
       * code 1..
       * code = #29548-5 (exactly)
-      * display = "Diagnosis Narrative" (exactly)
   * entry 1..
   * entry only Reference($Condition-EMPD)
     * reference 1..
@@ -81,7 +78,6 @@ Description: "用於表示電子處方箋資料集之文檔"
       * system = "http://loinc.org" (exactly)
       * code 1..
       * code = #29551-9 (exactly)
-      * display = "Medication prescribed Narrative" (exactly)
   * entry only Reference($Medication-EMPD or $MedicationRequest-EMPD)
     * ^slicing.discriminator.type = #profile
     * ^slicing.discriminator.path = "resolve()"
