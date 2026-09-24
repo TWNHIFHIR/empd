@@ -24,6 +24,26 @@
       <li><code>Composition.section:MedicationPrescribed.code.coding.display</code>：移除固定值</li>
     </ul>
   </li>
+  <li>修改 <a href="StructureDefinition-Encounter-EMPD.html">Profile: 電子處方箋-門診基本資料（Encounter-EMPD）</a>
+    <ul>
+      <li><code>Encounter.subject</code>：參照目標改為 Patient-EMPD</li>
+    </ul>
+  </li>
+  <li>修改 <a href="StructureDefinition-Condition-EMPD.html">Profile: 電子處方箋-診斷（Condition-EMPD）</a>
+    <ul>
+      <li><code>Condition.subject</code>：參照目標改為 Patient-EMPD</li>
+    </ul>
+  </li>
+  <li>修改 <a href="StructureDefinition-MedicationRequest-EMPD.html">Profile: 電子處方箋-處方內容（MedicationRequest-EMPD）</a>
+    <ul>
+      <li><code>MedicationRequest.subject</code>：參照目標改為 Patient-EMPD</li>
+    </ul>
+  </li>
+  <li>修改 <a href="StructureDefinition-Observation-EMPD-BodyWeight.html">Profile: 電子處方箋-體重（Observation-EMPD-BodyWeight）</a>
+    <ul>
+      <li><code>Observation.subject</code>：參照目標改為 Patient-EMPD</li>
+    </ul>
+  </li>
 </ol>
 請留意這些異動，以避免影響您的實作。
 <hr style="border: 0; border-top: 2px solid #b8c2cc; margin: 28px 0;">

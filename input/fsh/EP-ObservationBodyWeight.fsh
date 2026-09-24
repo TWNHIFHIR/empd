@@ -1,3 +1,4 @@
+Alias: $Patient-EMPD = https://nhicore.nhi.gov.tw/empd/StructureDefinition/Patient-EMPD
 Alias: $loinc = http://loinc.org
 Alias: $observation-category = http://terminology.hl7.org/CodeSystem/observation-category
 
@@ -9,6 +10,7 @@ Description: """此Profiles繼承於臺灣核心-生命體徵(TW Core Observatio
 若調劑藥物劑量須配合體重而有所調整，則必須使用此Profiles
 [[*FMM1*](http://build.fhir.org/versions.html#maturity)]"""
 * ^version = "0.2.1"
+* subject only Reference($Patient-EMPD)
 
 * code.coding
   * system 1..1

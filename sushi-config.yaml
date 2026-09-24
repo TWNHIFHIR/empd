@@ -15,8 +15,8 @@ copyrightYear: 2025+
 releaseLabel: ci-build
 license: CC0-1.0 # https://www.hl7.org/fhir/valueset-spdx-license.html
 publisher:
-  name: NHI
-  url: https://www.nhi.gov.tw/en/mp-2.html
+  name: 衛生福利部中央健康保險署
+  url: https://www.nhi.gov.tw
   # email: test@example.org
 dependencies:
     tw.gov.mohw.twcore: 

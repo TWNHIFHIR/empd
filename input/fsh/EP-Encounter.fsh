@@ -1,3 +1,4 @@
+Alias: $Patient-EMPD = https://nhicore.nhi.gov.tw/empd/StructureDefinition/Patient-EMPD
 Alias: $sct = http://snomed.info/sct
 Alias: $PaymentCategory-cs = https://nhicore.nhi.gov.tw/empd/CodeSystem/PaymentCategory-cs
 Alias: $PaymentCategory-vs = https://nhicore.nhi.gov.tw/empd/ValueSet/PaymentCategory-vs
@@ -51,6 +52,7 @@ Description: "此Profile繼承於臺灣核心-就醫事件(TW Core Encounter) �
 * serviceType.coding[TWMedicalConsultationDepartment].code 1..1
 * serviceType.coding[TWMedicalTreatmentDepartment].code 1..1
 * subject 1..
+* subject only Reference(Group or $Patient-EMPD)
 * period 1..
   * start 1.. MS
     * ^short = "Starting time with inclusive boundary.[應填入門診日期 OPD Date]。日期格式為西元 YYYYMMDD"

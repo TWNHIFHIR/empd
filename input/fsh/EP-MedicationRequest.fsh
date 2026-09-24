@@ -1,3 +1,4 @@
+Alias: $Patient-EMPD = https://nhicore.nhi.gov.tw/empd/StructureDefinition/Patient-EMPD
 Alias: $Medication-EMPD = https://nhicore.nhi.gov.tw/empd/StructureDefinition/Medication-EMPD
 Alias: $Coverage-EMR = https://nhicore.nhi.gov.tw/empd/StructureDefinition/Coverage-EMR
 Alias: $medication-path-sct-tw-vs = https://twcore.mohw.gov.tw/ig/twcore/ValueSet/medication-path-sct-tw
@@ -112,6 +113,7 @@ Description: "此Profile繼承於臺灣核心-藥品處方(TW Core MedicationReq
 * medicationCodeableConcept.coding[nonNHIMaterial].display ^short = "無健保代碼之特材名稱"
 * medicationReference MS
 * medicationReference only Reference($Medication-EMPD)
+* subject only Reference(Group or $Patient-EMPD)
 * insurance 1.. MS
 * insurance only Reference(ClaimResponse or $Coverage-EMR)
 * dosageInstruction 

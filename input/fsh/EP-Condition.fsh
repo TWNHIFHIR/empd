@@ -1,3 +1,4 @@
+Alias: $Patient-EMPD = https://nhicore.nhi.gov.tw/empd/StructureDefinition/Patient-EMPD
 Alias: $condition-clinical = http://terminology.hl7.org/CodeSystem/condition-clinical
 Alias: $condition-category = http://terminology.hl7.org/CodeSystem/condition-category
 Alias: $icd-10-cm-2023-tw = https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/icd-10-cm-2023-tw
@@ -10,6 +11,7 @@ Title: "電子處方箋-診斷"
 Description: """此Profiles繼承於臺灣核心-病情、問題或診斷(TW Core Condition) ，並進一步用於描述電子處方箋之診斷
 [[*FMM1*](http://build.fhir.org/versions.html#maturity)]"""
 * ^version = "0.2.1"
+* subject only Reference(Group or $Patient-EMPD)
 * code 1..1
   * ^short = "病情、問題或診斷的識別。[應填入國際疾病分類代碼ICD Code(International Classification of Diseases)]"
   * coding 1..*
