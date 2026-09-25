@@ -1,18 +1,55 @@
 CodeSystem: NHIMedicationCodes
 Id: NHIMedication-cs
 Title: "NHI-電子處方箋-用藥品項"
-Description:  "NHI-電子處方箋-用藥品項，參照自[健保用藥品項](https://www.nhi.gov.tw/ch/lp-2466-1.html)中的「健保用藥品項115年7月查詢檔(帶走所有壓縮檔115.7.1更新)」。  
-
-代碼出版日期：2025-04-30；資料所屬單位：衛生福利部中央健康保險署。
-
-*因原始資料無代碼版本資訊，故使用其「更新日期」作為版本資訊。* "
+Description:  "NHI-電子處方箋-用藥品項，參照自[健保用藥品項](https://www.nhi.gov.tw/ch/lp-2466-1.html)。"
 
 * ^caseSensitive = true
 * ^content = #complete
-* ^date = "2026-07-07"
-* ^version = "2026-07-07"
+* ^date = "2026-09-24"
+* ^version = "2026-09-24"
 * ^experimental = false
 
+/* 115-10 */
+* #AC62120100 "XAXARBAN F.C. TABLETS 15 MG"
+* #AC62126100 "RIXABAN F.C. TAB. 15MG \" L.L.\""
+* #BC29120100 "pms-Rivaroxaban tablet 15mg"
+* #AC47642321 "Acnely gel 0.1% \"Royal\""
+* #AC47642335 "Acnely gel 0.1% \"Royal\""
+* #AC47642338 "Acnely gel 0.1% \"Royal\""
+* #AC47642343 "Acnely gel 0.1% \"Royal\""
+* #AC47642345 "Acnely gel 0.1% \"Royal\""
+* #AC47642363 "Acnely gel 0.1% \"Royal\""
+* #AC62091238 "Magneter Injection 100mg/mL"
+* #BC29003100 "LANZOTRED (ENZALUTAMIDE SOFT CAPSULES 40 MG)"
+* #AC441401G0 "YURINOM TABLETS 100MG \"T.F.\" (鋁箔/膠箔)"
+* #AC38865100 "BETALEN TABLETS 100MG  \"W.S.\" (BENZBROMARONE)"
+* #AC388651G0 "BETALEN TABLETS 100MG  \"W.S.\" (BENZBROMARONE)(鋁箔/膠箔)"
+* #AC42102100 "DOXYCYCLINE CAPSULES 100MG"
+* #AC60157100 "Hummers Film-Coated Tablets 20mg"
+* #BC29097100 "FAXILAN 150 (VENLAFAXINE EXTENDED RELEASE CAPSULES USP 150 MG)"
+* #BC29096100 "FAXILAN 75 (VENLAFAXINE EXTENDED RELEASE CAPSULES USP 75 MG)"
+* #BC29098100 "FAXILAN 37.5 (VENLAFAXINE EXTENDED RELEASE CAPSULES USP 37.5 MG)"
+* #KC01300209 "OSSEVY"
+* #KC013012FO "OSSEVAX"
+* #BC29143100 "Atolipi F.C. Tablets 10 mg"
+* #BC29144100 "Atolipi F.C. Tablets 20 mg"
+* #BC29145100 "Atolipi F.C. Tablets 40 mg"
+* #BC25603277 "Cytarine Injection"
+* #BC28368209 "Ertapenem Fresenius Kabi 1g lyophilized powder for concentrate for solution for infusion"
+* #AC62378100 "APIBAN FILM-COATED TABLETS 5MG"
+* #BC29171100 "ANXIBON FILM-COATED TABLETS 2.5 MG"
+* #BC29176100 "ANXIBON FILM-COATED TABLETS 5 MG"
+* #BC21304209 "Endoxan Injection"
+* #KC01279221 "POTELIGEO 4 mg/mL concentrate for solution forinfusion"
+* #KC01312212 "YESCARTA SUSPENSION FOR INTRAVENOUS INFUSION"
+* #X000385238 "ASPAVELI/EMPAVELI 1080MG SOLUTION FOR INFUSION"
+* #BC288442HA "ABILIFY ASIMTUFII (ARIPIPRAZOLE) EXTENED-RELEASE INJECTABLE SUSPENSION 720 MG"
+* #BC288452HB "ABILIFY ASIMTUFII (ARIPIPRAZOLE) EXTENED-RELEASE INJECTABLE SUSPENSION 960 MG"
+* #KC01299229 "Tevimbra Concentrated Solution for Infusion"
+
+/* 115-09 */
+* #X000383255 "NEXVIAZYM(AVALGLUCOSIDASE ALFA-NGPT)FOR INJECTION(美國包裝)"
+* #X000384248 "MELPHATHER 50(MELPHALAN FOR INJECTION BP 50MG)"
 * #AC58256100 "Paroxin F.C. Tablets 20mg"
 * #AC58283100 "Xeirda F.C. Tablets 40mg"
 * #AC58333100 "Newcalm Sustained - Release Capsules 75mg"
