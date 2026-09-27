@@ -1,4 +1,4 @@
-CodeSystem: NHIMaterial
+CodeSystem: NHIMaterialCodeSystem
 Id: NHIMaterial-cs
 Title: "NHI-電子處方箋-特材收載值集"
 Description: "NHI-電子處方箋-特材收載值集，來源：衛生福利部中央健康保險署-資料開放平台 [健保特材收載品項](https://info.nhi.gov.tw/IODE0000/IODE0000S09?id=112)"
