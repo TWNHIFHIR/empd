@@ -1,94 +1,159 @@
-<div class="bg-danger" style="ol { counter-reset: item } li { display: block } li:before { content: counters（item, ">
-  <p><b>請注意</b>：您目前所看到的IG為持續建置 (ci-build) 版，主要依據實作者及業務端需求即時調整，因而會比健保署 <a href="https://nhicore.nhi.gov.tw/empd/">正式版 IG</a> 內容新，僅供未來想以最新版本規格進行資料上傳的人員參考，於正式發布後才會調整健保署FHIR伺服器規格。<br/>
-  <br/>
-  <b>醫院實作時請以V0.1.0為主進行實例驗證，目前健保署端的伺服器採用V0.1.0版規格。</b></p>
-</div>
-<br/>
-
-<div class="bg-warning" style="ol { counter-reset: item } li { display: block } li:before { content: counters（item, ">
+<div class="bg-warning">
 因考量實作需求，於2026/9/28異動以下內容：
 <ol>
-  <li>更新代碼 <a href="CodeSystem-NHIMedication-cs.html">CodeSystem: NHI-電子處方箋-用藥品項（NHIMedication-cs）</a></li>
-  <li>更新代碼 <a href="CodeSystem-NHIMaterial-cs.html">CodeSystem: NHI-電子處方箋-特材收載值集（NHIMaterial-cs）</a></li>
-  <li>更新代碼 <a href="CodeSystem-organization-identifier-tw.html">CodeSystem: NHI-電子處方箋-特約醫事機構（organization-identifier-tw）</a></li>
-</ol>
-請留意這些異動，以避免影響您的實作。
-<hr style="border: 0; border-top: 2px solid #b8c2cc; margin: 28px 0;">
-因考量實作需求，於2026/9/23異動以下內容：
-<ol>
-  <li>修改 <a href="StructureDefinition-Composition-EMPD.html">Profile: 電子處方箋-Composition（Composition-EMPD）</a>
+  <li>新增及調整專門術語（Terminology）：
     <ul>
-      <li><code>Composition.section:Coverage.code.coding.display</code>：移除固定值</li>
-      <li><code>Composition.section:ObservationBodyWeight.code.coding.display</code>：移除固定值</li>
-      <li><code>Composition.section:Condition.code.coding.display</code>：移除固定值</li>
-      <li><code>Composition.section:MedicationPrescribed.code.coding.display</code>：移除固定值</li>
+      <li>新增 <a href="ValueSet-NHIMedication-vs.html">ValueSet: NHI-電子處方箋-用藥品項</a>，供 <code>Medication.code</code> 使用。</li>
+      <li>新增 <a href="ValueSet-NHIMedicationFrequency-HL7-vs.html">ValueSet: HL7 TimingAbbreviation + NHI-電子處方箋-藥品使用頻率值集</a>，供 <code>MedicationRequest.dosageInstruction.timing</code> 使用。</li>
+      <li>新增 <a href="ValueSet-NonNHIMedication-vs.html">ValueSet: 無健保代碼之藥品</a>，供無健保代碼藥物品項使用。</li>
+      <li>新增 <a href="ValueSet-NHIMaterial-vs.html">ValueSet: NHI-電子處方箋-健保特材值集</a>，供健保代碼特材使用。</li>
+      <li>新增 <a href="ValueSet-NonNHIMaterial-vs.html">ValueSet: 無健保代碼之特材</a>，供無健保代碼特材使用。</li>
+      <li>新增 <a href="ValueSet-nhi-case-type.html">ValueSet: NHI-健保案件分類值集</a>，供 <code>Encounter.class</code> 使用。</li>
+      <li>新增 <a href="ValueSet-nhi-identity-type.html">ValueSet: 就醫身分別值集</a>，供 <code>Coverage.type.coding</code> 使用。</li>
+      <li>新增 <a href="ValueSet-organization-identifier-tw.html">ValueSet: 特約醫事機構</a>，供健保特約醫事機構代碼使用。</li>
+      <li>新增 <a href="ValueSet-medication-request-status-empd.html">ValueSet: EMPD MedicationRequest 狀態</a>，限使用 <code>active</code> 與 <code>cancelled</code>。</li>
+      <li>修改 <a href="ValueSet-SelfpayStatus-vs.html">ValueSet: 自費註記</a>：<code>00</code>（自費）調整為 <code>Y</code>（自費），<code>01</code>（非自費）調整為 <code>N</code>（非自費）。</li>
+      <li>更新 <a href="CodeSystem-NHIMedication-cs.html">CodeSystem: NHI-電子處方箋-用藥品項（NHIMedication-cs）</a> 代碼內容。</li>
+      <li>更新 <a href="CodeSystem-NHIMaterial-cs.html">CodeSystem: NHI-電子處方箋-特材收載值集（NHIMaterial-cs）</a> 代碼內容。</li>
+      <li>更新 <a href="CodeSystem-organization-identifier-tw.html">CodeSystem: NHI-電子處方箋-特約醫事機構（organization-identifier-tw）</a> 代碼內容。</li>
     </ul>
   </li>
-  <li>修改 <a href="StructureDefinition-Composition-DS.html">Profile: 調劑單張-Composition（Composition-DS）</a>
+
+  <li>新增 <a href="StructureDefinition-Extension-PaymentCategory.html">Extension: 給付類別（Extension-PaymentCategory）</a>：
     <ul>
-      <li><code>Composition.section:Coverage.code.coding.display</code>：移除固定值</li>
-      <li><code>Composition.section:BodyWeight.code.coding.display</code>：移除固定值</li>
-      <li><code>Composition.section:Condition.code.coding.display</code>：移除固定值</li>
-      <li><code>Composition.section:MedicationPrescribed.code.coding.display</code>：移除固定值</li>
+      <li><code>Extension.url</code>：固定為 <code>https://nhicore.nhi.gov.tw/empd/StructureDefinition/Extension-PaymentCategory</code>。</li>
+      <li><code>Extension.value[x]</code>：限用 CodeableConcept 且必填，required 綁定 <a href="ValueSet-PaymentCategory-vs.html">ValueSet: 給付類別值集</a>。</li>
     </ul>
   </li>
-  <li>修改 <a href="StructureDefinition-Encounter-EMPD.html">Profile: 電子處方箋-門診基本資料（Encounter-EMPD）</a>
+
+  <li>新增 <a href="StructureDefinition-Extension-CombinedPrescriptionNote.html">Extension: 須被合併之處方箋註記（Extension-CombinedPrescriptionNote）</a>：
     <ul>
-      <li><code>Encounter.subject</code>：參照目標改為 Patient-EMPD</li>
+      <li><code>Extension.value[x]</code> 限用 boolean 且必填，以 <code>valueBoolean</code> 表示處方箋是否須與同次就醫紀錄之其他處方箋合併。</li>
     </ul>
   </li>
-  <li>修改 <a href="StructureDefinition-Condition-EMPD.html">Profile: 電子處方箋-診斷（Condition-EMPD）</a>
+
+  <li>修改 <a href="StructureDefinition-Bundle-EMPD.html">Profile: 電子處方箋-Bundle（Bundle-EMPD）</a>：
     <ul>
-      <li><code>Condition.subject</code>：參照目標改為 Patient-EMPD</li>
+      <li>新增 Constraint <code>enc-nhi-1</code>：就醫身分別為健保時，健保卡就醫序號必填。</li>
+      <li>新增 Constraint <code>empd-medreq-1</code>：處方箋種類為第一、二、三級管制藥品專用處方箋（<code>D</code>／<code>E</code>／<code>F</code>）時，醫師證號及管制藥品使用執照皆必填。</li>
+      <li>因特材改由 MedicationRequest 表示，Medication Resource 改為可選填：
+        <ul>
+          <li><code>Bundle.entry</code>：基數 <code>9..*</code> → <code>8..*</code>。</li>
+          <li><code>Bundle.entry:Medication</code>：基數 <code>1..*</code> → <code>0..*</code>。</li>
+          <li><code>Bundle.entry:CoverageIdentifier</code>：基數 <code>1..*</code> → <code>1..1</code>。</li>
+        </ul>
+      </li>
     </ul>
   </li>
-  <li>修改 <a href="StructureDefinition-MedicationRequest-EMPD.html">Profile: 電子處方箋-處方內容（MedicationRequest-EMPD）</a>
+
+  <li>修改 <a href="StructureDefinition-Composition-EMPD.html">Profile: 電子處方箋-Composition（Composition-EMPD）</a>：
     <ul>
-      <li><code>MedicationRequest.subject</code>：參照目標改為 Patient-EMPD</li>
+      <li><code>Composition.date</code>：語意調整為「處方箋有效期間迄」。</li>
+      <li><code>Composition.section:Coverage</code>：基數 <code>1..*</code> → <code>1..1</code>。</li>
+      <li>因特材改由 MedicationRequest 表示：
+        <ul>
+          <li><code>Composition.section:MedicationPrescribed.entry</code>：基數 <code>2..*</code> → <code>1..*</code>。</li>
+          <li><code>Composition.section:MedicationPrescribed.entry:Medication</code>：基數 <code>1..*</code> → <code>0..*</code>。</li>
+        </ul>
+      </li>
+      <li><code>Composition.section:MedicationPrescribed.extension</code>：原由 <code>MedicationRequest.note</code> 表示的「須被合併之處方箋註記」，改由 <code>Extension-CombinedPrescriptionNote</code> 的 <code>valueBoolean</code> 表示。</li>
+      <li><code>Composition.section:Coverage.code.coding.display</code>：移除固定值。</li>
+      <li><code>Composition.section:ObservationBodyWeight.code.coding.display</code>：移除固定值。</li>
+      <li><code>Composition.section:Condition.code.coding.display</code>：移除固定值。</li>
+      <li><code>Composition.section:MedicationPrescribed.code.coding.display</code>：移除固定值。</li>
     </ul>
   </li>
-  <li>修改 <a href="StructureDefinition-Observation-EMPD-BodyWeight.html">Profile: 電子處方箋-體重（Observation-EMPD-BodyWeight）</a>
+
+  <li>修改 <a href="StructureDefinition-Patient-EMPD.html">Profile: 電子處方箋-病人基本資料（Patient-EMPD）</a>：
     <ul>
-      <li><code>Observation.subject</code>：參照目標改為 Patient-EMPD</li>
-    </ul>
-  </li>
-</ol>
-請留意這些異動，以避免影響您的實作。
-<hr style="border: 0; border-top: 2px solid #b8c2cc; margin: 28px 0;">
-因考量實作需求，於2026/9/22異動以下內容：
-<ol>
-  <li>修改 <a href="StructureDefinition-Patient-EMPD.html">Profile: 電子處方箋-病人基本資料（Patient-EMPD）</a>
-    <ul>
-      <li><code>Patient.name:usual</code>：改為必填（<code>1..1</code>），並須填寫 <code>name:usual.text</code>，長度限制 60。</li>
+      <li>新增 Constraint <code>pat-id-1</code>：病人之國民身分證統一編號、護照號碼或居留證號，至少需填寫其中一種。</li>
+      <li><code>Patient.name:usual</code>：改為必填（<code>1..1</code>），並須填寫 <code>name:usual.text</code>。</li>
+      <li><code>Patient.name:usual.text</code>：長度限制 60。</li>
       <li><code>Patient.identifier:medicalRecord.value</code>：長度限制 10。</li>
     </ul>
   </li>
-  <li>修改 <a href="StructureDefinition-Observation-EMPD-BodyWeight.html">Profile: 電子處方箋-體重（Observation-EMPD-BodyWeight）</a>
+
+  <li>修改 <a href="StructureDefinition-Observation-EMPD-BodyWeight.html">Profile: 電子處方箋-體重（Observation-EMPD-BodyWeight）</a>：
     <ul>
-      <li><code>Observation.valueQuantity.value</code>：數字限制 6,2（總長度不得超過 6 位數，小數不得超過 2 位，最大 9999.99；Constraint：<code>empd-obs-bw-1</code>）。</li>
+      <li><code>Observation.valueQuantity.value</code>：數字限制 6,2（總長度不得超過 6 位數，小數不得超過 2 位，最大值為 9999.99；Constraint：<code>empd-obs-bw-1</code>）。</li>
+      <li><code>Observation.subject</code>：參照目標調整為 Patient-EMPD。</li>
     </ul>
   </li>
-  <li>修改 <a href="StructureDefinition-Encounter-EMPD.html">Profile: 電子處方箋-門診基本資料（Encounter-EMPD）</a>
+
+  <li>修改 <a href="StructureDefinition-Encounter-EMPD.html">Profile: 電子處方箋-門診基本資料（Encounter-EMPD）</a>：
     <ul>
+      <li><code>Encounter.identifier:medical-encounter-identifier</code>：新增「就醫識別碼」slice 且為必填，<code>system</code> 固定為 <code>https://nhicore.nhi.gov.tw/empd/medical-encounter-identifier</code>。</li>
+      <li><code>Encounter.identifier:func-sequence-number</code>：新增「健保卡就醫序號」slice，符合健保就醫條件時必填，<code>system</code> 固定為 <code>https://nhicore.nhi.gov.tw/empd/func-sequence-number</code>。</li>
       <li><code>Encounter.identifier:medical-encounter-identifier.value</code>：長度限制 20。</li>
       <li><code>Encounter.identifier:func-sequence-number.value</code>：長度限制 4。</li>
+      <li><code>Encounter.class</code>：綁定 <a href="ValueSet-nhi-case-type.html">ValueSet: NHI-健保案件分類值集</a>。</li>
+      <li><code>Encounter.type</code>：原由 <code>Condition.note</code> 表示之「部分負擔代碼」改至此欄位，並綁定 <a href="ValueSet-PartCode-vs.html">部分負擔代碼值集</a>。</li>
+      <li><code>Encounter.subject</code>：參照目標調整為 Patient-EMPD。</li>
     </ul>
   </li>
-  <li>修改 <a href="StructureDefinition-Practitioner-EMPD.html">Profile: 電子處方箋-醫事人員基本資料（Practitioner-EMPD）</a>
+
+  <li>修改 <a href="StructureDefinition-Coverage-EMR.html">Profile: 電子處方箋／調劑單張-就醫身分別（Coverage-EMR）</a>：
     <ul>
-      <li><code>Practitioner.name.text</code>：長度限制 60。</li>
+      <li><code>Coverage.type.coding</code>：原由 <code>Coverage.type.text</code> 表示之「就醫身分別」改至此欄位，並綁定 <a href="ValueSet-nhi-identity-type.html">就醫身分別值集</a>。</li>
+      <li><code>Coverage.extension:PaymentCategory</code>：原由 <code>Coverage.type.coding</code> 表示之「給付類別」改由此 Extension 表示，並綁定 <a href="ValueSet-PaymentCategory-vs.html">給付類別值集</a>。</li>
+    </ul>
+  </li>
+
+  <li>修改 <a href="StructureDefinition-Organization-EMPD.html">Profile: 電子處方箋-醫事機構基本資料（Organization-EMPD）</a>：
+    <ul>
+      <li><code>Organization.identifier</code>：基數調整為 <code>1..1</code>，需使用健保特約醫事機構代碼或臺灣醫事司醫事機構代碼。</li>
+      <li><code>Organization.identifier:nhi-organization</code>：新增健保特約醫事機構代碼 slice，綁定健保特約醫事機構值集。</li>
+      <li><code>Organization.identifier:twcore-organization</code>：新增醫事司醫事機構代碼 slice，綁定 TW Core 醫事機構值集。</li>
+      <li><code>Organization.name</code>：改為必填（<code>1..1</code>）。</li>
+    </ul>
+  </li>
+
+  <li>修改 <a href="StructureDefinition-Practitioner-EMPD.html">Profile: 電子處方箋-醫事人員基本資料（Practitioner-EMPD）</a>：
+    <ul>
+      <li>開立第一、二、三級管制藥品專用處方箋時，醫師證號及管制藥品使用執照皆必填。</li>
+      <li><code>Practitioner.identifier:medicalLicenseNumber</code>：新增 slice，原由 <code>Practitioner.qualification.identifier</code> 表示之醫師證號改由此欄位表示，<code>system</code> 固定為 <code>https://dep.mohw.gov.tw/DOMA</code>。</li>
+      <li><code>Practitioner.qualification</code>：基數 <code>1..1</code> → <code>0..1</code>。</li>
+      <li><code>Practitioner.qualification.identifier</code>：用以表示管制藥品使用執照，<code>system</code> 固定為 <code>https://cdmis.fda.gov.tw</code>。</li>
+      <li><code>Practitioner.name</code>：基數調整為 <code>1..1</code>。</li>
+      <li><code>Practitioner.name.text</code>：基數調整為 <code>1..1</code>，長度限制 60。</li>
       <li><code>Practitioner.telecom.value</code>：長度限制 20。</li>
       <li><code>Practitioner.identifier:medicalLicenseNumber.value</code>：長度限制 30。</li>
       <li><code>Practitioner.qualification.identifier.value</code>：長度限制 30。</li>
     </ul>
   </li>
-  <li>修改 <a href="StructureDefinition-Condition-EMPD.html">Profile: 電子處方箋-診斷（Condition-EMPD）</a>
+
+  <li>修改 <a href="StructureDefinition-Medication-EMPD.html">Profile: 電子處方箋-藥物處方內容（Medication-EMPD）</a>：
     <ul>
-      <li><code>Condition.note.text</code>：長度限制 1000。</li>
+      <li><code>Medication.code.coding:nhi-medication</code>：新增健保用藥品項 slice，綁定 <a href="ValueSet-NHIMedication-vs.html">NHI-電子處方箋-用藥品項值集</a>。</li>
+      <li><code>Medication.code.coding:nonNHIMedication</code>：新增無健保代碼藥物品項 slice。</li>
+      <li>新增 Constraint <code>empd-med-1</code>：自費藥品且無藥品許可證字號時，代碼須使用 <code>999999</code> 加院所自訂 4 碼流水號，共 10 碼。</li>
+      <li>配合 FHIR Ratio 資料型態定義，調整 <code>Medication.ingredient.strength</code> 之 numerator／denominator，其 <code>value</code>、<code>system</code> 及 <code>code</code> 改為必填，<code>system</code> 固定使用 UCUM <code>http://unitsofmeasure.org</code>。</li>
+      <li><code>Medication.code.text</code>：長度限制 600。</li>
     </ul>
   </li>
-  <li>修改 <a href="StructureDefinition-MedicationRequest-EMPD.html">Profile: 電子處方箋-處方內容（MedicationRequest-EMPD）</a>
+
+  <li>修改 <a href="StructureDefinition-MedicationRequest-EMPD.html">Profile: 電子處方箋-處方內容（MedicationRequest-EMPD）</a>：
     <ul>
+      <li>新增 Constraint <code>empd-ord-1</code>：醫令類別非特殊材料時，須提供劑量、劑量單位、頻率、給藥途徑、給藥日數及給藥總量等相關資訊。</li>
+      <li>新增 Constraint <code>empd-medreq-2</code>：未使用 <code>medicationReference</code> 表示藥品時，應以 <code>medicationCodeableConcept</code> 填寫特材代碼。</li>
+      <li>新增 Constraint <code>empd-medreq-3</code>：無健保代碼之特材暫編碼須符合 12 碼編碼規則。</li>
+      <li><code>MedicationRequest.status</code>：原由 <code>MedicationRequest.note</code> 表示之處方箋註銷註記改由此欄位表示，並 required 綁定 <a href="ValueSet-medication-request-status-empd.html">EMPD MedicationRequest 狀態值集</a>，限使用 <code>active</code> 表示處方箋有效、<code>cancelled</code> 表示處方箋已註銷。</li>
+      <li><code>MedicationRequest.category:orderType</code>：基數 <code>0..1</code> → <code>1..1</code>，醫令類別改為必填。</li>
+      <li><code>MedicationRequest.medication[x]:medicationCodeableConcept.coding:NHIMaterial</code>：新增健保代碼特材 slice，綁定 <a href="ValueSet-NHIMaterial-vs.html">NHI-電子處方箋-健保特材值集</a>。</li>
+      <li><code>MedicationRequest.medication[x]:medicationCodeableConcept.coding:nonNHIMaterial</code>：新增無健保代碼特材 slice。</li>
+      <li><code>MedicationRequest.note</code>：
+        <ul>
+          <li>原「處方箋註銷註記」改由 <code>MedicationRequest.status</code> 表示。</li>
+          <li>原「自費註記」改由 <code>MedicationRequest.category:selfpayStatus</code> 表示。</li>
+          <li>原「須被合併之處方箋註記」改由 Composition 的 <code>Extension-CombinedPrescriptionNote</code> 表示。</li>
+        </ul>
+      </li>
+      <li><code>MedicationRequest.dosageInstruction.doseAndRate.dose[x]</code> 及 <code>doseQuantity</code>：基數 <code>1..1</code> → <code>0..1</code>，當為特材時可不填。</li>
+      <li><code>MedicationRequest.dosageInstruction.timing.repeat.frequency</code>：名稱由「頻率」調整為「藥品使用次數」，基數 <code>1..1</code> → <code>0..1</code>。</li>
+      <li><code>MedicationRequest.dosageInstruction.timing.code</code>：名稱由「使用時間」調整為「藥品使用頻率及服用時間」，基數 <code>0..1</code> → <code>1..1</code>。</li>
+      <li><code>MedicationRequest.dosageInstruction.timing.code.coding</code>：基數 <code>0..*</code> → <code>1..*</code>，綁定 <a href="ValueSet-NHIMedicationFrequency-HL7-vs.html">藥品使用頻率值集</a>。</li>
+      <li>「不得以其他廠牌藥品替代之理由」改以 <code>MedicationRequest.substitution.reason.text</code> 表示。</li>
+      <li><code>MedicationRequest.subject</code>：參照目標調整為 Patient-EMPD。</li>
       <li><code>MedicationRequest.identifier:PrescriptionNo.value</code>：長度限制 64。</li>
       <li><code>MedicationRequest.identifier:Item.value</code>：長度限制 2。</li>
       <li><code>MedicationRequest.extension:TotalMedicationDays.value[x]</code>：給藥總日份不得超過 999。</li>
@@ -101,165 +166,63 @@
       <li><code>MedicationRequest.substitution.reason.text</code>：長度限制 800。</li>
     </ul>
   </li>
-  <li>修改 <a href="StructureDefinition-Medication-EMPD.html">Profile: 電子處方箋-藥物處方內容（Medication-EMPD）</a>
+
+  <li>修改 <a href="StructureDefinition-Condition-EMPD.html">Profile: 電子處方箋-診斷（Condition-EMPD）</a>：
     <ul>
-      <li><code>Medication.code.text</code>：長度限制 600。</li>
+      <li><code>Condition.note</code>：改為表示「醫療評估內容註記」。</li>
+      <li>原「部分負擔代碼」改由 <code>Encounter.type</code> 表示。</li>
+      <li><code>Condition.note.text</code>：長度限制 1000。</li>
+      <li><code>Condition.subject</code>：參照目標調整為 Patient-EMPD。</li>
     </ul>
   </li>
-</ol>
-請留意這些異動，以避免影響您的實作。
-<hr style="border: 0; border-top: 2px solid #b8c2cc; margin: 28px 0;">
-因考量實作需求，於2026/9/18異動以下內容：
-<ol>
-  <li>新增代碼 <a href="ValueSet-NonNHIMaterial-vs.html">ValueSet: 健保特材</a>：供健保代碼特材使用</li>
-  <li>修改代碼 <a href="ValueSet-SelfpayStatus-vs.html">ValueSet: 自費註記</a>：<code>00</code>（自費）改為 <code>Y</code>（自費），<code>01</code>（非自費）改為 <code>N</code>（非自費）。</li>
-  <li>新增 <a href="StructureDefinition-Extension-CombinedPrescriptionNote.html">Extension：須被合併之處方箋註記（Extension-CombinedPrescriptionNote）</a>：<code>Extension.value[x]</code> 限用 boolean 且必填，以 <code>valueBoolean</code> 表示是否須合併。</li>
-  <li>修改 <a href="StructureDefinition-MedicationRequest-EMPD.html">Profile: 電子處方箋-處方內容（MedicationRequest-EMPD）</a>
+
+  <li>修改調劑單張相關 Profiles：
     <ul>
-      <li><code>MedicationRequest.dosageInstruction.timing</code>：調整「藥品使用次數」及「藥品使用頻率及服用時間」：
+      <li><a href="StructureDefinition-Bundle-DS.html">Profile: 調劑單張-Bundle（Bundle-DS）</a>：
         <ul>
-          <li><code>timing.repeat.frequency</code>：名稱由「頻率」調整為「藥品使用次數」，基數由 <code>1..1</code> 調整為 <code>0..1</code>。</li>
-          <li><code>timing.code</code>：名稱由「使用時間」調整為「藥品使用頻率及服用時間」，基數由 <code>0..1</code> 調整為 <code>1..1</code>；<code>timing.code.coding</code> 基數由 <code>0..*</code> 調整為 <code>1..*</code></li>
+          <li><code>Bundle.entry</code>：最低筆數 <code>12</code> → <code>11</code>。</li>
+          <li><code>Bundle.entry:ObservationBodyWeight</code>：上限調整為 <code>1</code>。</li>
+          <li><code>Bundle.entry:Coverage</code>：基數 <code>1..*</code> → <code>1..1</code>。</li>
+          <li><code>Bundle.entry:Media</code>：基數 <code>1..*</code> → <code>0..*</code>，領藥者數位簽章改為選填。</li>
         </ul>
       </li>
-      <li><code>MedicationRequest.medication[x]:medicationCodeableConcept.coding:NHIMaterial</code>：用以表示健保代碼特材。</li>
-      <li>不得以其他廠牌藥品替代之理由 原由<code>MedicationRequest.substitution.reason</code> 表示，調整為填寫其 <code>MedicationRequest.substitution.reason.text</code> 欄位。</li>
-    </ul>
-  </li>
-  <li>修改 <a href="StructureDefinition-Composition-EMPD.html">Profile：電子處方箋-Composition（Composition-EMPD）</a>
-  <ul>
-    <li><code>Composition.section:MedicationPrescribed.extension</code>：原由 <code>MedicationRequest.note</code> 表示的「須被合併之處方箋註記」，改由此擴充的 <code>valueBoolean</code> 表示。</li>
-  </ul>
-</li>
-</ol>
-請留意這些異動，以避免影響您的實作。
-<hr style="border: 0; border-top: 2px solid #b8c2cc; margin: 28px 0;">
-因考量實作需求，於2026/8/28異動以下內容：
-<ol>
-  <li>確保實務上代碼使用的有效性，此版本IG繼承 <a href="https://twcore.mohw.gov.tw/ig/twcore/0.3.2/">TW Core 0.3.2</a> 版本</li>
-  <li>新增代碼 <a href="ValueSet-NHIMedication-vs.html">ValueSet: NHI-電子處方箋-用藥品項</a>：供Medication.code及MedicationRequest.medicationCodeableConcept使用</li>
-  <li>新增代碼 <a href="ValueSet-NHIMedicationFrequency-HL7-vs.html">ValueSet: HL7 TimingAbbreviation + NHI-電子處方箋-藥品使用頻率值集</a>：供MedicationRequest.dosageInstruction.timing使用</li>
-  <li>新增代碼 <a href="ValueSet-NonNHIMedication-vs.html">ValueSet: 無健保代碼之藥品</a>：供無健保代碼藥物品項使用</li>
-  <li>新增代碼 <a href="ValueSet-NonNHIMaterial-vs.html">ValueSet: 無健保代碼之特材</a>：供無健保代碼特材使用</li>
-  <li>新增代碼 <a href="ValueSet-PartCode-vs.html">ValueSet: 部分負擔代碼值集</a>：供Encounter.type使用</li>
-  <li>新增代碼 <a href="ValueSet-nhi-identity-type.html">ValueSet: 就醫身分別值集</a>：供Coverage.type.coding使用</li>
-  <li>新增 <a href="StructureDefinition-Extension-PaymentCategory.html">Extension: 給付類別（Extension-PaymentCategory）</a>：
-    <ul>
-      <li><code>Extension.url</code>：固定 https://nhicore.nhi.gov.tw/empd/StructureDefinition/Extension-PaymentCategory</li>
-      <li><code>Extension.value[x]</code>：必填CodeableConcept，required綁定 <a href="ValueSet-PaymentCategory-vs.html">ValueSet: 給付類別值集</a></li>
-    </ul>
-  </li>
-  <li>修改 <a href="StructureDefinition-Bundle-EMPD.html">Profile: 電子處方箋-Bundle（Bundle-EMPD）</a>
-    <ul>
-      <li>Constraints: enc-nhi-1：就醫身分別為健保（ 00 ）時，健保卡就醫序號必填</li>
-      <li><code>Bundle</code>（<code>empd-medreq-1</code>）：處方箋種類為管制藥（<code>D</code>／<code>E</code>／<code>F</code>）時，醫師證號與管制藥品執照皆必填</li>
-      <li>因特材改於 MedicationRequest 填寫，Medication 可為非必填：
-      <ul><li><code>Bundle.entry</code>：基數 <code>9..*</code>→<code>8..*</code></li>
-      <li><code>Bundle.entry:Medication</code>：基數 <code>1..*</code>→<code>0..*</code></li>
-      <li><code>Bundle.entry:CoverageIdentifier</code>：基數 <code>1..*</code>→<code>1..1</code></li></ul></li>      
-    </ul>
-  </li>
-  <li>修改 <a href="StructureDefinition-Composition-EMPD.html">Profile: 電子處方箋-Composition（Composition-EMPD）</a>
-    <ul>
-      <li><code>Composition.date</code>：語意改為處方箋有效期間迄</li>
-      <li><code>Composition.section:Coverage</code>：基數<code>1..*</code>→<code>1..1</code></li>
-      <li>因特材改於 MedicationRequest 填寫，Medication 可為非必填：
-      <ul><li><code>Composition.section:MedicationPrescribed.entry</code>：基數<code>2..*</code>→<code>1..*</code></li>
-      <li><code>Composition.section:MedicationPrescribed.entry:Medication</code>：基數<code>1..*</code>→<code>0..*</code></li></ul></li>      
-    </ul>
-  </li>
-  <li>修改 <a href="StructureDefinition-Encounter-EMPD.html">Profile: 電子處方箋-門診基本資料（Encounter-EMPD）</a>
-    <ul>
-      <li><code>Encounter.identifier:medical-encounter-identifier</code>：新增「就醫識別碼」slice，必填，system 固定填寫https://nhicore.nhi.gov.tw/empd/medical-encounter-identifier</li>
-      <li><code>Encounter.identifier:func-sequence-number</code>：新增「健保卡就醫序號」slice，當就醫身分別為非自費時必填，system 固定<code>https://nhicore.nhi.gov.tw/empd/func-sequence-number</code></li>
-      <li><code>Encounter.class</code>：binding 改為 <a href="ValueSet-nhi-case-type.html">ValueSet: NHI-健保案件分類值集 </a></li>
-      <li><code>Encounter.type</code>：原Condition.note之部分負擔代碼改至此欄位，並新增綁定<a href="ValueSet-PartCode-vs.html">部分負擔代碼值集</a></li>
-    </ul>
-  </li>
-  <li>修改 <a href="StructureDefinition-Coverage-EMR.html">Profile: 電子處方箋／調劑單張-就醫身分別（Coverage-EMR）</a>
-    <ul>
-      <li><code>Coverage.type.coding</code>：原Coverage.type.text之就醫身分別改至此欄位，並新增綁定 <a href="ValueSet-nhi-identity-type.html">就醫身分別值集</a></li>
-      <li><code>Coverage.extension:PaymentCategory</code>：原Coverage.type.coding之給付類別改至此欄位，並綁定 <a href="ValueSet-PaymentCategory-vs.html">給付類別值集</a></li>
-    </ul>
-  </li>
-  <li>修改 <a href="StructureDefinition-Organization-EMPD.html">Profile: 電子處方箋-醫事機構基本資料（Organization-EMPD）</a>
-    <ul>
-      <li><code>Organization.identifier</code>：基數改為<code>1..1</code>，新增slice需填寫 <a href="ValueSet-organization-identifier-tw.html">健保特約醫事機構代碼</a> 或 <a href="https://twcore.mohw.gov.tw/ig/twcore/0.3.2/ValueSet-organization-identifier-tw.html">臺灣醫事司醫事機構代碼值集</a></li>
-      <li><code>Organization.identifier:nhi-organization</code>：新增健保特約醫事機構代碼slice，綁定健保特約醫事機構值集</li>
-      <li><code>Organization.identifier:twcore-organization</code>：新增醫事司醫事機構代碼slice，綁定<a href="https://twcore.mohw.gov.tw/ig/twcore/0.3.2/ValueSet-organization-identifier-tw.html">TW Core醫事機構值集</a></li>
-      <li><code>Organization.name</code>：改為必填<code>1..1</code></li>
-    </ul>
-  </li>
-  <li>修改 <a href="StructureDefinition-Patient-EMPD.html">Profile: 電子處方箋-病人基本資料（Patient-EMPD）</a>：新增constraint <code>pat-id-1</code>，病人之國民身分證統一編號／護照號碼／居留證號，至少需填寫一種</li>
-  <li>修改 <a href="StructureDefinition-Practitioner-EMPD.html">Profile: 電子處方箋-醫事人員基本資料（Practitioner-EMPD）</a>：開立一、二、三級管制藥時，醫師證號與管制藥品使用執照皆必填
-    <ul>
-      <li><code>Practitioner.identifier:medicalLicenseNumber</code>：新增slice，原<code>Practitioner.qualification.identifier</code>之醫師證號改至此欄位；<code>system</code>固定<code>https://dep.mohw.gov.tw/DOMA</code></li>
-      <li><code>Practitioner.qualification</code>：由必填<code>1..1</code>改為選填<code>0..1</code></li>
-      <li><code>Practitioner.qualification.identifier</code>：原<code>Practitioner.identifier.value</code>之管制藥品使用執照改至此欄位；<code>system</code>固定<code>https://cdmis.fda.gov.tw</code>，<code>value</code>請填寫管制藥品使用執照號</li>
-    </ul>
-  </li>
-  <li>修改 <a href="StructureDefinition-Medication-EMPD.html">Profile: 電子處方箋-藥物處方內容（Medication-EMPD）</a>
-    <ul>
-      <li><code>Medication.code.coding:nhi-medication</code>：新增<code>電子處方箋用藥品項</code> slice，綁定 <a href="ValueSet-NHIMedication-vs.html">ValueSet: NHI-電子處方箋-用藥品項值集</a>，此值集將根據健保用藥品項定期更新。</li>
-      <li><code>Medication.code.coding:nonNHIMedication</code>：新增<code>無健保代碼藥物品項</code> slice，<code>system</code>固定填寫<code>https://nhicore.nhi.gov.tw/empd/CodeSystem/NonNHIMedication-cs</code>，value應為<code>999999</code>加院所自訂流水號4碼，共10碼</li>
-      <li><code>Medication</code>（<code>empd-med-1</code>）：自費藥品且無藥品許可證字號時，代碼須為<code>999999</code>＋4碼流水號自行編碼</li>
-      <li>配合FHIR Ratio資料型態定義，調整<code>Medication.ingredient.strength</code>之 numerator／denominator及其<code>value</code>、<code>system</code>（固定UCUM <code>http://unitsofmeasure.org</code>）、<code>code</code>皆改為必填</li>
-    </ul>
-  </li>
-  <li>修改 <a href="StructureDefinition-MedicationRequest-EMPD.html">Profile: 電子處方箋-處方內容（MedicationRequest-EMPD）</a>
-    <ul>
-      <li><code>MedicationRequest</code>（<code>empd-ord-1</code>）：醫令類別非特材（<code>3</code>）時，須有劑量／頻率／途徑／日數／總量等相關欄位</li>
-      <li><code>MedicationRequest</code>（<code>empd-medreq-2</code>）：未使用<code>medicationReference</code>表示藥品時，應以<code>medicationCodeableConcept</code>填寫特材代碼</li>
-      <li><code>MedicationRequest</code>（<code>empd-medreq-3</code>）：無健保代碼之特材暫編碼須符合編碼規則：共12碼，第1-2碼依現行特材代碼前2碼編碼原則、第3碼為大寫「Z」、第4-9碼為許可證號（6碼）、第10-12碼為流水號（3碼）</li>
-      <li><code>MedicationRequest.status</code>：原MedicationRequest.note之處方箋註銷註記改至此欄位表示，限使用<code>active</code>表示處方箋有效、<code>cancelled</code>表示處方箋已註銷</li>
-      <li><code>MedicationRequest.category:orderType</code>：基數<code>0..1</code>→<code>1..1</code>，醫令類別改為必填</li>
-      <li><code>MedicationRequest.medication[x]:medicationCodeableConcept.coding:nonNHIMaterial</code>：用以表示無健保代碼特材，<code>system</code>固定填寫<code>https://nhicore.nhi.gov.tw/empd/CodeSystem/NonNHIMaterial-cs</code></li>
-      <li><code>MedicationRequest.note</code>：<ul><li>改為表示「須被合併之處方箋註記」</li><li>原「處方箋註銷註記」改至 <code>MedicationRequest.status</code></li><li>原「自費註記」改至 <code>MedicationRequest.category:selfpayStatus</code></li></ul></li>
-      <li><code>MedicationRequest.dosageInstruction.doseAndRate.dose[x]</code>及<code>doseQuantity</code>：基數<code>1..1</code>→<code>0..1</code>，當為特材時可不填</li>
-    </ul>
-  </li>
-  <li>修改 <a href="StructureDefinition-Condition-EMPD.html">Profile: 電子處方箋-診斷（Condition-EMPD）</a>
-    <ul>
-      <li><code>Condition.note</code>：</li>
-      <li>
+      <li><a href="StructureDefinition-Composition-DS.html">Profile: 調劑單張-Composition（Composition-DS）</a>：
         <ul>
-          <li>改為表示「醫療評估內容註記」</li>
-          <li>原「部分負擔代碼」改至 <a href="StructureDefinition-Encounter-EMPD.html">Encounter.type</a></li>
+          <li><code>Composition.section:Coverage</code>：基數 <code>1..*</code> → <code>1..1</code>。</li>
+          <li><code>Composition.section:Media</code>：上限 <code>1</code> → <code>*</code>。</li>
+          <li><code>Composition.section:Coverage.code.coding.display</code>：移除固定值。</li>
+          <li><code>Composition.section:BodyWeight.code.coding.display</code>：移除固定值。</li>
+          <li><code>Composition.section:Condition.code.coding.display</code>：移除固定值。</li>
+          <li><code>Composition.section:MedicationPrescribed.code.coding.display</code>：移除固定值。</li>
+        </ul>
+      </li>
+      <li><a href="StructureDefinition-Medication-DS.html">Profile: 調劑單張-藥物處方內容（Medication-DS）</a>：
+        <ul>
+          <li>新增 <code>Medication.code.coding:nhi-medication</code>（<code>0..1</code>、Must Support），required 綁定 <a href="ValueSet-NHIMedication-vs.html">NHI-電子處方箋-用藥品項值集</a>。</li>
+        </ul>
+      </li>
+      <li><a href="StructureDefinition-MedicationRequest-DS.html">Profile: 調劑單張-處方內容（MedicationRequest-DS）</a>：
+        <ul>
+          <li><code>MedicationRequest.category:selfpayStatus</code>：補充若自費註記為 <code>Y</code>，無須檢核健保代碼。</li>
+          <li>新增 <code>MedicationRequest.medication[x]:medicationCodeableConcept.coding:nhi-medication</code>（<code>0..1</code>、Must Support），required 綁定 <a href="ValueSet-NHIMedication-vs.html">NHI-電子處方箋-用藥品項值集</a>。</li>
+          <li><code>MedicationRequest.dosageInstruction.timing.code</code> 及其 <code>coding</code>：required 綁定 <a href="ValueSet-NHIMedicationFrequency-HL7-vs.html">藥品使用頻率值集</a>。</li>
+          <li><code>MedicationRequest.note</code>：取消必填，自費註記改由 <code>category</code> 表示。</li>
+        </ul>
+      </li>
+      <li><a href="StructureDefinition-Media-DS.html">Profile: 調劑單張-領藥者數位簽章（Media-DS）</a>：
+        <ul>
+          <li><code>Media.note</code> 新增 Must Support，供 QR Code 相關說明使用。</li>
         </ul>
       </li>
     </ul>
   </li>
-  <li>修改 <a href="StructureDefinition-Bundle-DS.html">Profile: 調劑單張-Bundle（Bundle-DS）</a>
-    <ul>
-      <li><code>Bundle.entry</code>：最低筆數<code>12</code>→<code>11</code></li>
-      <li><code>Bundle.entry:ObservationBodyWeight</code>：上限改為<code>1</code></li>
-      <li><code>Bundle.entry:Coverage</code>：基數<code>1..*</code>→<code>1..1</code></li>
-      <li><code>Bundle.entry:Media</code>：基數<code>1..*</code>→<code>0..*</code>（領藥簽章改選填）</li>
-    </ul>
-  </li>
-  <li>修改 <a href="StructureDefinition-Composition-DS.html">Profile: 調劑單張-Composition（Composition-DS）</a>
-    <ul>
-      <li><code>Composition.section:Coverage</code>：基數<code>1..*</code>→<code>1..1</code></li>
-      <li><code>Composition.section:Media</code>：上限<code>1</code>→<code>*</code>（配合領藥簽章改選填）</li>
-    </ul>
-  </li>
-  <li>修改 <a href="StructureDefinition-Medication-DS.html">Profile: 調劑單張-藥物處方內容（Medication-DS）</a>：新增<code>Medication.code.coding:nhi-medication</code>（<code>0..1</code>，Must Support），required綁定<a href="ValueSet-NHIMedication-vs.html">NHIMedication-vs</a></li>
-  <li>修改 <a href="StructureDefinition-MedicationRequest-DS.html">Profile: 調劑單張-處方內容（MedicationRequest-DS）</a>
-    <ul>
-      <li><code>MedicationRequest.category:selfpayStatus</code>：補充若自費註記為<code>Y</code>，無須檢核健保代碼</li>
-      <li><code>MedicationRequest.medication[x]:medicationCodeableConcept.coding:nhi-medication</code>：新增<code>0..1</code>（Must Support），required綁定<a href="ValueSet-NHIMedication-vs.html">NHIMedication-vs</a></li>
-      <li><code>MedicationRequest.dosageInstruction.timing.code</code>及其<code>coding</code>：required綁定<a href="ValueSet-NHIMedicationFrequency-HL7-vs.html">NHIMedicationFrequency-HL7-vs</a></li>
-      <li><code>MedicationRequest.note</code>：取消必填min=1；自費註記改由category承載</li>
-    </ul>
-  </li>
-  <li>修改 <a href="StructureDefinition-Media-DS.html">Profile: 調劑單張-領藥者數位簽章（Media-DS）</a>：<code>Media.note</code>新增Must Support，供QR Code相關說明</li>
 </ol>
 請留意這些異動，以避免影響您的實作。
 </div>
 
 ### 專案介紹
 
-臺灣電子處方箋與調劑單張實作指引（Taiwan Electronic Medication Prescription and Dispense Implementation Guide，簡稱TW EMPD IG），採用HL7® FHIR® standard（Fast Healthcare Interoperability Resources）IG建置方法，在FHIR [R4.0.1](https://hl7.org/fhir/R4/)之標準基礎上，繼承臺灣核心實作指引（Taiwan Core Implementation Guide，簡稱TW core IG）V1.0.0版本，進一步定義適用於臺灣電子處方箋與調劑單張資料需求的Resources（類似資料表）、其中的資料項目（意即欄位）、基數（意即0..1、0.._、1..1或1.._）及資料類型（文字、日期時間、代碼等）等。
+臺灣電子處方箋與調劑單張實作指引（Taiwan Electronic Medication Prescription and Dispense Implementation Guide，簡稱TW EMPD IG），採用HL7® FHIR® standard（Fast Healthcare Interoperability Resources）IG建置方法，在FHIR [R4.0.1](https://hl7.org/fhir/R4/)之標準基礎上，繼承臺灣核心實作指引（Taiwan Core Implementation Guide，簡稱TW core IG）V0.3.2版本，進一步定義適用於臺灣電子處方箋與調劑單張資料需求的Resources（類似資料表）、其中的資料項目（意即欄位）、基數（意即0..1、0.._、1..1或1.._）及資料類型（文字、日期時間、代碼等）等。
 
 ### 專案背景
 
