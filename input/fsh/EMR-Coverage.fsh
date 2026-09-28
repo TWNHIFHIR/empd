@@ -6,7 +6,6 @@ Parent: Coverage
 Id: Coverage-EMR
 Title: "電子處方箋/調劑單張-就醫身分別"
 Description: "用於表示電子處方箋與調劑單張之就醫身分別"
-* ^version = "0.2.1"
 * ^status = #active
 
 * extension 0..1 MS

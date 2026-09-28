@@ -2,7 +2,6 @@ Instance: Organization-identifier
 InstanceOf: SearchParameter
 Usage: #definition
 * url = "https://nhicore.nhi.gov.tw/empd/SearchParameter/Organization-identifier"
-* version = "0.1.0"
 * name = "SearchParameterOrganizationidentifier"
 * status = #active
 * date = "2024-02-03"

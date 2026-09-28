@@ -44,12 +44,11 @@
 
 + Medication
 
-    - [電子處方箋-藥物處方內容](StructureDefinition-Medication-EMPD.html)
-
+    - [電子處方箋-藥物處方內容(Medication)](StructureDefinition-Medication-EMPD.html)
 
 + MedicationRequest
 
-    - [電子處方箋-處方內容](StructureDefinition-MedicationRequest-EMPD.html)
+    - [電子處方箋-處方內容(MedicationRequest)](StructureDefinition-MedicationRequest-EMPD.html)
 
 + Extension
 
@@ -63,64 +62,65 @@
 
 + Bundle
 
-[調劑單張-Bundle](StructureDefinition-Bundle-DS.html)
+    - [調劑單張-Bundle](StructureDefinition-Bundle-DS.html)
 
 + Composition
 
-[調劑單張-Composition](StructureDefinition-Composition-DS.html)
+    - [調劑單張-Composition](StructureDefinition-Composition-DS.html)
 
 + Organization
 
-[調劑單張-醫療/調劑機構基本資料](StructureDefinition-Organization-DS.html)
+    - [調劑單張-醫事機構基本資料](StructureDefinition-Organization-DS.html)
 
 + Patient
 
-[調劑單張-病人基本資料](StructureDefinition-Patient-DS.html)
+    - [調劑單張-病人基本資料](StructureDefinition-Patient-DS.html)
 
 + Practitioner
 
-[調劑單張-醫事人員基本資料](StructureDefinition-Practitioner-DS.html)
+    - [調劑單張-醫事人員基本資料](StructureDefinition-Practitioner-DS.html)
 
 + Encounter
 
-[調劑單張-門診基本資料](StructureDefinition-Encounter-DS.html)
+    - [調劑單張-門診基本資料](StructureDefinition-Encounter-DS.html)
 
 + Condition
 
-[調劑單張-診斷](StructureDefinition-Condition-DS.html)
+    - [調劑單張-診斷](StructureDefinition-Condition-DS.html)
 
 + Observation
 
-[調劑單張-體重](StructureDefinition-Observation-DS-BodyWeight.html)
+    - [調劑單張-病患體重](StructureDefinition-Observation-DS-BodyWeight.html)
 
 + Coverage
 
-[調劑單張-就醫身分別](StructureDefinition-Coverage-EMR.html)
+    - [調劑單張-就醫身分別](StructureDefinition-Coverage-EMR.html)
 
 + ChargeItem
 
-[調劑單張-藥事服務代碼](StructureDefinition-ChargeItem-DS.html)
+    - [調劑單張-藥物服務代碼](StructureDefinition-ChargeItem-DS.html)
 
 + Medication
 
-[調劑單張-藥物處方內容(Medication)](StructureDefinition-Medication-DS.html)
-
+    - [調劑單張-藥物處方內容(Medication)](StructureDefinition-Medication-DS.html)
 
 + MedicationRequest
 
-[調劑單張-處方內容(MedicationRequest)](StructureDefinition-MedicationRequest-DS.html)
+    - [調劑單張-處方內容(MedicationRequest)](StructureDefinition-MedicationRequest-DS.html)
 
 + MedicationDispense
 
-[調劑單張-調劑內容(MedicationDispense)](StructureDefinition-MedicationDispense-DS.html)
+    - [調劑單張-調劑內容(MedicationDispense)](StructureDefinition-MedicationDispense-DS.html)
 
 + Media
 
-[調劑單張-領藥者數位簽章](StructureDefinition-Media-DS.html)
+    - [調劑單張-領藥者數位簽章](StructureDefinition-Media-DS.html)
 
 + Extension
 
-[給藥總日份](StructureDefinition-Extension-TotalDuration.html)
+    - [給藥總日份](StructureDefinition-Extension-TotalDuration.html)
+
+    - [給付類別](StructureDefinition-Extension-PaymentCategory.html)
 
 
 ### TW Core IG Extensions

@@ -2,7 +2,6 @@ Instance: Encounter-status
 InstanceOf: SearchParameter
 Usage: #definition
 * url = "https://nhicore.nhi.gov.tw/empd/SearchParameter/Encounter-status"
-* version = "0.1.0"
 * name = "SearchParameterEncounterstatus"
 * status = #active
 * date = "2024-02-03"

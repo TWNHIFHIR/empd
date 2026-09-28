@@ -16,7 +16,6 @@ Parent: TWCoreMedicationRequest
 Id: MedicationRequest-DS
 Title: "調劑單張-處方內容(MedicationRequest)"
 Description: "此Profile繼承於臺灣核心-藥品處方(TW Core MedicationRequest)，並用於描述調劑單張的處方內容[[*FMM1*](http://build.fhir.org/versions.html#maturity)]"
-* ^version = "0.2.1"
 * ^date = "2024-01-02"
 * extension MS
 * extension contains $Extension-TotalDuration named TotalMedicationDays 1..1

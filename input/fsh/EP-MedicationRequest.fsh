@@ -33,7 +33,6 @@ Parent: TWCoreMedicationRequest
 Id: MedicationRequest-EMPD
 Title: "電子處方箋-處方內容(MedicationRequest)"
 Description: "此Profile繼承於臺灣核心-藥品處方(TW Core MedicationRequest)，並用於描述電子處方箋的處方內容[[*FMM1*](http://build.fhir.org/versions.html#maturity)]"
-* ^version = "0.2.1"
 * ^status = #active
 
 * extension 1..1 MS

@@ -15,7 +15,6 @@ Parent: TWCoreComposition
 Id: Composition-EMPD
 Title: "電子處方箋-Composition"
 Description: "用於表示電子處方箋資料集之文檔"
-* ^version = "0.2.1"
 
 * subject 1..
 * subject only Reference(Group or Device or Substance or TWCoreLocation or $Patient-EMPD)

@@ -10,7 +10,6 @@ Id: Medication-EMPD
 Title: "電子處方箋-藥物處方內容(Medication)"
 Description: """此Profiles繼承於臺灣核心-藥品(TW Core Medication) ，並進一步用於描述電子處方箋之藥物處方內容  
 [[*FMM1*](http://build.fhir.org/versions.html#maturity)]"""
-* ^version = "0.2.1"
 
 * code 1..1
   * ^short = "指明這種藥品的代碼。[應填入健保代碼與藥品商品名稱 Brand Name]，健保代碼(code)；商品名稱 Brand Name(display)。"

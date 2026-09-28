@@ -2,7 +2,6 @@ Instance: Patient-birthDate
 InstanceOf: SearchParameter
 Usage: #definition
 * url = "https://nhicore.nhi.gov.tw/empd/SearchParameter/Patient-birthDate"
-* version = "0.1.0"
 * name = "SearchParameterPatientbirthDate"
 * status = #active
 * date = "2024-02-03"

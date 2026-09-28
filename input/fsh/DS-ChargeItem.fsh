@@ -6,7 +6,6 @@ Parent: ChargeItem
 Id: ChargeItem-DS
 Title: "調劑單張-藥物服務代碼"
 Description: "此Profile用於描述調劑單張之藥物服務代碼"
-* ^version = "0.2.1"
 * ^status = #active
 * ^date = "2024-01-02"
 * code MS

@@ -2,7 +2,6 @@ Instance: Media-status
 InstanceOf: SearchParameter
 Usage: #definition
 * url = "https://nhicore.nhi.gov.tw/empd/SearchParameter/Media-status"
-* version = "0.1.0"
 * name = "SearchParameterMediastatus"
 * status = #active
 * date = "2024-02-03"

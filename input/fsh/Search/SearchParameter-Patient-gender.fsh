@@ -2,7 +2,6 @@ Instance: Patient-gender
 InstanceOf: SearchParameter
 Usage: #definition
 * url = "https://nhicore.nhi.gov.tw/empd/SearchParameter/Patient-gender"
-* version = "0.1.0"
 * name = "SearchParameterPatientgender"
 * status = #active
 * date = "2024-02-03"

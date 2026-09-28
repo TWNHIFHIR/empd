@@ -3,7 +3,6 @@ Id: Extension-PaymentCategory
 Title: "Extension-給付類別"
 Description: "用於表示給付類別 Payment Category"
 Context: Coverage
-* ^version = "0.2.1"
 * . MS
   * ^short = "擴充的資料項目。[應填入給付類別 Payment Category]"
   * ^definition = "擴充的資料項目。"

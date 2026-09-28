@@ -14,7 +14,6 @@ Parent: TWCoreBundle
 Id: Bundle-EMPD
 Title: "電子處方箋-Bundle"
 Description: "此Profiles用於打包電子處方箋所有相關資料，利用此Bundle時請使用document方式將資料進行打包，Bundle所包含之Resource應與Composition涵蓋數量保持一致，且所有的Resource必須符合電子處方箋各資料規範，其相關規範(Structure Definition)與範例(Example)可分別於Bundle內entry的url連結或是在Composition進行查閱。"
-* ^version = "0.2.1"
 
 * type MS
 * entry MS

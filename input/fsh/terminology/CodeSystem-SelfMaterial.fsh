@@ -5,7 +5,6 @@ Description: """用於無健保代碼之特材。編碼規則共12碼：第1-2�
 
 編碼範例：骨科類特材 FBZ012345001（第1項建議）、FBZ012345002（同一張許可證之第2項建議）。"""
 
-* ^version = "0.2.1"
 * ^status = #active
 * ^experimental = false
 * ^date = "2026-05-26"

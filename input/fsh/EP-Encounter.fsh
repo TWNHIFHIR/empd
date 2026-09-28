@@ -11,7 +11,6 @@ Parent: TWCoreEncounter
 Id: Encounter-EMPD
 Title: "電子處方箋-門診基本資料"
 Description: "此Profile繼承於臺灣核心-就醫事件(TW Core Encounter) ，並用於描述電子處方箋的門診基本資料[[*FMM1*](http://build.fhir.org/versions.html#maturity)]"
-* ^version = "0.2.1"
 
 * identifier 1..2
 * identifier ^slicing.discriminator.type = #value

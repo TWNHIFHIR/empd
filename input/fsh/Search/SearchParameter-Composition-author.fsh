@@ -2,7 +2,6 @@ Instance: Composition-author
 InstanceOf: SearchParameter
 Usage: #definition
 * url = "https://nhicore.nhi.gov.tw/empd/SearchParameter/Composition-author"
-* version = "0.1.0"
 * name = "SearchParameterCompositionauthor"
 * status = #active
 * date = "2024-02-03"

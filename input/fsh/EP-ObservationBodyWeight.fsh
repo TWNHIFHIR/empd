@@ -9,7 +9,6 @@ Title: "電子處方箋-體重"
 Description: """此Profiles繼承於臺灣核心-生命體徵(TW Core Observation Vital Signs) Profile，並進一步用於描述電子處方箋之病患體重
 若調劑藥物劑量須配合體重而有所調整，則必須使用此Profiles
 [[*FMM1*](http://build.fhir.org/versions.html#maturity)]"""
-* ^version = "0.2.1"
 * subject only Reference($Patient-EMPD)
 
 * code.coding

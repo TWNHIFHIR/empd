@@ -2,7 +2,6 @@ Instance: CapabilityStatementEMPDClient
 InstanceOf: CapabilityStatement
 Usage: #definition
 * url = "https://nhicore.nhi.gov.tw/empd/CapabilityStatement/CapabilityStatementEMPDClient"
-* version = "0.1.0"
 * name = "CapabilityStatementEMPDClient"
 * title = "電子處方箋與調劑單張-用戶端"
 * status = #active

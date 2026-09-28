@@ -2,7 +2,6 @@ Instance: Condition-id
 InstanceOf: SearchParameter
 Usage: #definition
 * url = "https://nhicore.nhi.gov.tw/empd/SearchParameter/Condition-id"
-* version = "0.1.0"
 * name = "SearchParameterConditionid"
 * status = #active
 * date = "2024-02-03"

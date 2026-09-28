@@ -2,7 +2,6 @@ Instance: Composition-date
 InstanceOf: SearchParameter
 Usage: #definition
 * url = "https://nhicore.nhi.gov.tw/empd/SearchParameter/Composition-date"
-* version = "0.1.0"
 * name = "SearchParameterCompositiondate"
 * status = #active
 * date = "2024-02-03"

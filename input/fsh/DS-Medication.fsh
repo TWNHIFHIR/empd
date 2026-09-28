@@ -7,7 +7,6 @@ Id: Medication-DS
 Title: "調劑單張-藥物處方內容(Medication)"
 Description: """此Profiles繼承於臺灣核心-藥品(TW Core Medication) ，並進一步用於描述調劑單張之藥物處方內容  
 [[*FMM1*](http://build.fhir.org/versions.html#maturity)]"""
-* ^version = "0.2.1"
 * ^date = "2024-01-02"
 * identifier MS
   * value MS

@@ -10,7 +10,6 @@ Id: Condition-EMPD
 Title: "電子處方箋-診斷"
 Description: """此Profiles繼承於臺灣核心-病情、問題或診斷(TW Core Condition) ，並進一步用於描述電子處方箋之診斷
 [[*FMM1*](http://build.fhir.org/versions.html#maturity)]"""
-* ^version = "0.2.1"
 * subject only Reference(Group or $Patient-EMPD)
 * code 1..1
   * ^short = "病情、問題或診斷的識別。[應填入國際疾病分類代碼ICD Code(International Classification of Diseases)]"

@@ -2,7 +2,6 @@ Instance: Observation-performer
 InstanceOf: SearchParameter
 Usage: #definition
 * url = "https://nhicore.nhi.gov.tw/empd/SearchParameter/Observation-performer"
-* version = "0.1.0"
 * name = "SearchParameterObservationperformer"
 * status = #active
 * date = "2024-02-03"

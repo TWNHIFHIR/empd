@@ -2,7 +2,6 @@ CodeSystem: OrderTypeCodeSystem
 Id: OrderType-cs
 Title: "醫令類別"
 Description: "用於表示醫令類別"
-* ^version = "0.2.1"
 * ^status = #active
 * ^experimental = false
 * ^date = "2024-02-22"

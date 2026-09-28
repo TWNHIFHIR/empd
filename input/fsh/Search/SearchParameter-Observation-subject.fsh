@@ -2,7 +2,6 @@ Instance: Observation-subject
 InstanceOf: SearchParameter
 Usage: #definition
 * url = "https://nhicore.nhi.gov.tw/empd/SearchParameter/Observation-subject"
-* version = "0.1.0"
 * name = "SearchParameterObservationsubject"
 * status = #active
 * date = "2024-02-03"

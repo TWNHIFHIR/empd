@@ -2,7 +2,6 @@ CodeSystem: PaymentCategoryCodeSystem
 Id: PaymentCategory-cs
 Title: "NHI-電子處方箋-給付類別"
 Description: "用於表示給付類別"
-* ^version = "0.2.1"
 * ^status = #active
 * ^experimental = false
 * ^date = "2024-02-22"

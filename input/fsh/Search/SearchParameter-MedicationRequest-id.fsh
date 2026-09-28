@@ -2,7 +2,6 @@ Instance: MedicationRequest-id
 InstanceOf: SearchParameter
 Usage: #definition
 * url = "https://nhicore.nhi.gov.tw/empd/SearchParameter/MedicationRequest-id"
-* version = "0.1.0"
 * name = "SearchParameterMedicationRequestid"
 * status = #active
 * date = "2024-02-03"
