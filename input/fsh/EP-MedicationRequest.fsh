@@ -182,7 +182,7 @@ Description: "此Profile繼承於臺灣核心-藥品處方(TW Core MedicationReq
 Invariant: empd-ord-1
 Description: "當醫令類別不是特殊材料（code=3）時，應填寫劑量、劑量單位、頻率、給藥途徑、給藥日數及給藥總量。"
 Severity: #error
-Expression: "category.coding.where(system = 'https://nhicore.nhi.gov.tw/empd/CodeSystem/OrderType-cs' and code = '3').exists() or (dosageInstruction.doseAndRate.dose.ofType(Quantity).value.exists() and dosageInstruction.doseAndRate.dose.ofType(Quantity).unit.exists() and dosageInstruction.timing.code.coding.code.exists() and dosageInstruction.route.exists() and dispenseRequest.expectedSupplyDuration.exists())"
+Expression: "category.coding.where(system = 'https://nhicore.nhi.gov.tw/empd/CodeSystem/OrderType-cs' and code = '3').exists() or (dosageInstruction.exists() and dosageInstruction.all(doseAndRate.dose.ofType(Quantity).value.exists() and doseAndRate.dose.ofType(Quantity).unit.exists() and timing.code.coding.code.exists() and route.exists()) and dispenseRequest.expectedSupplyDuration.exists() and dispenseRequest.quantity.exists())"
 
 Invariant: empd-medreq-2
 Description: "未使用 medicationReference 表示藥品時，應於 medicationCodeableConcept 填寫特材代碼。"
@@ -192,7 +192,7 @@ Expression: "medication.ofType(Reference).exists() or medication.ofType(Codeable
 Invariant: empd-medreq-3
 Description: "無健保代碼之特材暫編碼須符合編碼規則：共12碼，第1-2碼依現行特材代碼前2碼編碼原則(2碼)+第3碼為大寫「Z」(1碼)+第4-9碼為許可證號(6碼)+ 第10-12碼為流水號(3碼)"
 Severity: #error
-Expression: "medication.ofType(CodeableConcept).exists() implies (medication.ofType(CodeableConcept).coding.where(system = 'https://nhicore.nhi.gov.tw/empd/CodeSystem/NonNHIMaterial-cs').exists() and medication.ofType(CodeableConcept).coding.where(system = 'https://nhicore.nhi.gov.tw/empd/CodeSystem/NonNHIMaterial-cs').all(code.matches('^(AC|BB|C[ABCDEFGHKMPRTVX]|F[ABEHNPSU]|H[EFH]|LE|N[ABCE]|RR|S[ACS]|T[BFKS]|W[BD])Z.{6}[0-9]{3}$')))"
+Expression: "medication.ofType(CodeableConcept).coding.where(system = 'https://nhicore.nhi.gov.tw/empd/CodeSystem/NonNHIMaterial-cs').exists() implies (medication.ofType(CodeableConcept).coding.where(system = 'https://nhicore.nhi.gov.tw/empd/CodeSystem/NonNHIMaterial-cs').all(code.matches('^(AC|BB|C[ABCDEFGHKMPRTVX]|F[ABEHNPSU]|H[EFH]|LE|N[ABCE]|RR|S[ACS]|T[BFKS]|W[BD])Z.{6}[0-9]{3}$')))"
 
 Invariant: empd-medreq-4
 Description: "當藥品使用頻率為依照醫師指示使用（ASORDER）時，給藥方法（dosageInstruction.method）應填寫。"
@@ -541,5 +541,36 @@ Usage: #example
   * validityPeriod
     * start = "2026-08-24"
     * end = "2026-08-26"
+  * numberOfRepeatsAllowed = 1
+* extension[TotalMedicationDays].valuePositiveInt = 1
+
+Instance: med-req-09-ep
+InstanceOf: MedicationRequestEMPD
+Title: "電子處方箋-健保代碼特材－\"普惠\"注射帽(免針安全型)\""
+Description: "電子處方箋-處方內容(MedicationRequest)使用健保代碼之特材 \"普惠\"注射帽(免針安全型)\"。"
+Usage: #example
+* meta.profile = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/MedicationRequest-EMPD"
+* identifier[PrescriptionNo]
+  * system = "https://nhicore.nhi.gov.tw/empd/identifier/prescription"
+  * value = "Med000006"
+* identifier[Item]
+  * use = #secondary
+  * value = "1"
+* insurance = Reference(cov-01-ep)
+* status = #active
+* intent = #order
+* subject = Reference(pat-ep)
+* category[typesOfPrescription] = $TypeOfPrescription-cs#A
+* category[orderType] = $OrderType-cs#3
+* category[selfpayStatus] = $SelfpayStatus-cs#N "非自費"
+* medicationCodeableConcept.coding[NHIMaterial].system = "https://nhicore.nhi.gov.tw/empd/CodeSystem/NHIMaterial-cs"
+* medicationCodeableConcept.coding[NHIMaterial].code = #ACA0100CDNPW
+* medicationCodeableConcept.coding[NHIMaterial].display = "\"普惠\"注射帽(免針安全型)\"PERFECT:IV LOCK(SAFETY)"
+* dispenseRequest.quantity.value = 1
+* dispenseRequest.quantity.unit = "each"
+* dispenseRequest
+  * validityPeriod
+    * start = "2026-10-20"
+    * end = "2026-10-21"
   * numberOfRepeatsAllowed = 1
 * extension[TotalMedicationDays].valuePositiveInt = 1

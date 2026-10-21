@@ -256,7 +256,7 @@ Usage: #example
 
 Instance: bun-05-ep
 InstanceOf: BundleEMPD
-Title: "電子處方箋-特材-Bundle"
+Title: "電子處方箋-無健保代碼之特材-Bundle"
 Description: "電子處方箋-包含特材處方內容之文件Bundle範例。"
 Usage: #example
 * meta.profile = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Bundle-EMPD"
@@ -292,3 +292,42 @@ Usage: #example
 * entry[+]
   * fullUrl = "https://nhicore.nhi.gov.tw/empd/MedicationRequest/med-req-08-ep"
   * resource = med-req-08-ep
+
+  Instance: bun-06-ep
+InstanceOf: BundleEMPD
+Title: "電子處方箋-健保代碼之特材-Bundle"
+Description: "電子處方箋-包含特材處方內容之文件Bundle範例。"
+Usage: #example
+* meta.profile = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Bundle-EMPD"
+* identifier
+  * system = "https://nhicore.nhi.gov.tw/empd/identifier/prescription"
+  * value = "Med000006"
+* type = #document
+* timestamp = "2026-08-31T14:30:00+01:00"
+* entry[0]
+  * fullUrl = "https://nhicore.nhi.gov.tw/empd/Composition/com-06-ep"
+  * resource = com-06-ep
+* entry[+]
+  * fullUrl = "https://nhicore.nhi.gov.tw/empd/Patient/pat-ep"
+  * resource = pat-ep
+* entry[+]
+  * fullUrl = "https://nhicore.nhi.gov.tw/empd/Organization/org-01-ep"
+  * resource = org-01-ep
+* entry[+]
+  * fullUrl = "https://nhicore.nhi.gov.tw/empd/Practitioner/pra-01-ep"
+  * resource = pra-01-ep
+* entry[+]
+  * fullUrl = "https://nhicore.nhi.gov.tw/empd/Encounter/enc-01-ep"
+  * resource = enc-01-ep
+* entry[+]
+  * fullUrl = "https://nhicore.nhi.gov.tw/empd/Observation/obs-ep"
+  * resource = obs-ep
+* entry[+]
+  * fullUrl = "https://nhicore.nhi.gov.tw/empd/Condition/con-06-ep"
+  * resource = con-06-ep
+* entry[+]
+  * fullUrl = "https://nhicore.nhi.gov.tw/empd/Coverage/cov-01-ep"
+  * resource = cov-01-ep
+* entry[+]
+  * fullUrl = "https://nhicore.nhi.gov.tw/empd/MedicationRequest/med-req-09-ep"
+  * resource = med-req-09-ep

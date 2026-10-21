@@ -68,7 +68,7 @@ Description: "用於表示電子處方箋資料集之文檔"
   * entry only Reference($Condition-EMPD)
     * reference 1..
 * section[MedicationPrescribed] ^short = "處方內容"
-  * extension 0..1 MS
+  * extension 1..1 MS
   * extension contains ExtensionCombinedPrescriptionNote named CombinedPrescriptionNote 0..1
   * extension[CombinedPrescriptionNote] ^short = "表示該處方箋是否須與同一次就醫紀錄中開立之其他處方箋合併。[應填入須被合併之處方箋註記]"
   * code 1..
@@ -120,9 +120,11 @@ Usage: #example
 * section[MedicationPrescribed][=].code.text = "Medication prescribed Narrative Narrative"
 * section[MedicationPrescribed][=].entry[0] = Reference(Medication/med-01-ep)
 * section[MedicationPrescribed][=].entry[=] = Reference(MedicationRequest/med-req-01-ep)
-* section[MedicationPrescribed][0].extension[CombinedPrescriptionNote].url = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Extension-CombinedPrescriptionNote"
+* section[MedicationPrescribed][1].extension[CombinedPrescriptionNote].url = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Extension-CombinedPrescriptionNote"
 * section[MedicationPrescribed][=].extension[CombinedPrescriptionNote].valueBoolean = true
-* section[MedicationPrescribed][1].entry[0] = Reference(Medication/med-07-ep)
+* section[MedicationPrescribed][=].code = $loinc#29551-9
+* section[MedicationPrescribed][=].code.text = "Medication prescribed Narrative Narrative"
+* section[MedicationPrescribed][=].entry[0] = Reference(Medication/med-07-ep)
 * section[MedicationPrescribed][=].entry[=] = Reference(MedicationRequest/med-req-07-ep)
 
 Instance: com-02-ep
@@ -224,7 +226,7 @@ Usage: #example
 
 Instance: com-05-ep
 InstanceOf: CompositionEMPD
-Title: "電子處方箋-特材-Composition"
+Title: "電子處方箋-無健保代碼之特材-Composition"
 Description: "電子處方箋-包含特材處方內容之處方內容範例。"
 Usage: #example
 * meta.profile = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Composition-EMPD"
@@ -251,3 +253,33 @@ Usage: #example
 * section[MedicationPrescribed].code = $loinc#29551-9
 * section[MedicationPrescribed].code.text = "Medication prescribed Narrative Narrative"
 * section[MedicationPrescribed].entry[0] = Reference(MedicationRequest/med-req-08-ep)
+
+Instance: com-06-ep
+InstanceOf: CompositionEMPD
+Title: "電子處方箋-健保代碼之特材-Composition"
+Description: "電子處方箋-包含特材處方內容之處方內容範例。"
+Usage: #example
+* meta.profile = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Composition-EMPD"
+* status = #final
+* type = $loinc#57833-6 "Prescription for medication"
+* subject = Reference(Patient/pat-ep)
+* custodian = Reference(Organization/org-01-ep)
+* encounter = Reference(Encounter/enc-01-ep)
+* date = "2024-02-19T14:30:00+01:00"
+* author[0] = Reference(Organization/org-01-ep)
+* author[+] = Reference(Practitioner/pra-01-ep)
+* title = "電子處方箋"
+* section[Coverage].code = $loinc#29762-2
+* section[Coverage].code.text = "Social history Narrative"
+* section[Coverage].entry = Reference(Coverage/cov-01-ep)
+* section[ObservationBodyWeight].code = $loinc#85353-1
+* section[ObservationBodyWeight].code.text = "Vital signs, weight, height, head circumference, oxygen saturation and BMI panel"
+* section[ObservationBodyWeight].entry = Reference(Observation/obs-ep)
+* section[Condition].code = $loinc#29548-5
+* section[Condition].code.text = "Diagnosis Narrative"
+* section[Condition].entry = Reference(Condition/con-06-ep)
+* section[MedicationPrescribed][0].extension[CombinedPrescriptionNote].url = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Extension-CombinedPrescriptionNote"
+* section[MedicationPrescribed][=].extension[CombinedPrescriptionNote].valueBoolean = false
+* section[MedicationPrescribed].code = $loinc#29551-9
+* section[MedicationPrescribed].code.text = "Medication prescribed Narrative Narrative"
+* section[MedicationPrescribed].entry[0] = Reference(MedicationRequest/med-req-09-ep)

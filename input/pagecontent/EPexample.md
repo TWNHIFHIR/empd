@@ -7,7 +7,8 @@
 - [電子處方箋-食藥署藥品-Bundle](Bundle-bun-02-ep.html)
 - [電子處方箋-無健保代碼用藥-Bundle](Bundle-bun-03-ep.html)
 - [電子處方箋-多項用藥-Bundle](Bundle-bun-04-ep.html)
-- [電子處方箋-特材-Bundle](Bundle-bun-05-ep.html)
+- [電子處方箋-無健保代碼之特材-Bundle](Bundle-bun-05-ep.html)
+- [電子處方箋-健保代碼之特材-Bundle](Bundle-bun-06-ep.html)
 
 ### Composition
 
@@ -16,7 +17,8 @@
 - [電子處方箋-食藥署藥品-Composition](Composition-com-02-ep.html)
 - [電子處方箋-無健保代碼用藥-Composition](Composition-com-03-ep.html)
 - [電子處方箋-多項用藥-Composition](Composition-com-04-ep.html)
-- [電子處方箋-特材-Composition](Composition-com-05-ep.html)
+- [電子處方箋-無健保代碼之特材-Composition](Composition-com-05-ep.html)
+- [電子處方箋-健保代碼之特材-Composition](Composition-com-06-ep.html)
 
 ### Organization
 
@@ -45,6 +47,8 @@
 - [電子處方箋-診斷-源於冠狀動脈鈣化病變之冠狀動脈粥樣硬化症](Condition-con-03-ep.html)
 - [電子處方箋-診斷-第二型糖尿病，未伴有併發症](Condition-con-04-ep.html)
 - [電子處方箋-診斷-注意力不足過動症，不專注主顯型](Condition-con-05-ep.html)
+- [電子處方箋-診斷-脫水](Condition-con-06-ep.html)
+
 ### Observation
 
 - [電子處方箋-體重](Observation-obs-ep.html)
@@ -74,3 +78,4 @@
 - [電子處方箋-處方內容-健保代碼AB48089100之代蜜持續性藥效錠30毫克](MedicationRequest-med-req-06-ep.html)
 - [電子處方箋-處方內容-健保代碼BC27080100之利他能錠10毫克](MedicationRequest-med-req-07-ep.html)
 - [電子處方箋-處方內容-無健保代碼特材之冠狀動脈血管內碎石術導管](MedicationRequest-med-req-08-ep.html)
+- [電子處方箋-處方內容-健保代碼特材之"普惠"注射帽(免針安全型)](MedicationRequest-med-req-09-ep.html)

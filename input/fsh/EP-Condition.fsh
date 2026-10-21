@@ -75,3 +75,14 @@ Usage: #example
 * category = $loinc#29548-5 "Diagnosis Narrative"
 * code = $icd-10-cm-2023-tw#F90.0 "注意力不足過動症，不專注主顯型"
 * subject = Reference(Patient/pat-ep)
+
+Instance: con-06-ep
+InstanceOf: ConditionEMPD
+Title: "電子處方箋-診斷-脫水"
+Description: "電子處方箋-脫水"
+Usage: #example
+* meta.profile = "https://nhicore.nhi.gov.tw/empd/StructureDefinition/Condition-EMPD"
+* clinicalStatus = $condition-clinical#active "Active"
+* category = $loinc#29548-5 "Diagnosis Narrative"
+* code = $icd-10-cm-2023-tw#E86.0 "脫水"
+* subject = Reference(Patient/pat-ep)
