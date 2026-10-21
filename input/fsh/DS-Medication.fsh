@@ -36,7 +36,9 @@ Usage: #example
 * form = $v3-orderableDrugForm#TAB
   * text = "TAB"
 * ingredient
-  * itemCodeableConcept.coding.display = "Alemtuzamab (substance)"
+  * itemCodeableConcept.coding.system = "http://snomed.info/sct"
+  * itemCodeableConcept.coding.code = #129472003
+  * itemCodeableConcept.coding.display = "Alemtuzumab (substance)"
   * strength
     * numerator = 250 'mg'
     * denominator = 250 'mg'
