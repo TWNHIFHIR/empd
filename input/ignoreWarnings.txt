@@ -85,3 +85,7 @@ The Binding on the type slicer MedicationRequest.medication[x] applies to all it
 
 # Patient 範例頁面產生重複錨點，不影響 FHIR 資源內容驗證，暫時忽略此 HTML 警告。
 The html source has duplicate anchor Ids: Patient_pat-ds,hcpat-ds,pat-ds
+
+# FHIR R4 繼承的 maxValueSet Extension 已被棄用，非 EMPD 自行定義，暫不調整。
+%http://hl7.org/fhir/StructureDefinition/regex|5.4.0%
+%http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.4.0%

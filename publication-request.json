@@ -1,6 +1,6 @@
 {
     "package-id": "tw.gov.mohw.nhi.empd",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "path": "https://nhicore.nhi.gov.tw/empd/0.2.1",
     "mode": "milestone",
     "status": "trial-use",
