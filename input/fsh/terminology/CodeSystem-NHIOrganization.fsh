@@ -4,8 +4,8 @@ Title: "NHI-電子處方箋-特約醫事機構"
 Description: "NHI-電子處方箋-特約醫事機構，來源：衛生福利部中央健康保險署-資料開放平台 [健保特約醫療院所名冊](https://info.nhi.gov.tw/IODE0000/IODE0000S09?id=1120)"
 * ^caseSensitive = true
 * ^content = #complete
-* ^date = "2026-09-28"
-* ^version = "2026-09-28"
+* ^date = "2026-11-03"
+* ^version = "2026-11-03"
 * ^experimental = false
 
 * #101090517 "臺北市立聯合醫院"

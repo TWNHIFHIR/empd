@@ -4,8 +4,8 @@ Title: "NHI-電子處方箋-用藥品項"
 Description: "NHI-電子處方箋-用藥品項，參照自[健保用藥品項](https://www.nhi.gov.tw/ch/lp-2466-1.html)。"
 * ^caseSensitive = true
 * ^content = #complete
-* ^date = "2026-09-24"
-* ^version = "2026-09-24"
+* ^date = "2026-10-27"
+* ^version = "2026-10-27"
 * ^experimental = false
 
 * #AC49316100 "Calm-EZ F.C. Tablets 200mg"
