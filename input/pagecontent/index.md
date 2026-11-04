@@ -1,9 +1,3 @@
-<div class="bg-danger" style="ol { counter-reset: item } li { display: block } li:before { content: counters（item, ">
-  <p><b>請注意</b>：您目前所看到的IG為持續建置 (ci-build) 版，主要依據實作者及業務端需求即時調整，因而會比健保署 <a href="https://nhicore.nhi.gov.tw/empd/">正式版 IG</a> 內容新，僅供未來想以最新版本規格進行資料上傳的人員參考，於正式發布後才會調整健保署FHIR伺服器規格。<br/>
-  <br/>
-  <b>醫院實作時請以V0.1.0為主進行實例驗證，目前健保署端的伺服器採用V0.1.0版規格。</b></p>
-</div>
-<br/>
 <div class="bg-warning" style="ol { counter-reset: item } li { display: block } li:before { content: counters（item, ">
 因考量實作需求，於2026/11/02異動以下內容：<br><br>
 
