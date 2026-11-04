@@ -68,7 +68,7 @@ Description: "用於表示電子處方箋資料集之文檔"
   * entry only Reference($Condition-EMPD)
     * reference 1..
 * section[MedicationPrescribed] ^short = "處方內容"
-  * extension 1..1 MS
+  * extension 0..1 MS
   * extension contains ExtensionCombinedPrescriptionNote named CombinedPrescriptionNote 0..1
   * extension[CombinedPrescriptionNote] ^short = "表示該處方箋是否須與同一次就醫紀錄中開立之其他處方箋合併。[應填入須被合併之處方箋註記]"
   * code 1..
