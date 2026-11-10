@@ -2,21 +2,8 @@
 因考量實作需求，於2026/11/10異動以下內容：<br><br>
 
 <ol>
-  <li>修正代碼 <a href="CodeSystem-organization-identifier-tw.html">CodeSystem: NHI-電子處方箋-特約醫事機構（organization-identifier-tw）</a></li>
-</ol>
-請留意這些異動，以避免影響您的實作。
-<hr style="border: 0; border-top: 2px solid #b8c2cc; margin: 28px 0;">
-因考量實作需求，於2026/11/02異動以下內容：<br><br>
-
-<ol>
   <li>更新代碼 <a href="CodeSystem-NHIMedication-cs.html">CodeSystem: NHI-電子處方箋-用藥品項（NHIMedication-cs）</a></li>
   <li>更新代碼 <a href="CodeSystem-organization-identifier-tw.html">CodeSystem: NHI-電子處方箋-特約醫事機構（organization-identifier-tw）</a></li>
-</ol>
-請留意這些異動，以避免影響您的實作。
-<hr style="border: 0; border-top: 2px solid #b8c2cc; margin: 28px 0;">
-因考量實作需求，於2026/10/21異動以下內容：<br><br>
-
-<ol>
   <li>修改<a href="StructureDefinition-MedicationRequest-EMPD.html">Profile：電子處方箋-處方內容（MedicationRequest-EMPD）</a>：修正限制條件 empd-medreq-3。</li>
 </ol>
 請留意這些異動，以避免影響您的實作。
